@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgeaq2ku0247w"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_bvdm0"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_bvdm0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.487
+anchor_top = 0.475
+anchor_right = 0.487
+anchor_bottom = 0.475
+offset_left = -69.92
+offset_top = -15.375
+offset_right = 71.08
+offset_bottom = 15.625
+text = "Switch to scene 2"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
