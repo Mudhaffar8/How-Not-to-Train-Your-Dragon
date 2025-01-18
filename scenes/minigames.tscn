@@ -1,0 +1,110 @@
+[gd_scene load_steps=3 format=3 uid="uid://cceq8u51t8xa0"]
+
+[ext_resource type="Texture2D" uid="uid://0av8q6g7c6m8" path="res://assets/dg34rsu-29a3d144-dc3f-473e-a949-f73a4ba1ef7c.png" id="1_a3avx"]
+[ext_resource type="Script" path="res://scripts/minigames.gd" id="1_jy3y6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jy3y6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 50.0
+offset_right = 682.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 32
+text = "Mini Games"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 48.0
+offset_right = 1025.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 32
+text = "Gambling!!!"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -99
+layout_mode = 0
+offset_left = -30.0
+offset_top = -260.0
+offset_right = 578.0
+offset_bottom = 197.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_a3avx")
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 230.0
+offset_right = 354.0
+offset_bottom = 371.0
+theme_override_font_sizes/font_size = 50
+text = "DRAGON 
+WILL BE HERE"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 150.0
+offset_right = 682.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 32
+text = "Flappy Bird"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 300.0
+offset_right = 682.0
+offset_bottom = 353.0
+theme_override_font_sizes/font_size = 32
+text = "Racing"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 450.0
+offset_right = 682.0
+offset_bottom = 503.0
+theme_override_font_sizes/font_size = 32
+text = "Idr"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 150.0
+offset_right = 1032.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 32
+text = "Coin flip"
+
+[node name="Button6" type="Button" parent="."]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 300.0
+offset_right = 1032.0
+offset_bottom = 353.0
+theme_override_font_sizes/font_size = 32
+text = "Blackjack"
+
+[node name="Button5" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 572.0
+offset_right = 261.0
+offset_bottom = 625.0
+theme_override_font_sizes/font_size = 32
+text = "Back To Main"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]

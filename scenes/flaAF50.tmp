@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://4rfy45yeh3ht"]
+
+[ext_resource type="Script" path="res://scenes/flappy_mini.gd" id="1_fadyr"]
+[ext_resource type="PackedScene" uid="uid://bwuu0vktck34k" path="res://scenes/flappy_bird.tscn" id="1_ygvtq"]
+[ext_resource type="PackedScene" uid="uid://creyksefw3x1k" path="res://scenes/pipe.tscn" id="2_6xgio"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_fadyr")
+
+[node name="bird" parent="." instance=ExtResource("1_ygvtq")]
+position = Vector2(1, 0)
+
+[node name="pipe" parent="." instance=ExtResource("2_6xgio")]
+position = Vector2(363, -18)
+
+[node name="Timer" type="Timer" parent="."]
