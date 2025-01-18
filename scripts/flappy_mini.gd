@@ -13,7 +13,7 @@ func _on_pipe_spawn_timer_timeout() -> void:
 		# Logic to spawn pipes
 	var pipe = pipe_scene.instantiate()  # Assuming you preload the pipe scene
 	pipe.position = Vector2(480, randf_range(200, 500))  # Randomize Y position
-	pipe.connect("body_entered", _game_over)
+	pipe.connect("body_entered", self)
 	add_child(pipe)
 
 func _game_over():

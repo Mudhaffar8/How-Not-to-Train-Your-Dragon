@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwuu0vktck34k"]
 
 [ext_resource type="Texture2D" uid="uid://cqwjdg7dapbdu" path="res://assets/flappy.png" id="1_1tybe"]
-[ext_resource type="Script" path="res://scenes/flappy_bird.gd" id="1_ewonc"]
+[ext_resource type="Script" path="res://scripts/flappy_bird.gd" id="1_ewonc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t4wwf"]
 animations = [{
