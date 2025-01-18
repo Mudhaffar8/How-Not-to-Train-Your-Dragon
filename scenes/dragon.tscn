@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://w6y576xpv6bf"]
+
+[ext_resource type="Texture2D" uid="uid://dddn05td3s22r" path="res://assets/dragon_forms/Dragon_info.webp" id="1_3n8pb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_munjb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3n8pb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(189, -230)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-189, 232)
+scale = Vector2(1.242, 1)
+sprite_frames = SubResource("SpriteFrames_munjb")

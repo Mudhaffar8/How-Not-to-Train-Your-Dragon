@@ -1,3 +1,51 @@
-[gd_scene format=3 uid="uid://dgeaq2ku0247w"]
+[gd_scene load_steps=5 format=3 uid="uid://dgeaq2ku0247w"]
+
+[ext_resource type="PackedScene" uid="uid://w6y576xpv6bf" path="res://scenes/dragon.tscn" id="1_8lu6l"]
+[ext_resource type="Texture2D" uid="uid://cnd38x5ycwh7w" path="res://assets/backgrounds/wizard-tower-interior-v0-od261ldnnzw91.png" id="2_8ijyo"]
+[ext_resource type="Texture2D" uid="uid://cbqrtwxdjeayl" path="res://assets/misc/png-clipart-orange-phoenix-icon-games-games-folder-illustration-thumbnail.png" id="3_7wo6k"]
+[ext_resource type="Texture2D" uid="uid://cxwohpc424edj" path="res://assets/misc/images.png" id="4_xh1kv"]
 
 [node name="Main" type="Node2D"]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("1_8lu6l")]
+position = Vector2(61, -153)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(2.00001, -9.00003)
+scale = Vector2(0.455469, 0.4475)
+texture = ExtResource("2_8ijyo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Shop2" type="Button" parent="."]
+custom_minimum_size = Vector2(10, 0)
+offset_left = 404.0
+offset_top = 200.0
+offset_right = 912.0
+offset_bottom = 556.0
+scale = Vector2(0.3, 0.3)
+size_flags_stretch_ratio = 2.94
+text = "Games
+"
+icon = ExtResource("3_7wo6k")
+icon_alignment = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.0
+offset_right = 38.0
+offset_bottom = 60.0
+
+[node name="Shop" type="Button" parent="Control"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = -545.0
+offset_top = 200.0
+offset_right = -119.0
+offset_bottom = 422.0
+scale = Vector2(0.5, 0.5)
+size_flags_stretch_ratio = 2.94
+text = "Shop"
+icon = ExtResource("4_xh1kv")
