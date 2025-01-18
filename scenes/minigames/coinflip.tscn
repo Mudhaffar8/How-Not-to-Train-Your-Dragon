@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://xsg0k5rvr8fu"]
+
+[ext_resource type="Script" path="res://scripts/coinflip.gd" id="1_5x6fo"]
+[ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/coin_heads.png" id="2_nau2c"]
+[ext_resource type="Texture2D" uid="uid://bpspdcvax2aji" path="res://assets/Mid_flip_heads.png" id="3_hwflx"]
+[ext_resource type="Texture2D" uid="uid://dk4rar3e0xga3" path="res://assets/flip_side.png" id="4_r62rf"]
+[ext_resource type="Texture2D" uid="uid://c1kheu0mc2upe" path="res://assets/Mid_flip_Tails.png" id="5_luth1"]
+[ext_resource type="Texture2D" uid="uid://bpmpa5kw55qwj" path="res://assets/coin_tails.png" id="6_7qd11"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7u1sx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nau2c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nau2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hwflx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r62rf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_luth1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7qd11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_luth1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r62rf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hwflx")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Coinflip" type="Node2D"]
+script = ExtResource("1_5x6fo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(592, 268)
+scale = Vector2(0.414889, 0.414889)
+sprite_frames = SubResource("SpriteFrames_7u1sx")
+animation = &"run"
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 375.0
+offset_top = 66.0
+offset_right = 780.0
+offset_bottom = 466.0
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.0
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 416.0
+offset_top = 539.0
+offset_right = 735.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 32
+text = "Heads"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
