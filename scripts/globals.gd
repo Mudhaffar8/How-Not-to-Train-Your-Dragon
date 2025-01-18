@@ -8,8 +8,6 @@ Can be accessed using the "globals" node followed by the attribute name.
 Example Use case
 -------------------
 
-another_file.gd (Accessing from another file):
-
 print(globals.test) # Prints true
 '''
 

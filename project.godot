@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 globals="*res://scripts/globals.gd"
 signal_bus="*res://scripts/signal_bus.gd"
+scene_switcher="*res://scripts/scene_switcher.gd"
 
 [dotnet]
 
