@@ -25,6 +25,13 @@ scene_switcher="*res://scripts/scene_switcher.gd"
 
 project/assembly_name="WinterGameJam2025"
 
+[input]
+
+spacebar={
+"deadzone": 0.5,
+"events": []
+}
+
 [rendering]
 
 renderer/rendering_method="mobile"
