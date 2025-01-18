@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj4as34cghrbl"]
+
+[ext_resource type="Texture2D" uid="uid://dmm8lesic3mfo" path="res://icon.svg" id="1_kskhl"]
+[ext_resource type="Script" path="res://scripts/status_bar.gd" id="1_xr4ec"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sy6qj"]
+bg_color = Color(0.99198, 0.315794, 0.500025, 1)
+
+[node name="StatusBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xr4ec")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("1_kskhl")
+expand_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer"]
+custom_minimum_size = Vector2(225, 40)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_sy6qj")
+value = 50.0
