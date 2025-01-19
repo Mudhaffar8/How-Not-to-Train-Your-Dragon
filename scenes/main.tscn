@@ -167,7 +167,7 @@ scale = Vector2(0.503934, 0.503934)
 sprite_frames = SubResource("SpriteFrames_ch2yk")
 animation = &"teen_walk"
 autoplay = "baby_walk"
-frame_progress = 0.889117
+frame_progress = 0.288349
 
 [node name="GlobalTimer" type="Node" parent="."]
 script = ExtResource("4_aqii4")

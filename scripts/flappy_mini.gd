@@ -13,6 +13,9 @@ func _ready():
 	globals.coinsFlappy = 0
 	$Label.text = "Coins collected: 0"
 
+func _physics_process(delta):
+	if Input.is_action_just_pressed("ui_accept"):  
+		$Label2.visible = false
 
 func _on_pipe_spawn_timer_timeout() -> void:
 	$Label.text = "Coins collected: " + str(globals.coinsFlappy)

@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
+	$Label2.visible = false
 	coinsPerGame = 10
 	if globals.coins < coinsPerGame:
 		pass #should skip function heree
