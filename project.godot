@@ -21,6 +21,10 @@ globals="*res://scripts/globals.gd"
 signal_bus="*res://scripts/signal_bus.gd"
 scene_switcher="*res://scripts/scene_switcher.gd"
 
+[display]
+
+window/size/resizable=false
+
 [dotnet]
 
 project/assembly_name="WinterGameJam2025"

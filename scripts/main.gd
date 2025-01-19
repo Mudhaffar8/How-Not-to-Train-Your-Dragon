@@ -18,28 +18,29 @@ func _ready() -> void:
 	
 	print(globals.coins)
 	
-
 func _process(delta: float) -> void:
+	print(globals.seconds)
+	
+	if globals.food > 100 || globals.food < 0 || globals.fun < 0 || globals.health < 0:
+		scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
+		
 	if globals.seconds < globals.egg_time:
-		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.egg_time)
+		$Goober.play("egg")
+		globals.main_time = globals.egg_time
 		globals.gooberState = "egg"
-
-	if globals.seconds >= globals.egg_time: # and globals.gooberState == "egg"
-		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.baby_time)
+	
+	if globals.seconds >= globals.egg_time and globals.gooberState != "teen":
+		globals.main_time = globals.baby_time
 		$Goober.play("baby_walk")
 		globals.gooberState = "baby"
-
-	if globals.seconds >= globals.baby_time:  #and globals.gooberState == "baby"
-		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.teen_time)
+		
+	if globals.seconds >= globals.baby_time:
+		globals.main_time = globals.teen_time
 		$Goober.play("teen_walk")
 		globals.gooberState = "teen"
-		
-	if globals.gooberState == "egg":
-		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.egg_time)
-	elif globals.gooberState == "baby":
-		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.baby_time)
-	elif globals.gooberState == "teen":
-		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.teen_time)
+	
+	progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.main_time)
+
 
 func _on_shop_button_pressed() -> void:
 	scene_switcher.switch_scene("res://scenes/shopui.tscn")

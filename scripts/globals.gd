@@ -21,6 +21,7 @@ var coinsFlappy : int = 0
 var seconds : int = 0
 var gooberState : String = "egg"
 
+var main_time : int = 10
 var egg_time : int = 10
 var baby_time : int = 90
 var teen_time : int = 180
