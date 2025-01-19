@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	
 
 func _on_coins_button_pressed() -> void:
-	globals.coins += 500
+	pass
 
 func _on_buy_1_pressed() -> void:
 	if globals.coins >= 15:
