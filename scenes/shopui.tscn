@@ -71,6 +71,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="CoinsButton" type="Button" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 1107.0
 offset_top = 603.0
