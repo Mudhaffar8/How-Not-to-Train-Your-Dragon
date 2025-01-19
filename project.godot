@@ -25,6 +25,10 @@ scene_switcher="*res://scripts/scene_switcher.gd"
 
 project/assembly_name="WinterGameJam2025"
 
+[gui]
+
+theme/custom="res://themes/default_theme.tres"
+
 [input]
 
 spacebar={

@@ -1,8 +1,5 @@
 extends Area2D
 
-signal game_over
-
-
 func _ready():
 	add_to_group("pipes")
 

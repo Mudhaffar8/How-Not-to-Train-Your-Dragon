@@ -1,9 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxj38cvta0sum"]
+[gd_scene load_steps=14 format=3 uid="uid://bxj38cvta0sum"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bvdm0"]
+[ext_resource type="Theme" uid="uid://bfsrgu5l6jkid" path="res://themes/default_theme.tres" id="1_ue7ln"]
+[ext_resource type="Texture2D" uid="uid://dx2nc5mw7plo8" path="res://assets/uhhhh_uh_uhhhhh_uh_.png" id="2_7di52"]
 [ext_resource type="Texture2D" uid="uid://cq0cosuaedrxy" path="res://assets/peteruok.png" id="2_c23o8"]
 [ext_resource type="PackedScene" uid="uid://cj4as34cghrbl" path="res://scenes/status_bar.tscn" id="3_jo22t"]
 [ext_resource type="Script" path="res://scripts/global_timer.gd" id="4_aqii4"]
+[ext_resource type="Texture2D" uid="uid://bpec8xt6w36rq" path="res://assets/babyGoober_idle1.png" id="4_b8hoy"]
+[ext_resource type="Texture2D" uid="uid://d30xw8yojydk2" path="res://assets/babyGoober_idle2.png" id="5_lrrpp"]
+[ext_resource type="Texture2D" uid="uid://ckqh03hsrghlk" path="res://assets/babyGoober_idle3.png" id="6_4rtgf"]
+[ext_resource type="Texture2D" uid="uid://waisql7jipft" path="res://assets/babyGoober_idle4.png" id="7_cyum5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8dxh"]
 bg_color = Color(1, 1, 1, 0.247059)
@@ -15,7 +21,24 @@ bg_color = Color(1, 1, 1, 0.176471)
 animations = [{
 "frames": [],
 "loop": true,
-"name": &"eat",
+"name": &"baby_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_b8hoy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lrrpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4rtgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cyum5")
+}],
+"loop": true,
+"name": &"baby_walk",
 "speed": 5.0
 }, {
 "frames": [{
@@ -23,12 +46,12 @@ animations = [{
 "texture": ExtResource("2_c23o8")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"teen_idle",
 "speed": 5.0
 }, {
 "frames": [],
 "loop": true,
-"name": &"walk",
+"name": &"teen_walk",
 "speed": 5.0
 }]
 
@@ -39,15 +62,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ue7ln")
 script = ExtResource("1_bvdm0")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_7di52")
+expand_mode = 1
 
 [node name="ButtonPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -108,37 +134,23 @@ grow_horizontal = 2
 theme_override_constants/separation = 350
 
 [node name="FoodStatus" parent="StatusPanel/StatusBarContainer" instance=ExtResource("3_jo22t")]
-layout_mode = 2
-
-[node name="HealthStatus" parent="StatusPanel/StatusBarContainer" instance=ExtResource("3_jo22t")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="FunStatus" parent="StatusPanel/StatusBarContainer" instance=ExtResource("3_jo22t")]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 117.0
-offset_top = 320.0
-offset_right = 287.0
-offset_bottom = 366.0
-text = "Switch to scene 2"
+[node name="HealthStatus" parent="StatusPanel/StatusBarContainer" instance=ExtResource("3_jo22t")]
+unique_name_in_owner = true
+layout_mode = 2
 
-[node name="DragonPosition" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="DragonBuddy" type="AnimatedSprite2D" parent="DragonPosition"]
-position = Vector2(0, 40)
+[node name="Goober" type="AnimatedSprite2D" parent="."]
+position = Vector2(910, 412)
 scale = Vector2(0.291738, 0.291738)
 sprite_frames = SubResource("SpriteFrames_ch2yk")
-animation = &"idle"
+animation = &"baby_idle"
+autoplay = "baby_walk"
 
 [node name="GlobalTimer" type="Node" parent="."]
 script = ExtResource("4_aqii4")
@@ -150,5 +162,4 @@ one_shot = true
 
 [connection signal="pressed" from="ButtonPanel/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ButtonPanel/MinigamesButton" to="." method="_on_minigames_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="GlobalTimer/Timer" to="GlobalTimer" method="_on_timer_timeout"]

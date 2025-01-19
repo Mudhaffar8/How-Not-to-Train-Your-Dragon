@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/status_bar.gd" id="1_xr4ec"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sy6qj"]
-bg_color = Color(0.99198, 0.315794, 0.500025, 1)
+bg_color = Color(0, 0.784354, 0.571102, 1)
 
 [node name="StatusBar" type="Control"]
 layout_mode = 3

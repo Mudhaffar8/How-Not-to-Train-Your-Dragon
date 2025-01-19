@@ -1,22 +1,20 @@
 extends Control
 
-@onready var button = $Button
 @onready var shop_button = $ButtonPanel/ShopButton
 @onready var minigames_button = $ButtonPanel/MinigamesButton
 
-@onready var dragon = $DragonPosition/DragonBuddy
+@onready var dragon = $Goober
 
-@onready var food_status : StatusBar = $StatusPanel/StatusBarContainer/FoodStatus
-@onready var fun_status : StatusBar = $StatusPanel/StatusBarContainer/FunStatus
-@onready var health_status : StatusBar = $StatusPanel/StatusBarContainer/HealthStatus
+@onready var food_status : StatusBar = %FoodStatus
+@onready var fun_status : StatusBar = %FunStatus
+@onready var health_status : StatusBar = %HealthStatus
 
 func _ready() -> void: 
 	food_status.set_value(globals.food)
 	fun_status.set_value(globals.fun)
 	health_status.set_value(globals.health)
 	
-	button.text = "bannana"
-	
+
 func _process(delta: float) -> void:
 	if globals.food > 100 || globals.food < 0 || globals.fun < 0 || globals.health < 0:
 		scene_switcher.switch_scene("res://scenes/endings/badending.tscn")

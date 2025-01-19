@@ -14,7 +14,7 @@ size = Vector2(1161, 20)
 script = ExtResource("1_fadyr")
 
 [node name="bird" parent="." instance=ExtResource("1_ygvtq")]
-position = Vector2(1, 0)
+position = Vector2(197, 273)
 
 [node name="PipeSpawnTimer" type="Timer" parent="."]
 wait_time = 3.0
