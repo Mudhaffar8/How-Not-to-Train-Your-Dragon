@@ -22,7 +22,7 @@ func _on_button_pressed() -> void:
 
 
 func _on_shop_button_pressed() -> void:
-	scene_switcher.switch_scene("")
+	scene_switcher.switch_scene("res://scenes/shopui.tscn")
 
 
 func _on_minigames_button_pressed() -> void:
