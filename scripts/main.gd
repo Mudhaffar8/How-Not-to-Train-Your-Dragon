@@ -24,16 +24,15 @@ func _process(delta: float) -> void:
 		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.egg_time)
 		globals.gooberState = "egg"
 
-	elif globals.seconds >= globals.egg_time && globals.gooberState == "egg":
+	if globals.seconds >= globals.egg_time: # and globals.gooberState == "egg"
 		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.baby_time)
 		$Goober.play("baby_walk")
 		globals.gooberState = "baby"
 
-	elif globals.seconds >= globals.baby_time && globals.gooberState == "baby":
+	if globals.seconds >= globals.baby_time:  #and globals.gooberState == "baby"
 		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.teen_time)
 		$Goober.play("teen_walk")
-		globals.gooberState = "teen" 
-
+		globals.gooberState = "teen"
 
 
 func _on_shop_button_pressed() -> void:

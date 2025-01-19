@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	globals.seconds += 1
+	print(globals.seconds)
 	
 	if (globals.seconds %  5 == 0):
 		globals.food -= 5
