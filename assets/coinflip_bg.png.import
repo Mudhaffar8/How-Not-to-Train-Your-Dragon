@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oxnlih0iksbp"
-path="res://.godot/imported/adultGoober_idle4.png-7ed4aafa63a33d3aba88e90940d37c24.ctex"
+uid="uid://cqr2483o5iy7a"
+path="res://.godot/imported/coinflip_bg.png-8bc10482abfde2760ceb64d10de15d84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/adultGoober_idle4.png"
-dest_files=["res://.godot/imported/adultGoober_idle4.png-7ed4aafa63a33d3aba88e90940d37c24.ctex"]
+source_file="res://assets/coinflip_bg.png"
+dest_files=["res://.godot/imported/coinflip_bg.png-8bc10482abfde2760ceb64d10de15d84.ctex"]
 
 [params]
 

@@ -13,42 +13,54 @@ script = ExtResource("1_7la0o")
 
 [node name="gameOver" type="Label" parent="."]
 layout_mode = 0
-offset_left = 290.0
+offset_left = 321.0
 offset_top = 112.0
-offset_right = 847.0
+offset_right = 827.0
 offset_bottom = 179.0
 theme_override_font_sizes/font_size = 48
 text = "You lost the mini game. "
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 173.0
-offset_top = 337.0
-offset_right = 517.0
-offset_bottom = 479.0
+offset_left = 176.0
+offset_top = 400.0
+offset_right = 520.0
+offset_bottom = 542.0
 theme_override_font_sizes/font_size = 48
 text = "Restart
 the mini-game"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 617.0
-offset_top = 337.0
-offset_right = 961.0
-offset_bottom = 479.0
+offset_left = 650.0
+offset_top = 400.0
+offset_right = 994.0
+offset_bottom = 542.0
 theme_override_font_sizes/font_size = 48
 text = "Go to main
 page"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 226.0
+offset_top = 298.0
+offset_right = -677.0
+offset_bottom = -305.0
+theme_override_font_sizes/font_size = 32
+text = "Fun collected: "
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 222.0
-offset_top = 226.0
-offset_right = -681.0
-offset_bottom = -377.0
+offset_left = 228.0
+offset_top = 232.0
+offset_right = -675.0
+offset_bottom = -371.0
 theme_override_font_sizes/font_size = 32
 text = "Coins collected: "
 

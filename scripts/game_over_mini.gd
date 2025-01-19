@@ -5,6 +5,7 @@ extends Control
 func _ready() -> void:
 	globals.coins += globals.coinsFlappy
 	$Label.text = "Coins collected: " + str(globals.coinsFlappy)
+	$Label3.text = "Fun collected: " + str(globals.coinsFlappy / 5 * 4)
 	$Label2.text = "Total coins: " + str(globals.coins)
 
 
