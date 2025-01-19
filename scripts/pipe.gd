@@ -16,5 +16,6 @@ func _process(delta):
 
 
 func _on_body_entered(body: Node2D) -> void:
+	# Add your code for the gameover state here
 	if body.name == "CharacterBody2D":
 		print("Game Over")

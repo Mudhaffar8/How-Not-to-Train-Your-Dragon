@@ -4,7 +4,6 @@ var gravity = 600.0
 var jump_strength = -250.0
 var is_game_over = false
 
-
 @onready var bird = $CharacterBody2D 
 
 # Access the GameOverLabel
@@ -33,8 +32,6 @@ func _physics_process(delta):
 
 
 func game_over():
-
-	
 	is_game_over = true
 	game_over_label.visible = true
 	print("Game Over!")
