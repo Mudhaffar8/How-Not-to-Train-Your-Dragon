@@ -1,8 +1,8 @@
 extends Control
 
 @onready var button = $Button
-@onready var shop_button = $"Button Panel/ShopButton"
-@onready var minigames_button = $"Button Panel/MinigamesButton"
+@onready var shop_button = $"ButtonPanel/ShopButton"
+@onready var minigames_button = $"ButtonPanel/MinigamesButton"
 
 @onready var dragon = $DragonPosition/DragonBuddy
 
@@ -22,8 +22,8 @@ func _on_button_pressed() -> void:
 
 
 func _on_shop_button_pressed() -> void:
-	scene_switcher.switch_scene("")
+	scene_switcher.switch_scene("res://scenes/shop.tscn")
 
 
 func _on_minigames_button_pressed() -> void:
-	scene_switcher.switch_scene("")
+	scene_switcher.switch_scene("res://scenes/minigames.tscn")
