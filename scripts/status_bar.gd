@@ -1,0 +1,11 @@
+class_name StatusBar
+extends Control
+
+@onready var progress_bar = $HBoxContainer/ProgressBar
+
+
+func set_value(value : float) -> void:
+	progress_bar.value = value
+	
+func get_value(value : float) -> float: 
+	return progress_bar.value
