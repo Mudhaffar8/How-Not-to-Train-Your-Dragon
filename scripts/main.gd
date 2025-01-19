@@ -20,22 +20,20 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	if globals.food > 100 || globals.food < 0 || globals.fun < 0 || globals.health < 0:
-		scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
-		
 	if globals.seconds < globals.egg_time:
 		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.egg_time)
-	
-	if globals.seconds >= globals.egg_time:
+		globals.gooberState = "egg"
+
+	elif globals.seconds >= globals.egg_time && globals.gooberState == "egg":
 		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.baby_time)
 		$Goober.play("baby_walk")
 		globals.gooberState = "baby"
-		
-	if globals.seconds >= globals.baby_time:
+
+	elif globals.seconds >= globals.baby_time && globals.gooberState == "baby":
 		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.teen_time)
 		$Goober.play("teen_walk")
-		globals.gooberState = "teen"
-		
+		globals.gooberState = "teen" 
+
 
 
 func _on_shop_button_pressed() -> void:

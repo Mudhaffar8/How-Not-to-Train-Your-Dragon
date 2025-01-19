@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://fs1jw3ero80e"]
+[gd_scene load_steps=15 format=3 uid="uid://fs1jw3ero80e"]
 
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_k4b2h"]
 [ext_resource type="Script" path="res://scripts/coins.gd" id="1_me5uv"]
+[ext_resource type="Texture2D" uid="uid://qoi5rf3bkfcm" path="res://assets/shop.png" id="2_ckrdp"]
 [ext_resource type="Script" path="res://scripts/button.gd" id="2_db0dg"]
 [ext_resource type="Script" path="res://scripts/buy_1.gd" id="3_ehdpn"]
 [ext_resource type="Script" path="res://scripts/error_label.gd" id="4_a4hw3"]
@@ -12,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dtkkia6ys3bms" path="res://assets/carrot.png" id="10_wt7cc"]
 [ext_resource type="Texture2D" uid="uid://ccesf88fohd28" path="res://assets/fent.png" id="11_jl42y"]
 [ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/coin_heads.png" id="12_3kyr4"]
-[ext_resource type="Texture2D" uid="uid://c14paf8pg5iws" path="res://assets/shopbackground.png" id="12_qnpu1"]
+[ext_resource type="AudioStream" uid="uid://dm65832esy5jq" path="res://shop_music.mp3" id="14_6pcbu"]
 
 [node name="ShopUi" type="Control"]
 layout_mode = 3
@@ -36,7 +37,7 @@ script = ExtResource("1_k4b2h")
 z_index = -10
 position = Vector2(578, 323)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("12_qnpu1")
+texture = ExtResource("2_ckrdp")
 
 [node name="Coins" type="Label" parent="Control"]
 layout_mode = 0
@@ -266,6 +267,10 @@ texture = ExtResource("12_3kyr4")
 [node name="Timer" type="Timer" parent="Control"]
 process_callback = 0
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_6pcbu")
+autoplay = true
 
 [connection signal="timeout" from="Control/Coins/Timer" to="Control/Coins" method="_on_timer_timeout"]
 [connection signal="pressed" from="Control/CoinsButton" to="Control/Coins" method="_on_coins_button_pressed"]

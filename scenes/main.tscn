@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bxj38cvta0sum"]
+[gd_scene load_steps=23 format=3 uid="uid://bxj38cvta0sum"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bvdm0"]
 [ext_resource type="Theme" uid="uid://bfsrgu5l6jkid" path="res://themes/default_theme.tres" id="1_ue7ln"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b6vkuv83jclj2" path="res://assets/Goober_Adult_Walk-2.png" id="15_qnv0i"]
 [ext_resource type="Texture2D" uid="uid://c7loqqymow6h2" path="res://assets/Goober_Adult_Walk-3.png" id="16_k4d75"]
 [ext_resource type="Texture2D" uid="uid://hs6iyet6gqfe" path="res://assets/Goober_Adult_Walk-4.png" id="17_fxhl3"]
+[ext_resource type="AudioStream" uid="uid://dx5gy4gvri6cr" path="res://bg_music.mp3" id="19_sjlf8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8dxh"]
 bg_color = Color(1, 1, 1, 0.247059)
@@ -205,6 +206,10 @@ autostart = true
 [node name="EggStateTimer" type="Timer" parent="GlobalTimer"]
 wait_time = 10.0
 one_shot = true
+
+[node name="BgMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_sjlf8")
+autoplay = true
 
 [connection signal="pressed" from="ButtonPanel/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ButtonPanel/MinigamesButton" to="." method="_on_minigames_button_pressed"]

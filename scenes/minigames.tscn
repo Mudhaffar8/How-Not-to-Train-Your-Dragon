@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cceq8u51t8xa0"]
+[gd_scene load_steps=4 format=3 uid="uid://cceq8u51t8xa0"]
 
 [ext_resource type="Script" path="res://scripts/minigames.gd" id="1_jy3y6"]
 [ext_resource type="Texture2D" uid="uid://bxtxnd7peatrf" path="res://assets/minigame_back.png" id="2_amltv"]
+[ext_resource type="AudioStream" uid="uid://bwkrerknksp38" path="res://minigames_music.mp3" id="3_vffw5"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -73,6 +74,10 @@ text = "Back To Hub"
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 autostart = true
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vffw5")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
