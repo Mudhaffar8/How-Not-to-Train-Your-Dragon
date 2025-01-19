@@ -13,3 +13,4 @@ print(globals.test) # Prints true
 
 # Insert Global functions and variables below
 var test : bool = true
+var coins: int = 0
