@@ -48,6 +48,7 @@ animations = [{
 }]
 
 [node name="Coinflip" type="Node2D"]
+position = Vector2(0, -1)
 script = ExtResource("1_5x6fo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -73,10 +74,50 @@ offset_left = 416.0
 offset_top = 539.0
 offset_right = 735.0
 offset_bottom = 592.0
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Heads"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 117.0
+offset_right = 317.0
+offset_bottom = 478.0
+theme_override_font_sizes/font_size = 54
+text = "Click on
+the coin 
+to start 
+the game"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 851.0
+offset_top = 74.0
+offset_right = 1029.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 32
+text = "Your coins: "
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 854.0
+offset_top = 204.0
+offset_right = 1114.0
+offset_bottom = 489.0
+theme_override_font_sizes/font_size = 32
+text = "One game costs 
+10 coins. When
+its heads, you get 
+20 coins, when its 
+tails, you lose 
+5 coins"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 22.0
+offset_top = 506.0
+offset_right = 285.0
+offset_bottom = 581.0
+theme_override_font_sizes/font_size = 48
+text = "or go all in!"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
