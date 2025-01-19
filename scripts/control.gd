@@ -1,9 +1,9 @@
 extends Control
 
+@onready var timer = $Timer
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -11,3 +11,14 @@ func _process(delta: float) -> void:
 
 func _on_go_back_pressed() -> void:
 	scene_switcher.switch_scene("res://scenes/main.tscn")
+
+
+func _on_timer_timeout() -> void:
+	print(globals.seconds)
+	globals.seconds += 1
+	if (globals.seconds %  5 == 0):
+		globals.food -= 5
+		globals.fun -= 5
+		
+	if (globals.seconds >= 180):
+		scene_switcher.switch_scene("res://scenes/endings/goodending.tscn")

@@ -70,6 +70,11 @@ offset_bottom = 649.0
 theme_override_font_sizes/font_size = 32
 text = "Back To Hub"
 
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

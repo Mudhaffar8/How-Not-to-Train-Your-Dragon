@@ -18,3 +18,5 @@ var food : float = 50.0
 var fun : float = 50.0
 var health : float = 50.0
 var coinsFlappy : int = 0
+var seconds : int = 0
+var gooberState : String = "egg"

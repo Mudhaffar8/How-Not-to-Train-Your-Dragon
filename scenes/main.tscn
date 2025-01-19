@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxj38cvta0sum"]
+[gd_scene load_steps=18 format=3 uid="uid://bxj38cvta0sum"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bvdm0"]
 [ext_resource type="Theme" uid="uid://bfsrgu5l6jkid" path="res://themes/default_theme.tres" id="1_ue7ln"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://d30xw8yojydk2" path="res://assets/babyGoober_idle2.png" id="5_lrrpp"]
 [ext_resource type="Texture2D" uid="uid://ckqh03hsrghlk" path="res://assets/babyGoober_idle3.png" id="6_4rtgf"]
 [ext_resource type="Texture2D" uid="uid://waisql7jipft" path="res://assets/babyGoober_idle4.png" id="7_cyum5"]
+[ext_resource type="Texture2D" uid="uid://j2de705q0dvg" path="res://assets/adultGoober_idle1.png" id="10_i2e4m"]
+[ext_resource type="Texture2D" uid="uid://bwipxfpjgksxl" path="res://assets/adultGoober_idle2.png" id="11_riquk"]
+[ext_resource type="Texture2D" uid="uid://v3xqhkm5ngf3" path="res://assets/adultGoober_idle3.png" id="12_l7wfe"]
+[ext_resource type="Texture2D" uid="uid://cgwd1u4li4h5" path="res://assets/adultGoober_idle4.png" id="13_tlxex"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8dxh"]
 bg_color = Color(1, 1, 1, 0.247059)
@@ -49,7 +53,19 @@ animations = [{
 "name": &"teen_idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_i2e4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_riquk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_l7wfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tlxex")
+}],
 "loop": true,
 "name": &"teen_walk",
 "speed": 5.0
@@ -146,19 +162,19 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Goober" type="AnimatedSprite2D" parent="."]
-position = Vector2(910, 412)
-scale = Vector2(0.291738, 0.291738)
+position = Vector2(985, 425)
+scale = Vector2(0.503934, 0.503934)
 sprite_frames = SubResource("SpriteFrames_ch2yk")
-animation = &"baby_idle"
+animation = &"teen_walk"
 autoplay = "baby_walk"
+frame_progress = 0.889117
 
 [node name="GlobalTimer" type="Node" parent="."]
 script = ExtResource("4_aqii4")
 
 [node name="Timer" type="Timer" parent="GlobalTimer"]
 process_callback = 0
-wait_time = 300.0
-one_shot = true
+autostart = true
 
 [connection signal="pressed" from="ButtonPanel/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ButtonPanel/MinigamesButton" to="." method="_on_minigames_button_pressed"]

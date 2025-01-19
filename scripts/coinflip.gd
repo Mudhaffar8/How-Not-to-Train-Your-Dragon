@@ -12,14 +12,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	
-	pass
+	print(globals.coins)
 
 
 func _on_button_pressed() -> void:
 	coinsPerGame = 10
 	if globals.coins < coinsPerGame:
-		pass
+		pass #should skip function heree
 	globals.coins -= coinsPerGame
+	globals.fun += 5
 	$AnimatedSprite2D.play()
 	$Timer.start()
 	
@@ -53,6 +54,7 @@ func _update_coins_label() -> void:
 func _on_button_2_pressed() -> void:
 	coinsPerGame = globals.coins
 	globals.coins = 0
+	globals.fun += 10
 	_update_coins_label()
 	$AnimatedSprite2D.play()
 	$Timer.start()

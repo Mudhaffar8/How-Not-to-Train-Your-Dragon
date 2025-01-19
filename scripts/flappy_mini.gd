@@ -17,6 +17,7 @@ func _ready():
 func _on_pipe_spawn_timer_timeout() -> void:
 	$Label.text = "Coins collected: " + str(globals.coinsFlappy)
 	globals.coinsFlappy += 5
+	globals.fun += 2
 	var ran1 = rng.randi_range(0, 100)
 	if ran1 > 20:
 		var pipe = pipe_scene.instantiate() 
