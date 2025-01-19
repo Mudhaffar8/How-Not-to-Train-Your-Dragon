@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://fs1jw3ero80e"]
+[gd_scene load_steps=14 format=3 uid="uid://fs1jw3ero80e"]
 
 [ext_resource type="Script" path="res://scenes/control.gd" id="1_k4b2h"]
 [ext_resource type="Script" path="res://scenes/coins.gd" id="1_me5uv"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dukeg14td56q7" path="res://assets/broccoli.png" id="9_2lgta"]
 [ext_resource type="Texture2D" uid="uid://dtkkia6ys3bms" path="res://assets/carrot.png" id="10_wt7cc"]
 [ext_resource type="Texture2D" uid="uid://ccesf88fohd28" path="res://assets/fent.png" id="11_jl42y"]
+[ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/coin_heads.png" id="12_3kyr4"]
+[ext_resource type="Texture2D" uid="uid://c14paf8pg5iws" path="res://assets/shopbackground.png" id="12_qnpu1"]
 
 [node name="ShopUi" type="Control"]
 layout_mode = 3
@@ -32,27 +34,35 @@ script = ExtResource("1_k4b2h")
 
 [node name="Coins" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 51.0
-offset_top = 25.0
-offset_right = 325.0
-offset_bottom = 68.0
+offset_left = 194.0
+offset_top = 22.0
+offset_right = 457.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 vertical_alignment = 1
 script = ExtResource("1_me5uv")
 
 [node name="ErrorLabel" type="Label" parent="Control/Coins"]
 visible = false
-z_index = 5
+z_index = 100
 layout_mode = 0
-offset_left = 340.0
-offset_top = 221.0
-offset_right = 737.0
-offset_bottom = 354.0
+offset_left = 452.0
+offset_top = 254.0
+offset_right = 849.0
+offset_bottom = 387.0
+theme_override_colors/font_color = Color(0.61339, 0.61339, 0.61339, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "You're Too Poor!"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_a4hw3")
+
+[node name="Timer" type="Timer" parent="Control/Coins"]
+process_callback = 0
+wait_time = 1.5
+one_shot = true
 
 [node name="CoinsButton" type="Button" parent="Control"]
 layout_mode = 0
@@ -64,17 +74,19 @@ text = "+$5"
 script = ExtResource("2_db0dg")
 
 [node name="Buy1" type="Button" parent="Control"]
+z_index = 10
 layout_mode = 0
-offset_left = 232.0
-offset_top = 276.0
-offset_right = 382.0
-offset_bottom = 330.0
+offset_left = 568.0
+offset_top = 277.0
+offset_right = 718.0
+offset_bottom = 331.0
 theme_override_font_sizes/font_size = 10
 text = "Buy: $15
-+20 Hunger"
++20 Food"
 script = ExtResource("3_ehdpn")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy1"]
+z_index = 10
 layout_mode = 0
 offset_top = -161.0
 offset_right = 150.0
@@ -82,33 +94,38 @@ offset_bottom = -11.0
 color = Color(0.529067, 0.529067, 0.529067, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Buy1"]
+z_index = 10
 position = Vector2(70, -78)
 scale = Vector2(0.22815, 0.192215)
 texture = ExtResource("6_8c8r3")
 
 [node name="Title" type="Label" parent="Control"]
+z_index = 10
 layout_mode = 0
-offset_left = 460.0
-offset_top = 9.0
-offset_right = 719.0
-offset_bottom = 86.0
+offset_left = 697.0
+offset_top = 33.0
+offset_right = 956.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 text = "Shop"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buy2" type="Button" parent="Control"]
+z_index = 10
 layout_mode = 0
-offset_left = 520.0
-offset_top = 276.0
-offset_right = 670.0
-offset_bottom = 330.0
+offset_left = 751.0
+offset_top = 278.0
+offset_right = 901.0
+offset_bottom = 332.0
 theme_override_font_sizes/font_size = 10
 text = "Buy: $10
-+10 Hunger  +5 Fun"
++10 Food  +5 Fun"
 script = ExtResource("3_ehdpn")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy2"]
+z_index = 10
 layout_mode = 0
 offset_top = -161.0
 offset_right = 150.0
@@ -116,22 +133,25 @@ offset_bottom = -11.0
 color = Color(0.529067, 0.529067, 0.529067, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Buy2"]
+z_index = 10
 position = Vector2(72, -76)
 scale = Vector2(0.204138, 0.204138)
 texture = ExtResource("7_ljwkn")
 
 [node name="Buy4" type="Button" parent="Control"]
+z_index = 10
 layout_mode = 0
-offset_left = 233.0
-offset_top = 523.0
-offset_right = 383.0
-offset_bottom = 577.0
+offset_left = 569.0
+offset_top = 524.0
+offset_right = 719.0
+offset_bottom = 578.0
 theme_override_font_sizes/font_size = 10
 text = "Buy: $550
-+90 Hunger"
++90 Food"
 script = ExtResource("3_ehdpn")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy4"]
+z_index = 10
 layout_mode = 0
 offset_top = -161.0
 offset_right = 150.0
@@ -139,22 +159,25 @@ offset_bottom = -11.0
 color = Color(0.529067, 0.529067, 0.529067, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Buy4"]
+z_index = 10
 position = Vector2(76, -97)
 scale = Vector2(0.316741, 0.316741)
 texture = ExtResource("8_fmca6")
 
 [node name="Buy3" type="Button" parent="Control"]
+z_index = 10
 layout_mode = 0
-offset_left = 808.0
-offset_top = 276.0
-offset_right = 958.0
-offset_bottom = 330.0
+offset_left = 935.0
+offset_top = 278.0
+offset_right = 1085.0
+offset_bottom = 332.0
 theme_override_font_sizes/font_size = 10
 text = "Buy: $23
-+30 Hunger +5 Health -5 Fun"
++30 Food +5 Health -5 Fun"
 script = ExtResource("3_ehdpn")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy3"]
+z_index = 10
 layout_mode = 0
 offset_top = -161.0
 offset_right = 150.0
@@ -162,22 +185,25 @@ offset_bottom = -11.0
 color = Color(0.529067, 0.529067, 0.529067, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Buy3"]
+z_index = 10
 position = Vector2(73, -72)
 scale = Vector2(0.191741, 0.191741)
 texture = ExtResource("9_2lgta")
 
 [node name="Buy5" type="Button" parent="Control"]
+z_index = 10
 layout_mode = 0
-offset_left = 521.0
-offset_top = 523.0
-offset_right = 671.0
-offset_bottom = 577.0
+offset_left = 752.0
+offset_top = 525.0
+offset_right = 902.0
+offset_bottom = 579.0
 theme_override_font_sizes/font_size = 10
 text = "Buy: $19
-+10 Hunger + 10 Health"
++10 Food +10 Health"
 script = ExtResource("3_ehdpn")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy5"]
+z_index = 10
 layout_mode = 0
 offset_top = -161.0
 offset_right = 150.0
@@ -185,22 +211,25 @@ offset_bottom = -11.0
 color = Color(0.529067, 0.529067, 0.529067, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Buy5"]
+z_index = 10
 position = Vector2(71, -82)
 scale = Vector2(0.234155, 0.234155)
 texture = ExtResource("10_wt7cc")
 
 [node name="Buy6" type="Button" parent="Control"]
+z_index = 10
 layout_mode = 0
-offset_left = 809.0
-offset_top = 523.0
-offset_right = 959.0
-offset_bottom = 577.0
+offset_left = 936.0
+offset_top = 525.0
+offset_right = 1086.0
+offset_bottom = 579.0
 theme_override_font_sizes/font_size = 10
 text = "Buy: $423
 +69 Fun -15 Health"
 script = ExtResource("3_ehdpn")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy6"]
+z_index = 10
 layout_mode = 0
 offset_top = -161.0
 offset_right = 150.0
@@ -208,18 +237,32 @@ offset_bottom = -11.0
 color = Color(0.529067, 0.529067, 0.529067, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Buy6"]
+z_index = 10
 position = Vector2(80, -75)
 scale = Vector2(0.28866, 0.28866)
 texture = ExtResource("11_jl42y")
 
 [node name="GoBack" type="Button" parent="Control"]
+z_index = 10
 layout_mode = 0
-offset_left = 19.0
-offset_top = 528.0
-offset_right = 119.0
-offset_bottom = 628.0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 106.0
+offset_bottom = 104.0
 text = "Go Back"
 
+[node name="CoinSprite" type="Sprite2D" parent="Control"]
+position = Vector2(157.357, 43.4375)
+scale = Vector2(0.0523333, 0.0523333)
+texture = ExtResource("12_3kyr4")
+
+[node name="ShopBackground" type="Sprite2D" parent="Control"]
+z_index = -10
+position = Vector2(578, 327)
+scale = Vector2(2.1, 2.12496)
+texture = ExtResource("12_qnpu1")
+
+[connection signal="timeout" from="Control/Coins/Timer" to="Control/Coins" method="_on_timer_timeout"]
 [connection signal="pressed" from="Control/CoinsButton" to="Control/Coins" method="_on_coins_button_pressed"]
 [connection signal="pressed" from="Control/Buy1" to="Control/Coins" method="_on_buy_1_pressed"]
 [connection signal="pressed" from="Control/Buy2" to="Control/Coins" method="_on_buy_2_pressed"]

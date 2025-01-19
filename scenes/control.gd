@@ -10,4 +10,8 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_go_back_pressed() -> void:
-	scene_switcher.switch_scene("res://scenes/scene_2.tscn")
+	scene_switcher.switch_scene("res://scenes/main.tscn")
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.
