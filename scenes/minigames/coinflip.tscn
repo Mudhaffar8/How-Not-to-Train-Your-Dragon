@@ -114,10 +114,21 @@ tails, you lose
 [node name="Button2" type="Button" parent="."]
 offset_left = 22.0
 offset_top = 506.0
-offset_right = 285.0
-offset_bottom = 581.0
+offset_right = 339.0
+offset_bottom = 611.0
 theme_override_font_sizes/font_size = 48
 text = "or go all in!"
 
+[node name="Button3" type="Button" parent="."]
+offset_left = 810.0
+offset_top = 512.0
+offset_right = 1127.0
+offset_bottom = 617.0
+theme_override_font_sizes/font_size = 48
+text = "Back to Hub"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_2_pressed"]

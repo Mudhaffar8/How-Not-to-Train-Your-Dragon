@@ -1,37 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://creyksefw3x1k"]
+[gd_scene load_steps=4 format=3 uid="uid://creyksefw3x1k"]
 
 [ext_resource type="Script" path="res://scripts/pipe.gd" id="1_3ahk8"]
-[ext_resource type="Texture2D" uid="uid://47hdsyc2c7lb" path="res://assets/491c8ee8a268b4a.png" id="2_uyi1k"]
-[ext_resource type="Texture2D" uid="uid://mrfpubg18hln" path="res://assets/pipe down.png" id="3_x350o"]
+[ext_resource type="Texture2D" uid="uid://cmdja6gpafjfj" path="res://assets/Flappy_bird_top.png" id="2_lag6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yq8ha"]
-size = Vector2(240, 350)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7hnc"]
-size = Vector2(240, 326)
+size = Vector2(242, 409.333)
 
 [node name="pipe" type="Area2D"]
 position = Vector2(4, 0)
 script = ExtResource("1_3ahk8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(212, 108.4)
+position = Vector2(212.5, 126.2)
 scale = Vector2(0.5, 0.6)
 shape = SubResource("RectangleShape2D_yq8ha")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(215, 532.1)
-scale = Vector2(0.5, 0.7)
-shape = SubResource("RectangleShape2D_m7hnc")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(211, 115)
-scale = Vector2(0.5, 0.6)
-texture = ExtResource("2_uyi1k")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(215, 530)
-scale = Vector2(0.5, 0.7)
-texture = ExtResource("3_x350o")
+position = Vector2(49, 233)
+scale = Vector2(0.357253, 0.428704)
+texture = ExtResource("2_lag6f")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

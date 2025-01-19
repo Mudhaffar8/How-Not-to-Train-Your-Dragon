@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var button = $Button
 var rng = RandomNumberGenerator.new()
+var coinsPerGame = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,11 +16,13 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	if globals.coins < 10:
+	coinsPerGame = 10
+	if globals.coins < coinsPerGame:
 		pass
+	globals.coins -= coinsPerGame
 	$AnimatedSprite2D.play()
 	$Timer.start()
-	globals.coins -= 10
+	
 
 func _on_timer_timeout() -> void:
 	var my_random_number = rng.randi_range(0, 1)
@@ -29,17 +32,30 @@ func _on_timer_timeout() -> void:
 	if my_random_number == 1:
 		print("Heads")
 		$Label.text = "Heads"
-		globals.coins += 20
+		globals.coins += coinsPerGame * 2
 		$AnimatedSprite2D.frame = 0
 		$AnimatedSprite2D.pause()
 	
 	elif my_random_number == 0:
 		print("Tails")
 		$Label.text = "Tails"
-		globals.coins -= 5
+		globals.coins -= coinsPerGame / 2
 		$AnimatedSprite2D.frame = 4
 		$AnimatedSprite2D.pause()
 	_update_coins_label()
 
 func _update_coins_label() -> void:
-	$Label3.text = "Your money \n" + str(globals.coins) + " coins."
+	$Label3.text = "Your money: \n" + str(globals.coins) + " coins."
+
+
+func _on_button_2_pressed() -> void:
+	coinsPerGame = globals.coins
+	globals.coins = 0
+	_update_coins_label()
+	$AnimatedSprite2D.play()
+	$Timer.start()
+	
+
+
+func _on_button_3_pressed() -> void:
+	scene_switcher.switch_scene("res://scenes/main.tscn")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvmhnvsoydc6u"]
+
+[ext_resource type="Script" path="res://scripts/pipe.gd" id="1_3ahk8"]
+[ext_resource type="Texture2D" uid="uid://dcn25osy5gca4" path="res://assets/Flappy_bird_bottom.png" id="2_0xasd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7hnc"]
+size = Vector2(148, 414.429)
+
+[node name="pipe" type="Area2D"]
+position = Vector2(4, 0)
+script = ExtResource("1_3ahk8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(178, 501.05)
+scale = Vector2(0.5, 0.7)
+shape = SubResource("RectangleShape2D_m7hnc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(238, 465)
+scale = Vector2(0.248016, 0.347222)
+texture = ExtResource("2_0xasd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

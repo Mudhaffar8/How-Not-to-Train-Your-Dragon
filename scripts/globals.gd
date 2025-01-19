@@ -17,3 +17,4 @@ var coins : int = 50
 var food : float = 50.0
 var fun : float = 50.0
 var health : float = 50.0
+var coinsFlappy : int = 0

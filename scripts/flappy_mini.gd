@@ -1,20 +1,43 @@
 extends Node2D
 
 @onready var pipe_scene = preload("res://scenes/pipe.tscn")
+@onready var pipedown_scene = preload("res://scenes/pipedown.tscn")
 @onready var pipe_spawn_timer = $PipeSpawnTimer
 
+var rng = RandomNumberGenerator.new()
 
 
 func _ready():
 	$PipeSpawnTimer.start()
+	_on_pipe_spawn_timer_timeout()
+	globals.coinsFlappy = 0
+	$Label.text = "Coins collected: 0"
 
 
 func _on_pipe_spawn_timer_timeout() -> void:
-		# Logic to spawn pipes
-	var pipe = pipe_scene.instantiate()  # Assuming you preload the pipe scene
-	pipe.position = Vector2(480, randf_range(200, 500))  # Randomize Y position
-	#pipe.connect("body_entered", self)
-	add_child(pipe)
+	$Label.text = "Coins collected: " + str(globals.coinsFlappy)
+	globals.coinsFlappy += 5
+	var ran1 = rng.randi_range(0, 100)
+	if ran1 > 20:
+		var pipe = pipe_scene.instantiate() 
+		pipe.position = Vector2(1100, randf_range(-100, 0))
+		add_child(pipe)
+	
+	var ran2 = rng.randi_range(0, 100)
+	if ran2 > 20:
+		var pipe2 = pipedown_scene.instantiate()
+		pipe2.position = Vector2(1100, randf_range(0, 100))  
+		add_child(pipe2)
 
 func _game_over():
 	print("too bad")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "CharacterBody2D":
+		scene_switcher.switch_scene("res://scenes/gameOverMini.tscn")
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	if body.name == "CharacterBody2D":
+		scene_switcher.switch_scene("res://scenes/gameOverMini.tscn")

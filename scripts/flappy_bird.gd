@@ -1,7 +1,7 @@
 extends Node2D
 
-var gravity = 600.0
-var jump_strength = -250.0
+var gravity = 1000.0
+var jump_strength = -500.0
 var is_game_over = false
 
 @onready var bird = $CharacterBody2D 
