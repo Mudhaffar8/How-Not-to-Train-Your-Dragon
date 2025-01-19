@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" path="res://scripts/flappy_mini.gd" id="1_fadyr"]
 [ext_resource type="PackedScene" uid="uid://bwuu0vktck34k" path="res://scenes/flappy_bird.tscn" id="1_ygvtq"]
-[ext_resource type="PackedScene" uid="uid://creyksefw3x1k" path="res://scenes/pipe.tscn" id="2_6xgio"]
-[ext_resource type="Script" path="res://scenes/pipe.gd" id="4_71a64"]
-[ext_resource type="Texture2D" uid="uid://0av8q6g7c6m8" path="res://assets/dg34rsu-29a3d144-dc3f-473e-a949-f73a4ba1ef7c.png" id="4_ho57s"]
+[ext_resource type="Texture2D" uid="uid://b0y3q0ui6r6ak" path="res://assets/Flappy_bird_bg.png" id="5_22ef2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mwfc"]
+size = Vector2(115.2, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l22xr"]
+size = Vector2(1161, 20)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_fadyr")
@@ -12,26 +16,38 @@ script = ExtResource("1_fadyr")
 [node name="bird" parent="." instance=ExtResource("1_ygvtq")]
 position = Vector2(1, 0)
 
-[node name="pipe" parent="." instance=ExtResource("2_6xgio")]
-position = Vector2(363, -18)
-script = ExtResource("4_71a64")
-
 [node name="PipeSpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -99
-position = Vector2(574, 191)
-scale = Vector2(2, 2)
-texture = ExtResource("4_ho57s")
+position = Vector2(575.5, 324)
+scale = Vector2(0.599479, 0.6)
+texture = ExtResource("5_22ef2")
 
-[node name="GameOverLabel" type="Label" parent="."]
-offset_left = 371.0
-offset_top = 251.0
-offset_right = 790.0
-offset_bottom = 339.0
-theme_override_font_sizes/font_size = 64
-text = "You lost lmao"
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(560, 566)
+scale = Vector2(10, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.6, 92)
+shape = SubResource("RectangleShape2D_4mwfc")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(573, -10)
+shape = SubResource("RectangleShape2D_l22xr")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 585.0
+offset_right = 273.0
+offset_bottom = 630.0
+theme_override_font_sizes/font_size = 32
+text = "Coins collected: "
 
 [connection signal="timeout" from="PipeSpawnTimer" to="." method="_on_pipe_spawn_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
