@@ -63,10 +63,10 @@ text = "Blackjack"
 
 [node name="Button5" type="Button" parent="."]
 layout_mode = 0
-offset_left = -1.0
-offset_top = 583.0
-offset_right = 267.0
-offset_bottom = 649.0
+offset_left = -4.0
+offset_top = 584.0
+offset_right = 264.0
+offset_bottom = 650.0
 theme_override_font_sizes/font_size = 32
 text = "Back To Hub"
 

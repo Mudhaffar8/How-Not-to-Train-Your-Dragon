@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckam21hhvl74i"
-path="res://.godot/imported/adultGoober_idle1.png-9532d67fa1d0012829a81cd246677ba2.ctex"
+uid="uid://ctjypaqep4wrk"
+path="res://.godot/imported/badending.png-b522329a995069421f0a8e5c04f1b536.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/adultGoober_idle1.png"
-dest_files=["res://.godot/imported/adultGoober_idle1.png-9532d67fa1d0012829a81cd246677ba2.ctex"]
+source_file="res://assets/badending.png"
+dest_files=["res://.godot/imported/badending.png-b522329a995069421f0a8e5c04f1b536.ctex"]
 
 [params]
 

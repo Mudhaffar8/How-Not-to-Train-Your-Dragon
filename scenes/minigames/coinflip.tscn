@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://xsg0k5rvr8fu"]
+[gd_scene load_steps=10 format=3 uid="uid://xsg0k5rvr8fu"]
 
 [ext_resource type="Script" path="res://scripts/coinflip.gd" id="1_5x6fo"]
 [ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/coin_heads.png" id="2_nau2c"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dk4rar3e0xga3" path="res://assets/flip_side.png" id="4_r62rf"]
 [ext_resource type="Texture2D" uid="uid://c1kheu0mc2upe" path="res://assets/Mid_flip_Tails.png" id="5_luth1"]
 [ext_resource type="Texture2D" uid="uid://bpmpa5kw55qwj" path="res://assets/coin_tails.png" id="6_7qd11"]
+[ext_resource type="FontFile" uid="uid://btrwcci7ghtuk" path="res://assets/Fredoka-Medium.ttf" id="7_3lp44"]
+[ext_resource type="Texture2D" uid="uid://cqr2483o5iy7a" path="res://assets/coinflip_bg.png" id="7_i6v5q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7u1sx"]
 animations = [{
@@ -51,6 +53,12 @@ animations = [{
 position = Vector2(0, -1)
 script = ExtResource("1_5x6fo")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -99
+position = Vector2(576, 325)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_i6v5q")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(592, 268)
 scale = Vector2(0.414889, 0.414889)
@@ -74,6 +82,10 @@ offset_left = 416.0
 offset_top = 539.0
 offset_right = 735.0
 offset_bottom = 592.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 15
 theme_override_font_sizes/font_size = 48
 text = "Heads"
 horizontal_alignment = 1
@@ -84,6 +96,11 @@ offset_left = 27.0
 offset_top = 117.0
 offset_right = 317.0
 offset_bottom = 478.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 15
 theme_override_font_sizes/font_size = 54
 text = "Click on
 the coin 
@@ -95,6 +112,10 @@ offset_left = 851.0
 offset_top = 74.0
 offset_right = 1029.0
 offset_bottom = 119.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 32
 text = "Your coins: "
 
@@ -103,6 +124,12 @@ offset_left = 854.0
 offset_top = 204.0
 offset_right = 1114.0
 offset_bottom = 489.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("7_3lp44")
 theme_override_font_sizes/font_size = 32
 text = "One game costs 
 10 coins. When
