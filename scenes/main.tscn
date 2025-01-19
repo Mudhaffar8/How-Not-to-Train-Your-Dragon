@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxj38cvta0sum"]
+[gd_scene load_steps=8 format=3 uid="uid://bxj38cvta0sum"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bvdm0"]
 [ext_resource type="Texture2D" uid="uid://cq0cosuaedrxy" path="res://assets/peteruok.png" id="2_c23o8"]
 [ext_resource type="PackedScene" uid="uid://cj4as34cghrbl" path="res://scenes/status_bar.tscn" id="3_jo22t"]
+[ext_resource type="Script" path="res://scripts/global_timer.gd" id="4_aqii4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8dxh"]
 bg_color = Color(1, 1, 1, 0.247059)
@@ -139,6 +140,15 @@ scale = Vector2(0.291738, 0.291738)
 sprite_frames = SubResource("SpriteFrames_ch2yk")
 animation = &"idle"
 
+[node name="GlobalTimer" type="Node" parent="."]
+script = ExtResource("4_aqii4")
+
+[node name="Timer" type="Timer" parent="GlobalTimer"]
+process_callback = 0
+wait_time = 300.0
+one_shot = true
+
 [connection signal="pressed" from="ButtonPanel/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ButtonPanel/MinigamesButton" to="." method="_on_minigames_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="GlobalTimer/Timer" to="GlobalTimer" method="_on_timer_timeout"]

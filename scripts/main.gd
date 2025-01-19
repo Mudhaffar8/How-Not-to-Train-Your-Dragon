@@ -16,6 +16,11 @@ func _ready() -> void:
 	health_status.set_value(globals.health)
 	
 	button.text = "bannana"
+	
+func _process(delta: float) -> void:
+	if globals.food > 100 || globals.food < 0 || globals.fun < 0 || globals.health < 0:
+		scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
+	
 
 func _on_button_pressed() -> void:
 	scene_switcher.switch_scene("res://scenes/scene_2.tscn")

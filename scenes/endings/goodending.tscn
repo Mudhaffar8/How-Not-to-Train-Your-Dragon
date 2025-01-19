@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://c25icl631noyk"]
+
+[ext_resource type="Texture2D" uid="uid://cq658upbgij5p" path="res://assets/chillguy.png" id="1_cneqk"]
+
+[node name="Goodending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="."]
+z_index = 10
+layout_mode = 0
+offset_left = 440.0
+offset_top = 167.0
+offset_right = 738.0
+offset_bottom = 234.0
+theme_override_colors/font_color = Color(0.484631, 0.674427, 1.54018e-06, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "YOU LIVED"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(582, 430)
+scale = Vector2(0.314453, 0.314453)
+texture = ExtResource("1_cneqk")
