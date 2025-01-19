@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bxj38cvta0sum"]
+[gd_scene load_steps=19 format=3 uid="uid://bxj38cvta0sum"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bvdm0"]
 [ext_resource type="Theme" uid="uid://bfsrgu5l6jkid" path="res://themes/default_theme.tres" id="1_ue7ln"]
@@ -8,16 +8,13 @@
 [ext_resource type="Script" path="res://scripts/global_timer.gd" id="4_aqii4"]
 [ext_resource type="Texture2D" uid="uid://bpec8xt6w36rq" path="res://assets/babyGoober_idle1.png" id="4_b8hoy"]
 [ext_resource type="Texture2D" uid="uid://d30xw8yojydk2" path="res://assets/babyGoober_idle2.png" id="5_lrrpp"]
-[ext_resource type="Texture2D" uid="uid://drl3jkmixlu4x" path="res://assets/food_icon.png" id="5_xb5h2"]
 [ext_resource type="Texture2D" uid="uid://ckqh03hsrghlk" path="res://assets/babyGoober_idle3.png" id="6_4rtgf"]
-[ext_resource type="Texture2D" uid="uid://c3llehiwfxe11" path="res://assets/happiness_icon.png" id="6_uxkaj"]
-[ext_resource type="Texture2D" uid="uid://cg6788bg1jhwp" path="res://assets/health_icon.png" id="7_aog7r"]
 [ext_resource type="Texture2D" uid="uid://waisql7jipft" path="res://assets/babyGoober_idle4.png" id="7_cyum5"]
 [ext_resource type="Texture2D" uid="uid://d0sisrfpuhs7y" path="res://assets/egg.png" id="9_n7v60"]
-[ext_resource type="Texture2D" uid="uid://iulw2bqw0gur" path="res://assets/Goober_Adult_Walk-1.png" id="14_yp5xo"]
-[ext_resource type="Texture2D" uid="uid://b6vkuv83jclj2" path="res://assets/Goober_Adult_Walk-2.png" id="15_qnv0i"]
-[ext_resource type="Texture2D" uid="uid://c7loqqymow6h2" path="res://assets/Goober_Adult_Walk-3.png" id="16_k4d75"]
-[ext_resource type="Texture2D" uid="uid://hs6iyet6gqfe" path="res://assets/Goober_Adult_Walk-4.png" id="17_fxhl3"]
+[ext_resource type="Texture2D" uid="uid://j2de705q0dvg" path="res://assets/adultGoober_idle1.png" id="10_i2e4m"]
+[ext_resource type="Texture2D" uid="uid://bwipxfpjgksxl" path="res://assets/adultGoober_idle2.png" id="11_riquk"]
+[ext_resource type="Texture2D" uid="uid://v3xqhkm5ngf3" path="res://assets/adultGoober_idle3.png" id="12_l7wfe"]
+[ext_resource type="Texture2D" uid="uid://cgwd1u4li4h5" path="res://assets/adultGoober_idle4.png" id="13_tlxex"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8dxh"]
 bg_color = Color(1, 1, 1, 0.247059)
@@ -67,16 +64,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("14_yp5xo")
+"texture": ExtResource("10_i2e4m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_qnv0i")
+"texture": ExtResource("11_riquk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_k4d75")
+"texture": ExtResource("12_l7wfe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_fxhl3")
+"texture": ExtResource("13_tlxex")
 }],
 "loop": true,
 "name": &"teen_walk",
@@ -164,35 +161,27 @@ theme_override_constants/separation = 350
 [node name="FoodStatus" parent="StatusPanel/StatusBarContainer" instance=ExtResource("3_jo22t")]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("5_xb5h2")
 
 [node name="FunStatus" parent="StatusPanel/StatusBarContainer" instance=ExtResource("3_jo22t")]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("6_uxkaj")
 
 [node name="HealthStatus" parent="StatusPanel/StatusBarContainer" instance=ExtResource("3_jo22t")]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("7_aog7r")
 
-[node name="Progress" type="Label" parent="."]
-layout_mode = 0
-offset_left = 381.0
-offset_top = 578.0
-offset_right = 783.0
-offset_bottom = 622.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "To next Level: 0 / 10"
+[node name="Progress" type="ProgressBar" parent="."]
+layout_mode = 2
+offset_left = 467.0
+offset_top = 581.0
+offset_right = 709.0
+offset_bottom = 624.0
 
 [node name="Goober" type="AnimatedSprite2D" parent="."]
 position = Vector2(925, 329)
 scale = Vector2(0.43337, 0.421732)
 sprite_frames = SubResource("SpriteFrames_ch2yk")
-animation = &"teen_walk"
+animation = &"egg"
 autoplay = "egg"
 
 [node name="GlobalTimer" type="Node" parent="."]

@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	coinsPerGame = 10
 	if globals.coins < coinsPerGame:
-		pass #should skip function heree
+		return
 	globals.coins -= coinsPerGame
 	globals.fun += 5
 	$AnimatedSprite2D.play()
