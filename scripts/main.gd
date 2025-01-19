@@ -33,7 +33,13 @@ func _process(delta: float) -> void:
 		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.teen_time)
 		$Goober.play("teen_walk")
 		globals.gooberState = "teen"
-
+		
+	if globals.gooberState == "egg":
+		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.egg_time)
+	elif globals.gooberState == "baby":
+		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.baby_time)
+	elif globals.gooberState == "teen":
+		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.teen_time)
 
 func _on_shop_button_pressed() -> void:
 	scene_switcher.switch_scene("res://scenes/shopui.tscn")
