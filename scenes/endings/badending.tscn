@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ctn7oocwfmpm8"]
 
-[ext_resource type="Texture2D" uid="uid://d0d173y38mi3j" path="res://assets/deadgoober.png" id="1_k2xpv"]
+[ext_resource type="Texture2D" uid="uid://ctjypaqep4wrk" path="res://assets/badending.png" id="1_8bjvd"]
 
 [node name="Badending" type="Control"]
 layout_mode = 3
@@ -10,34 +10,67 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -99
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_8bjvd")
+
 [node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.8)
+light_mask = 512
+visibility_layer = 512
 z_index = 10
 layout_mode = 0
-offset_left = 495.0
-offset_top = 204.0
-offset_right = 677.0
-offset_bottom = 305.0
+offset_left = -14.0
+offset_top = 98.0
+offset_right = 381.0
+offset_bottom = 277.0
 theme_override_colors/font_color = Color(0.72549, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "its so joever
-Goober dieded :c"
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 48
+text = "its so joever...
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
+light_mask = 512
+visibility_layer = 512
 z_index = 10
 layout_mode = 0
-offset_left = 440.0
-offset_top = 167.0
-offset_right = 738.0
-offset_bottom = 234.0
+offset_left = 176.0
+offset_top = 417.0
+offset_right = 968.0
+offset_bottom = 647.0
 theme_override_colors/font_color = Color(0.72549, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 30
+theme_override_font_sizes/font_size = 168
 text = "YOU DIED"
 horizontal_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(568, 287)
-scale = Vector2(0.776252, 0.776252)
-texture = ExtResource("1_k2xpv")
+[node name="Label3" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.8)
+light_mask = 512
+visibility_layer = 512
+z_index = 10
+layout_mode = 0
+offset_left = 784.0
+offset_top = 20.0
+offset_right = 1142.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(0.72549, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 42
+text = "Goober dieded :c"
+horizontal_alignment = 1
+vertical_alignment = 1

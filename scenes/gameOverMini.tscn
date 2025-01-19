@@ -13,9 +13,9 @@ script = ExtResource("1_7la0o")
 
 [node name="gameOver" type="Label" parent="."]
 layout_mode = 0
-offset_left = 290.0
+offset_left = 321.0
 offset_top = 112.0
-offset_right = 847.0
+offset_right = 827.0
 offset_bottom = 179.0
 theme_override_font_sizes/font_size = 48
 text = "You lost the mini game. "
