@@ -8,9 +8,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	self.text = str(globals.coins)
+	if globals.food > 100 || globals.food < 0 || globals.fun < 0 || globals.health < 0:
+		scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
 	
-		
-
 
 func _on_coins_button_pressed() -> void:
 	globals.coins += 500

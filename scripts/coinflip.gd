@@ -42,6 +42,8 @@ func _on_timer_timeout() -> void:
 		globals.coins -= coinsPerGame / 2
 		$AnimatedSprite2D.frame = 4
 		$AnimatedSprite2D.pause()
+		if globals.coins < 0:
+			scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
 	_update_coins_label()
 
 func _update_coins_label() -> void:
