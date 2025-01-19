@@ -45,10 +45,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 226.0
-offset_top = 298.0
-offset_right = -677.0
-offset_bottom = -305.0
+offset_left = 230.0
+offset_top = 273.0
+offset_right = -673.0
+offset_bottom = -330.0
 theme_override_font_sizes/font_size = 32
 text = "Fun collected: "
 
@@ -57,10 +57,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 228.0
-offset_top = 232.0
-offset_right = -675.0
-offset_bottom = -371.0
+offset_left = 227.0
+offset_top = 210.0
+offset_right = -676.0
+offset_bottom = -393.0
 theme_override_font_sizes/font_size = 32
 text = "Coins collected: "
 
@@ -69,12 +69,24 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 666.0
-offset_top = 228.0
-offset_right = -237.0
-offset_bottom = -375.0
+offset_left = 665.0
+offset_top = 206.0
+offset_right = -238.0
+offset_bottom = -397.0
 theme_override_font_sizes/font_size = 32
 text = "Total coins:"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 231.0
+offset_top = 335.0
+offset_right = -672.0
+offset_bottom = -268.0
+theme_override_font_sizes/font_size = 32
+text = "Health lost:"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

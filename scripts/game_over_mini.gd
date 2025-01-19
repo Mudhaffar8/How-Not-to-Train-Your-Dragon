@@ -7,6 +7,8 @@ func _ready() -> void:
 	$Label.text = "Coins collected: " + str(globals.coinsFlappy)
 	$Label3.text = "Fun collected: " + str(globals.coinsFlappy / 5 * 4)
 	$Label2.text = "Total coins: " + str(globals.coins)
+	$Label4.text = "Health lost: " + str(8)
+	globals.health -= 8
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

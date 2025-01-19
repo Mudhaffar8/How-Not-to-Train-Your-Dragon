@@ -128,7 +128,8 @@ offset_right = 901.0
 offset_bottom = 332.0
 theme_override_font_sizes/font_size = 15
 text = "Buy: $10
-+10 Food  +5 Fun"
++10 Food +5 Fun
+"
 script = ExtResource("3_ehdpn")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy2"]
@@ -207,7 +208,7 @@ offset_right = 902.0
 offset_bottom = 579.0
 theme_override_font_sizes/font_size = 15
 text = "Buy: $19
-+10 Food +10 Health"
++15 Health +5 Food"
 script = ExtResource("3_ehdpn")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy5"]

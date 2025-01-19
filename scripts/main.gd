@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.baby_time)
 		$Goober.play("baby_walk")
 		globals.gooberState = "baby"
+		$InstructionsLabel.visible = false
 		
 	if globals.seconds >= globals.baby_time:
 		progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.teen_time)
