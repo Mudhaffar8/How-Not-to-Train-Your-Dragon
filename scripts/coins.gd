@@ -69,8 +69,8 @@ func _on_buy_4_pressed() -> void:
 func _on_buy_5_pressed() -> void:
 	if globals.coins >= 19:
 		globals.coins -= 19
-		globals.food += 10
-		globals.health += 10
+		globals.food += 5
+		globals.health += 15
 		$ErrorLabel.text = "Purchased!"
 		$ErrorLabel.visible = true
 	else:

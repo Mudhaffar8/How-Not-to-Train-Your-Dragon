@@ -34,6 +34,7 @@ func _physics_process(delta):
 func game_over():
 	is_game_over = true
 	game_over_label.visible = true
+	globals.health -= 8
 	print("Game Over!")
 
 
