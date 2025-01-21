@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://cceq8u51t8xa0"]
+
+[ext_resource type="Script" path="res://scripts/minigames.gd" id="1_8ixks"]
+[ext_resource type="Texture2D" uid="uid://bxtxnd7peatrf" path="res://assets/scene_bg/minigame_back.png" id="2_wcbmk"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ixks")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -99
+layout_mode = 0
+offset_left = -3.0
+offset_right = 1917.0
+offset_bottom = 1080.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_wcbmk")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 448.0
+offset_right = 370.0
+offset_bottom = 516.0
+theme_override_font_sizes/font_size = 32
+text = "Flappy Bird"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 151.0
+offset_right = 665.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Racing"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 609.0
+offset_top = 542.0
+offset_right = 791.0
+offset_bottom = 617.0
+theme_override_font_sizes/font_size = 32
+text = "Coin flip"
+
+[node name="Button6" type="Button" parent="."]
+layout_mode = 0
+offset_left = 839.0
+offset_top = 364.0
+offset_right = 1112.0
+offset_bottom = 425.0
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Blackjack"
+
+[node name="Button5" type="Button" parent="."]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 584.0
+offset_right = 264.0
+offset_bottom = 650.0
+theme_override_font_sizes/font_size = 32
+text = "Back To Hub"
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

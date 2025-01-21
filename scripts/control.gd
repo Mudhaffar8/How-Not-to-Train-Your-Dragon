@@ -10,11 +10,10 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_go_back_pressed() -> void:
-	scene_switcher.switch_scene("res://scenes/main.tscn")
+	scene_switcher.switch_scene("res://scenes/main_scenes/main.tscn")
 
 
 func _on_timer_timeout() -> void:
-	print(globals.seconds)
 	globals.seconds += 1
 	if (globals.seconds %  5 == 0):
 		globals.food -= 5

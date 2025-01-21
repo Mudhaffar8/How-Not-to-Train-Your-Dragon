@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://xsg0k5rvr8fu"]
 
 [ext_resource type="Script" path="res://scripts/coinflip.gd" id="1_5x6fo"]
-[ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/coin_heads.png" id="2_nau2c"]
-[ext_resource type="Texture2D" uid="uid://bpspdcvax2aji" path="res://assets/Mid_flip_heads.png" id="3_hwflx"]
-[ext_resource type="Texture2D" uid="uid://dk4rar3e0xga3" path="res://assets/flip_side.png" id="4_r62rf"]
-[ext_resource type="Texture2D" uid="uid://c1kheu0mc2upe" path="res://assets/Mid_flip_Tails.png" id="5_luth1"]
-[ext_resource type="Texture2D" uid="uid://bpmpa5kw55qwj" path="res://assets/coin_tails.png" id="6_7qd11"]
-[ext_resource type="FontFile" uid="uid://btrwcci7ghtuk" path="res://assets/Fredoka-Medium.ttf" id="7_3lp44"]
-[ext_resource type="Texture2D" uid="uid://cqr2483o5iy7a" path="res://assets/coinflip_bg.png" id="7_i6v5q"]
-[ext_resource type="AudioStream" uid="uid://dfgr3lifacr8h" path="res://coinFlip_music.mp3" id="9_taxgb"]
+[ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/minigames/coinflip/coin_heads.png" id="2_nau2c"]
+[ext_resource type="Texture2D" uid="uid://cqr2483o5iy7a" path="res://assets/scene_bg/coinflip_bg.png" id="2_vg3bb"]
+[ext_resource type="Texture2D" uid="uid://bpspdcvax2aji" path="res://assets/minigames/coinflip/Mid_flip_heads.png" id="3_hwflx"]
+[ext_resource type="Texture2D" uid="uid://dk4rar3e0xga3" path="res://assets/minigames/coinflip/flip_side.png" id="4_r62rf"]
+[ext_resource type="Texture2D" uid="uid://c1kheu0mc2upe" path="res://assets/minigames/coinflip/Mid_flip_Tails.png" id="5_luth1"]
+[ext_resource type="Texture2D" uid="uid://bpmpa5kw55qwj" path="res://assets/minigames/coinflip/coin_tails.png" id="6_7qd11"]
+[ext_resource type="FontFile" path="res://assets/Fredoka-Medium.ttf" id="7_3lp44"]
+[ext_resource type="AudioStream" uid="uid://dfgr3lifacr8h" path="res://music/coinFlip_music.mp3" id="9_fccpe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7u1sx"]
 animations = [{
@@ -58,7 +58,7 @@ script = ExtResource("1_5x6fo")
 z_index = -99
 position = Vector2(576, 325)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("7_i6v5q")
+texture = ExtResource("2_vg3bb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(592, 268)
@@ -156,7 +156,7 @@ theme_override_font_sizes/font_size = 48
 text = "Back to Hub"
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_taxgb")
+stream = ExtResource("9_fccpe")
 autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

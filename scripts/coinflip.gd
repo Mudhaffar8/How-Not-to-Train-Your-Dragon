@@ -12,7 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	
-	print(globals.coins)
+	pass
 
 
 func _on_button_pressed() -> void:
@@ -29,17 +29,13 @@ func _on_button_pressed() -> void:
 func _on_timer_timeout() -> void:
 	var my_random_number = rng.randi_range(0, 1)
 	
-	print(my_random_number)
-	
 	if my_random_number == 1:
-		print("Heads")
 		$Label.text = "Heads"
 		globals.coins += coinsPerGame * 2
 		$AnimatedSprite2D.frame = 0
 		$AnimatedSprite2D.pause()
 	
 	elif my_random_number == 0:
-		print("Tails")
 		$Label.text = "Tails"
 		globals.coins -= coinsPerGame / 2
 		$AnimatedSprite2D.frame = 4
@@ -63,4 +59,4 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_button_3_pressed() -> void:
-	scene_switcher.switch_scene("res://scenes/main.tscn")
+	scene_switcher.switch_scene("res://scenes/main_scenes/main.tscn")

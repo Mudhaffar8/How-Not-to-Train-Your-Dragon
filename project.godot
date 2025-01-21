@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WinterGameJam2025"
-run/main_scene="res://scenes/startscreen.tscn"
+run/main_scene="res://scenes/main_scenes/startscreen.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
@@ -32,7 +32,7 @@ project/assembly_name="WinterGameJam2025"
 [gui]
 
 theme/custom="res://themes/default_theme.tres"
-theme/custom_font="res://assets/Fredoka-Medium.ttf"
+theme/custom_font="res://assets/fonts/Fredoka-Medium.ttf"
 
 [input]
 
@@ -44,3 +44,4 @@ spacebar={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

@@ -7,15 +7,15 @@ func _ready() -> void:
 
 
 func _on_back_button_pressed() -> void:
-	scene_switcher.switch_scene("res://scenes/main.tscn")
+	scene_switcher.switch_scene("res://scenes/main_scenes/main.tscn")
 
 
 func _on_button_pressed() -> void:
-	scene_switcher.switch_scene("res://scenes/flappy_mini.tscn")
+	scene_switcher.switch_scene("res://scenes/minigames/flappy_bird/flappy_mini.tscn")
 
 
 func _on_button_5_pressed() -> void:
-	scene_switcher.switch_scene("res://scenes/main.tscn")
+	scene_switcher.switch_scene("res://scenes/main_scenes/main.tscn")
 
 
 func _on_button_4_pressed() -> void:
@@ -26,7 +26,6 @@ func _process(delta: float) -> void:
 		scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
 		
 func _on_timer_timeout() -> void:
-	print(globals.seconds)
 	globals.seconds += 1
 	if (globals.seconds %  5 == 0):
 		globals.food -= 5

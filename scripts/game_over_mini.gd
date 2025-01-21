@@ -16,8 +16,8 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	scene_switcher.switch_scene("res://scenes/flappy_mini.tscn") # Replace with function body.
+	scene_switcher.switch_scene("res://scenes/minigames/flappy_bird/flappy_mini.tscn") # Replace with function body.
 
 
 func _on_button_2_pressed() -> void:
-	scene_switcher.switch_scene("res://scenes/main.tscn")
+	scene_switcher.switch_scene("res://scenes/main_scenes/main.tscn")

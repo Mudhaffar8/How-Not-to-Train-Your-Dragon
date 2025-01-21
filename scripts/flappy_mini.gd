@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var pipe_scene = preload("res://scenes/pipe.tscn")
-@onready var pipedown_scene = preload("res://scenes/pipedown.tscn")
+@onready var pipe_scene = preload("res://scenes/minigames/flappy_bird/pipe.tscn")
+@onready var pipedown_scene = preload("res://scenes/minigames/flappy_bird/pipedown.tscn")
 @onready var pipe_spawn_timer = $PipeSpawnTimer
 
 var rng = RandomNumberGenerator.new()
@@ -34,14 +34,14 @@ func _on_pipe_spawn_timer_timeout() -> void:
 		add_child(pipe2)
 
 func _game_over():
-	print("too bad")
+	pass
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "CharacterBody2D":
-		scene_switcher.switch_scene("res://scenes/gameOverMini.tscn")
+		scene_switcher.switch_scene("res://scenes/minigames/gameOverMini.tscn")
 
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body.name == "CharacterBody2D":
-		scene_switcher.switch_scene("res://scenes/gameOverMini.tscn")
+		scene_switcher.switch_scene("res://scenes/minigames/gameOverMini.tscn")

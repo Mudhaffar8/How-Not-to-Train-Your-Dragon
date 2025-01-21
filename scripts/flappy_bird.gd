@@ -26,7 +26,7 @@ func _physics_process(delta):
 		bird.velocity.y = jump_strength
 
 	bird.move_and_slide()
-
+	#i might make the below function work later
 	#bird.rotation = lerp_angle(bird.rotation, clamp(bird.velocity.angle(), -PI / 6, PI / 3), 0.1)
 
 
@@ -34,8 +34,3 @@ func _physics_process(delta):
 func game_over():
 	is_game_over = true
 	game_over_label.visible = true
-	print("Game Over!")
-
-
-func _on_pipe_body_entered(body: Node2D) -> void:
-	print(777)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctn7oocwfmpm8"]
 
-[ext_resource type="Texture2D" uid="uid://ctjypaqep4wrk" path="res://assets/badending.png" id="1_8bjvd"]
-[ext_resource type="AudioStream" uid="uid://d0870n7lwxfnn" path="res://gooberDEDmusic.mp3" id="2_es177"]
+[ext_resource type="Texture2D" uid="uid://ctjypaqep4wrk" path="res://assets/scene_bg/badending.png" id="1_bvfkh"]
+[ext_resource type="AudioStream" uid="uid://d0870n7lwxfnn" path="res://music/gooberDEDmusic.mp3" id="2_es177"]
 
 [node name="Badending" type="Control"]
 layout_mode = 3
@@ -15,7 +15,7 @@ grow_vertical = 2
 z_index = -99
 position = Vector2(576, 324)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_8bjvd")
+texture = ExtResource("1_bvfkh")
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.8)
