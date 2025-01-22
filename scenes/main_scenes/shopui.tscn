@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dukeg14td56q7" path="res://assets/icons/food/broccoli.png" id="10_s4h82"]
 [ext_resource type="Texture2D" uid="uid://dtkkia6ys3bms" path="res://assets/icons/food/carrot.png" id="11_pppsn"]
 [ext_resource type="Texture2D" uid="uid://bas8ec8asfrac" path="res://assets/icons/food/fent.png" id="12_vy71a"]
-[ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/icons/other/coin_heads.png" id="13_qlxpt"]
+[ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/minigames/coinflip/coin_heads.png" id="13_qlxpt"]
 [ext_resource type="AudioStream" uid="uid://dm65832esy5jq" path="res://music/shop_music.mp3" id="14_us6rr"]
 
 [node name="ShopUi" type="Control"]

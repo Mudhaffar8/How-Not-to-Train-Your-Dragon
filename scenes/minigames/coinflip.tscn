@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dk4rar3e0xga3" path="res://assets/minigames/coinflip/flip_side.png" id="4_r62rf"]
 [ext_resource type="Texture2D" uid="uid://c1kheu0mc2upe" path="res://assets/minigames/coinflip/Mid_flip_Tails.png" id="5_luth1"]
 [ext_resource type="Texture2D" uid="uid://bpmpa5kw55qwj" path="res://assets/minigames/coinflip/coin_tails.png" id="6_7qd11"]
-[ext_resource type="FontFile" path="res://assets/Fredoka-Medium.ttf" id="7_3lp44"]
+[ext_resource type="FontFile" uid="uid://btrwcci7ghtuk" path="res://assets/fonts/Fredoka-Medium.ttf" id="7_3lp44"]
 [ext_resource type="AudioStream" uid="uid://dfgr3lifacr8h" path="res://music/coinFlip_music.mp3" id="9_fccpe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7u1sx"]
