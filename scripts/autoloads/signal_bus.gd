@@ -32,6 +32,4 @@ func printHelloWorld(val : String) -> void:
 
 # One way for managing game state
 # new_state could be an enum for different game states?
-signal game_state_changed(new_state) 
-
-signal test_signal(text) # Used for testing
+# signal game_state_changed(new_state) 

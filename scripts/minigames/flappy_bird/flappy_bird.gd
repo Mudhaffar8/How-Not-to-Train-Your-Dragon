@@ -6,8 +6,6 @@ var is_game_over = false
 
 @onready var bird = $CharacterBody2D 
 
-# Access the GameOverLabel
-@onready var game_over_label = $GameOverLabel  
 
 
 func _ready():
@@ -27,10 +25,9 @@ func _physics_process(delta):
 
 	bird.move_and_slide()
 	#i might make the below function work later
-	#bird.rotation = lerp_angle(bird.rotation, clamp(bird.velocity.angle(), -PI / 6, PI / 3), 0.1)
+	#bird.rotation = lerp_angle(bird.rotation, clamp(bird.velocity.angle(), -PI / 6, PI / 3), 0.01)
 
 
 
 func game_over():
 	is_game_over = true
-	game_over_label.visible = true

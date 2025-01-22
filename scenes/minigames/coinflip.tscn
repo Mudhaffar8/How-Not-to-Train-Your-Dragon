@@ -1,20 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://xsg0k5rvr8fu"]
+[gd_scene load_steps=10 format=3 uid="uid://xsg0k5rvr8fu"]
 
-[ext_resource type="Script" path="res://scripts/coinflip.gd" id="1_5x6fo"]
-[ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/minigames/coinflip/coin_heads.png" id="2_nau2c"]
-[ext_resource type="Texture2D" uid="uid://cqr2483o5iy7a" path="res://assets/scene_bg/coinflip_bg.png" id="2_vg3bb"]
-[ext_resource type="Texture2D" uid="uid://bpspdcvax2aji" path="res://assets/minigames/coinflip/Mid_flip_heads.png" id="3_hwflx"]
-[ext_resource type="Texture2D" uid="uid://dk4rar3e0xga3" path="res://assets/minigames/coinflip/flip_side.png" id="4_r62rf"]
-[ext_resource type="Texture2D" uid="uid://c1kheu0mc2upe" path="res://assets/minigames/coinflip/Mid_flip_Tails.png" id="5_luth1"]
-[ext_resource type="Texture2D" uid="uid://bpmpa5kw55qwj" path="res://assets/minigames/coinflip/coin_tails.png" id="6_7qd11"]
-[ext_resource type="FontFile" uid="uid://btrwcci7ghtuk" path="res://assets/fonts/Fredoka-Medium.ttf" id="7_3lp44"]
-[ext_resource type="AudioStream" uid="uid://dfgr3lifacr8h" path="res://music/coinFlip_music.mp3" id="9_fccpe"]
+[ext_resource type="Script" path="res://scripts/minigames/coin_flip/coinflip.gd" id="1_5x6fo"]
+[ext_resource type="AudioStream" uid="uid://dfgr3lifacr8h" path="res://music/coinFlip_music.mp3" id="2_ajta7"]
+[ext_resource type="Texture2D" uid="uid://cqr2483o5iy7a" path="res://assets/scene_bg/coinflip_bg.png" id="2_qkdjo"]
+[ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/minigames/coinflip/coin_heads.png" id="3_qr0sg"]
+[ext_resource type="Texture2D" uid="uid://bpspdcvax2aji" path="res://assets/minigames/coinflip/Mid_flip_heads.png" id="4_xggpc"]
+[ext_resource type="Texture2D" uid="uid://dk4rar3e0xga3" path="res://assets/minigames/coinflip/flip_side.png" id="5_g3sdx"]
+[ext_resource type="Texture2D" uid="uid://c1kheu0mc2upe" path="res://assets/minigames/coinflip/Mid_flip_Tails.png" id="6_p0wga"]
+[ext_resource type="Texture2D" uid="uid://bpmpa5kw55qwj" path="res://assets/minigames/coinflip/coin_tails.png" id="7_8vyi6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7u1sx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_nau2c")
+"texture": ExtResource("3_qr0sg")
 }],
 "loop": true,
 "name": &"idle",
@@ -22,52 +21,65 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_nau2c")
+"texture": ExtResource("3_qr0sg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_hwflx")
+"texture": ExtResource("4_xggpc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_r62rf")
+"texture": ExtResource("5_g3sdx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_luth1")
+"texture": ExtResource("6_p0wga")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_7qd11")
+"texture": ExtResource("7_8vyi6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_luth1")
+"texture": ExtResource("6_p0wga")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_r62rf")
+"texture": ExtResource("5_g3sdx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_hwflx")
+"texture": ExtResource("4_xggpc")
 }],
 "loop": true,
 "name": &"run",
 "speed": 5.0
 }]
 
-[node name="Coinflip" type="Node2D"]
-position = Vector2(0, -1)
+[node name="Coinflip" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_5x6fo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 z_index = -99
-position = Vector2(576, 325)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_vg3bb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qkdjo")
+expand_mode = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CoinSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(592, 268)
 scale = Vector2(0.414889, 0.414889)
 sprite_frames = SubResource("SpriteFrames_7u1sx")
 animation = &"run"
 
-[node name="Button" type="Button" parent="."]
+[node name="CoinButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 375.0
 offset_top = 66.0
 offset_right = 780.0
@@ -78,11 +90,36 @@ process_callback = 0
 wait_time = 3.0
 one_shot = true
 
-[node name="Label" type="Label" parent="."]
-offset_left = 416.0
-offset_top = 539.0
-offset_right = 735.0
-offset_bottom = 592.0
+[node name="CoinCount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -272.0
+offset_top = 90.0
+offset_right = -94.0
+offset_bottom = 135.0
+grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Your coins: "
+
+[node name="CoinFace" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -159.5
+offset_top = -88.0
+offset_right = 159.5
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 0
@@ -92,11 +129,16 @@ text = "Heads"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 27.0
-offset_top = 117.0
-offset_right = 317.0
-offset_bottom = 478.0
+[node name="Instructions1" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = -180.5
+offset_right = 320.0
+offset_bottom = 180.5
+grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
@@ -108,29 +150,24 @@ the coin
 to start 
 the game"
 
-[node name="Label3" type="Label" parent="."]
-offset_left = 851.0
-offset_top = 74.0
-offset_right = 1029.0
-offset_bottom = 119.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 10
-theme_override_font_sizes/font_size = 32
-text = "Your coins: "
-
-[node name="Label4" type="Label" parent="."]
-offset_left = 854.0
-offset_top = 204.0
-offset_right = 1114.0
-offset_bottom = 489.0
+[node name="Instructions2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -292.0
+offset_top = -142.5
+offset_right = -32.0
+offset_bottom = 142.5
+grow_horizontal = 0
+grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_outline_size = 10
-theme_override_fonts/font = ExtResource("7_3lp44")
 theme_override_font_sizes/font_size = 32
 text = "One game costs 
 10 coins. When
@@ -139,27 +176,38 @@ its heads, you get
 tails, you lose 
 5 coins"
 
-[node name="Button2" type="Button" parent="."]
-offset_left = 22.0
-offset_top = 506.0
-offset_right = 339.0
-offset_bottom = 611.0
+[node name="AllInButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -128.0
+offset_right = 347.0
+offset_bottom = -23.0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 text = "or go all in!"
 
-[node name="Button3" type="Button" parent="."]
-offset_left = 810.0
-offset_top = 512.0
-offset_right = 1127.0
-offset_bottom = 617.0
+[node name="HubButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -317.0
+offset_top = -105.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 text = "Back to Hub"
 
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_fccpe")
+[node name="BgMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ajta7")
 autoplay = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CoinButton" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="AllInButton" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HubButton" to="." method="_on_button_3_pressed"]

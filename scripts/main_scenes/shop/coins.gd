@@ -1,19 +1,13 @@
 extends Label
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	self.text = str(globals.coins)
+	
 	if globals.food > 100 || globals.food < 0 || globals.fun < 0 || globals.health < 0:
 		scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
-	
 
-func _on_coins_button_pressed() -> void:
-	pass
 
 func _on_buy_1_pressed() -> void:
 	if globals.coins >= 15:
@@ -24,6 +18,7 @@ func _on_buy_1_pressed() -> void:
 	else:
 		$ErrorLabel.text = "You're too poor!"
 		$ErrorLabel.visible = true
+
 	$Timer.start() 
 	
 func _on_timer_timeout() -> void:
@@ -40,8 +35,10 @@ func _on_buy_2_pressed() -> void:
 	else:
 		$ErrorLabel.text = "You're too poor!"
 		$ErrorLabel.visible = true
+	
 	$Timer.start() 
-		
+
+
 func _on_buy_3_pressed() -> void:
 	if globals.coins >= 23:
 		globals.coins -= 23
@@ -53,8 +50,10 @@ func _on_buy_3_pressed() -> void:
 	else:
 		$ErrorLabel.text = "You're too poor!"
 		$ErrorLabel.visible = true
-	$Timer.start() 
 	
+	$Timer.start() 
+
+
 func _on_buy_4_pressed() -> void:
 	if globals.coins >= 550:
 		globals.coins -= 550
@@ -64,20 +63,24 @@ func _on_buy_4_pressed() -> void:
 	else:
 		$ErrorLabel.text = "You're too poor!"
 		$ErrorLabel.visible = true
-	$Timer.start() 
 	
+	$Timer.start() 
+
+
 func _on_buy_5_pressed() -> void:
 	if globals.coins >= 19:
 		globals.coins -= 19
-		globals.food += 5
-		globals.health += 15
+		globals.food += 10
+		globals.health += 10
 		$ErrorLabel.text = "Purchased!"
 		$ErrorLabel.visible = true
 	else:
 		$ErrorLabel.text = "You're too poor!"
 		$ErrorLabel.visible = true
+	
 	$Timer.start() 
-		
+
+
 func _on_buy_6_pressed() -> void:
 	if globals.coins >= 423:
 		globals.coins -= 423
@@ -88,7 +91,5 @@ func _on_buy_6_pressed() -> void:
 	else:
 		$ErrorLabel.text = "You're too poor!"
 		$ErrorLabel.visible = true
+	
 	$Timer.start() 
-		
-
-		
