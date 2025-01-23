@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://creyksefw3x1k"]
 
-[ext_resource type="Script" path="res://scripts/pipe.gd" id="1_7m5dh"]
+[ext_resource type="Script" path="res://scripts/minigames/flappy_bird/pipe.gd" id="1_7m5dh"]
 [ext_resource type="Texture2D" uid="uid://cmdja6gpafjfj" path="res://assets/minigames/flappy_bird/Flappy_bird_top.png" id="2_2mfui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yq8ha"]

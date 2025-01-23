@@ -11,16 +11,16 @@ Example Use case
 print(globals.test) # Prints true
 '''
 
-# Insert Global functions and variables below
-var test : bool = true
 var coins : int = 50
+var coinsFlappy : int = 0
+
 var food : float = 50.0
 var fun : float = 50.0
 var health : float = 50.0
-var coinsFlappy : int = 0
-var seconds : int = 0
+
 var gooberState : String = "egg"
 
+var seconds : int = 0
 var main_time : int = 10
 var egg_time : int = 10
 var baby_time : int = 90

@@ -1,41 +1,58 @@
-[gd_scene load_steps=13 format=3 uid="uid://fs1jw3ero80e"]
+[gd_scene load_steps=13 format=3 uid="uid://bc28m2ismksnh"]
 
-[ext_resource type="Script" path="res://scripts/control.gd" id="1_jjxhx"]
-[ext_resource type="Texture2D" uid="uid://qoi5rf3bkfcm" path="res://assets/scene_bg/shop.png" id="2_hqd3c"]
-[ext_resource type="Script" path="res://scripts/coins.gd" id="3_he482"]
-[ext_resource type="Script" path="res://scripts/buy_1.gd" id="6_1ue0u"]
-[ext_resource type="Texture2D" uid="uid://pqsq5wgyjtr2" path="res://assets/icons/food/steak.png" id="7_l8g6h"]
-[ext_resource type="Texture2D" uid="uid://bhm5huus045ox" path="res://assets/icons/food/sweet.png" id="8_xnvf6"]
-[ext_resource type="Texture2D" uid="uid://dq85vul6ft4t" path="res://assets/icons/food/cow.png" id="9_6gqs1"]
-[ext_resource type="Texture2D" uid="uid://dukeg14td56q7" path="res://assets/icons/food/broccoli.png" id="10_s4h82"]
-[ext_resource type="Texture2D" uid="uid://dtkkia6ys3bms" path="res://assets/icons/food/carrot.png" id="11_pppsn"]
-[ext_resource type="Texture2D" uid="uid://bas8ec8asfrac" path="res://assets/icons/food/fent.png" id="12_vy71a"]
-[ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/minigames/coinflip/coin_heads.png" id="13_qlxpt"]
-[ext_resource type="AudioStream" uid="uid://dm65832esy5jq" path="res://music/shop_music.mp3" id="14_us6rr"]
+[ext_resource type="Script" path="res://scripts/main_scenes/shop/control.gd" id="1_55ea1"]
+[ext_resource type="Texture2D" uid="uid://qoi5rf3bkfcm" path="res://assets/scene_bg/shop.png" id="2_06muu"]
+[ext_resource type="Script" path="res://scripts/main_scenes/shop/coins.gd" id="3_7e32l"]
+[ext_resource type="Texture2D" uid="uid://pqsq5wgyjtr2" path="res://assets/icons/food/steak.png" id="6_aqxe0"]
+[ext_resource type="Texture2D" uid="uid://bhm5huus045ox" path="res://assets/icons/food/sweet.png" id="7_khkrj"]
+[ext_resource type="Texture2D" uid="uid://dq85vul6ft4t" path="res://assets/icons/food/cow.png" id="8_s0spk"]
+[ext_resource type="Texture2D" uid="uid://dukeg14td56q7" path="res://assets/icons/food/broccoli.png" id="9_v1cju"]
+[ext_resource type="Texture2D" uid="uid://dtkkia6ys3bms" path="res://assets/icons/food/carrot.png" id="10_bxufj"]
+[ext_resource type="Texture2D" uid="uid://bas8ec8asfrac" path="res://assets/icons/food/fent.png" id="11_kdjjx"]
+[ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/minigames/coinflip/coin_heads.png" id="12_nyhsr"]
+[ext_resource type="AudioStream" uid="uid://dm65832esy5jq" path="res://music/shop_music.mp3" id="13_i5q7v"]
+
+[sub_resource type="GDScript" id="GDScript_d1c21"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="ShopUi" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = 1.0
-offset_right = -2.0
-offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Control" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_jjxhx")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_55ea1")
 
-[node name="ShopBackground" type="Sprite2D" parent="Control"]
+[node name="ShopBackground" type="TextureRect" parent="Control"]
 z_index = -10
-position = Vector2(578, 323)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_hqd3c")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_06muu")
+expand_mode = 1
 
 [node name="Coins" type="Label" parent="Control"]
 layout_mode = 0
@@ -46,7 +63,7 @@ offset_bottom = 65.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 vertical_alignment = 1
-script = ExtResource("3_he482")
+script = ExtResource("3_7e32l")
 
 [node name="ErrorLabel" type="Label" parent="Control/Coins"]
 visible = false
@@ -62,11 +79,20 @@ theme_override_font_sizes/font_size = 50
 text = "You're Too Poor!"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = SubResource("GDScript_d1c21")
 
 [node name="Timer" type="Timer" parent="Control/Coins"]
 process_callback = 0
 wait_time = 1.5
 one_shot = true
+
+[node name="CoinsButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1107.0
+offset_top = 603.0
+offset_right = 1148.0
+offset_bottom = 641.0
+text = "+$5"
 
 [node name="Buy1" type="Button" parent="Control"]
 z_index = 10
@@ -78,7 +104,6 @@ offset_bottom = 331.0
 theme_override_font_sizes/font_size = 15
 text = "Buy: $15
 +20 Food"
-script = ExtResource("6_1ue0u")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy1"]
 z_index = 10
@@ -92,7 +117,7 @@ color = Color(0.529067, 0.529067, 0.529067, 1)
 z_index = 10
 position = Vector2(70, -78)
 scale = Vector2(0.22815, 0.192215)
-texture = ExtResource("7_l8g6h")
+texture = ExtResource("6_aqxe0")
 
 [node name="Title" type="Label" parent="Control"]
 z_index = 10
@@ -117,7 +142,6 @@ offset_bottom = 332.0
 theme_override_font_sizes/font_size = 15
 text = "Buy: $10
 +10 Food  +5 Fun"
-script = ExtResource("6_1ue0u")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy2"]
 z_index = 10
@@ -131,7 +155,7 @@ color = Color(0.529067, 0.529067, 0.529067, 1)
 z_index = 10
 position = Vector2(72, -76)
 scale = Vector2(0.204138, 0.204138)
-texture = ExtResource("8_xnvf6")
+texture = ExtResource("7_khkrj")
 
 [node name="Buy4" type="Button" parent="Control"]
 z_index = 10
@@ -143,7 +167,6 @@ offset_bottom = 578.0
 theme_override_font_sizes/font_size = 15
 text = "Buy: $550
 +90 Food"
-script = ExtResource("6_1ue0u")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy4"]
 z_index = 10
@@ -157,7 +180,7 @@ color = Color(0.529067, 0.529067, 0.529067, 1)
 z_index = 10
 position = Vector2(76, -97)
 scale = Vector2(0.316741, 0.316741)
-texture = ExtResource("9_6gqs1")
+texture = ExtResource("8_s0spk")
 
 [node name="Buy3" type="Button" parent="Control"]
 z_index = 10
@@ -170,7 +193,6 @@ theme_override_font_sizes/font_size = 15
 text = "Buy: $23
 +30 Food +5 Health
  -5 Fun"
-script = ExtResource("6_1ue0u")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy3"]
 z_index = 10
@@ -182,9 +204,9 @@ color = Color(0.529067, 0.529067, 0.529067, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Buy3"]
 z_index = 10
-position = Vector2(76, -78)
+position = Vector2(73, -72)
 scale = Vector2(0.191741, 0.191741)
-texture = ExtResource("10_s4h82")
+texture = ExtResource("9_v1cju")
 
 [node name="Buy5" type="Button" parent="Control"]
 z_index = 10
@@ -195,8 +217,7 @@ offset_right = 902.0
 offset_bottom = 579.0
 theme_override_font_sizes/font_size = 15
 text = "Buy: $19
-+15 Health +5 Food"
-script = ExtResource("6_1ue0u")
++10 Food +10 Health"
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy5"]
 z_index = 10
@@ -210,7 +231,7 @@ color = Color(0.529067, 0.529067, 0.529067, 1)
 z_index = 10
 position = Vector2(71, -82)
 scale = Vector2(0.234155, 0.234155)
-texture = ExtResource("11_pppsn")
+texture = ExtResource("10_bxufj")
 
 [node name="Buy6" type="Button" parent="Control"]
 z_index = 10
@@ -222,7 +243,6 @@ offset_bottom = 579.0
 theme_override_font_sizes/font_size = 15
 text = "Buy: $423
 +69 Fun -15 Health"
-script = ExtResource("6_1ue0u")
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy6"]
 z_index = 10
@@ -236,7 +256,7 @@ color = Color(0.529067, 0.529067, 0.529067, 1)
 z_index = 10
 position = Vector2(80, -75)
 scale = Vector2(0.28866, 0.28866)
-texture = ExtResource("12_vy71a")
+texture = ExtResource("11_kdjjx")
 
 [node name="GoBack" type="Button" parent="Control"]
 z_index = 10
@@ -250,17 +270,18 @@ text = "Go Back"
 [node name="CoinSprite" type="Sprite2D" parent="Control"]
 position = Vector2(157.357, 43.4375)
 scale = Vector2(0.0523333, 0.0523333)
-texture = ExtResource("13_qlxpt")
+texture = ExtResource("12_nyhsr")
 
 [node name="Timer" type="Timer" parent="Control"]
 process_callback = 0
 autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_us6rr")
+stream = ExtResource("13_i5q7v")
 autoplay = true
 
 [connection signal="timeout" from="Control/Coins/Timer" to="Control/Coins" method="_on_timer_timeout"]
+[connection signal="pressed" from="Control/CoinsButton" to="Control/Coins" method="_on_coins_button_pressed"]
 [connection signal="pressed" from="Control/Buy1" to="Control/Coins" method="_on_buy_1_pressed"]
 [connection signal="pressed" from="Control/Buy2" to="Control/Coins" method="_on_buy_2_pressed"]
 [connection signal="pressed" from="Control/Buy4" to="Control/Coins" method="_on_buy_4_pressed"]

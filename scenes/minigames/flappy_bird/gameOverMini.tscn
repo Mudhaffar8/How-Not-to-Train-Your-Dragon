@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://recm6iyi4x5u"]
 
-[ext_resource type="Script" path="res://scripts/game_over_mini.gd" id="1_n8daq"]
+[ext_resource type="Script" path="res://scripts/minigames/flappy_bird/game_over_mini.gd" id="1_n8daq"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
