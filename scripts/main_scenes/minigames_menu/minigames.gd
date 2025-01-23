@@ -34,3 +34,7 @@ func _on_timer_timeout() -> void:
 		
 	if (globals.seconds >= 180):
 		scene_switcher.switch_scene("res://scenes/endings/goodending.tscn")
+
+
+func _on_button_6_pressed() -> void:
+	scene_switcher.switch_scene("res://scenes/minigames/blackjack/blackjack.tscn")
