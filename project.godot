@@ -17,13 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-globals="*res://scripts/globals.gd"
-signal_bus="*res://scripts/signal_bus.gd"
-scene_switcher="*res://scripts/scene_switcher.gd"
-
-[display]
-
-window/size/resizable=false
+globals="*res://scripts/autoloads/globals.gd"
+signal_bus="*res://scripts/autoloads/signal_bus.gd"
+scene_switcher="*res://scripts/autoloads/scene_switcher.gd"
 
 [dotnet]
 
@@ -44,4 +40,3 @@ spacebar={
 [rendering]
 
 renderer/rendering_method="mobile"
-textures/vram_compression/import_etc2_astc=true

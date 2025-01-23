@@ -11,10 +11,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	egg_timer.start()
-
-func _process(delta: float) -> void:
-	pass
+	egg_timer.start() # Will Fix Later
 
 
 func _on_timer_timeout() -> void:

@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bxj38cvta0sum"]
+[gd_scene load_steps=22 format=3 uid="uid://dyjjg5tvl338k"]
 
 [ext_resource type="Theme" uid="uid://bfsrgu5l6jkid" path="res://themes/default_theme.tres" id="1_7pw56"]
-[ext_resource type="Script" path="res://scripts/main.gd" id="2_6sgbn"]
+[ext_resource type="Script" path="res://scripts/main_scenes/main_hub/main.gd" id="2_6sgbn"]
 [ext_resource type="Texture2D" uid="uid://dx2nc5mw7plo8" path="res://assets/scene_bg/uhhhh_uh_uhhhhh_uh_.png" id="3_6rdc3"]
 [ext_resource type="PackedScene" uid="uid://cj4as34cghrbl" path="res://scenes/hub_components/status_bar.tscn" id="4_wy75m"]
 [ext_resource type="Texture2D" uid="uid://drl3jkmixlu4x" path="res://assets/icons/main_hub/food_icon.png" id="5_omcu1"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b6vkuv83jclj2" path="res://assets/goober_forms/Goober_Adult_Walk-2.png" id="14_ktqci"]
 [ext_resource type="Texture2D" uid="uid://c7loqqymow6h2" path="res://assets/goober_forms/Goober_Adult_Walk-3.png" id="15_v0evp"]
 [ext_resource type="Texture2D" uid="uid://hs6iyet6gqfe" path="res://assets/goober_forms/Goober_Adult_Walk-4.png" id="16_1eehr"]
-[ext_resource type="Script" path="res://scripts/global_timer.gd" id="17_jaela"]
+[ext_resource type="Script" path="res://scripts/main_scenes/main_hub/global_timer.gd" id="17_jaela"]
 [ext_resource type="AudioStream" uid="uid://dx5gy4gvri6cr" path="res://music/bg_music.mp3" id="18_h7yc2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8dxh"]
@@ -114,6 +114,18 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p8dxh")
 
+[node name="Progress" type="Label" parent="ButtonPanel"]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 22.0
+offset_right = 783.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "To Next Level: 0 / 10"
+
 [node name="ShopButton" type="Button" parent="ButtonPanel"]
 layout_mode = 1
 anchors_preset = 3
@@ -176,24 +188,13 @@ unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("7_mlhbn")
 
-[node name="Progress" type="Label" parent="."]
-layout_mode = 0
-offset_left = 381.0
-offset_top = 578.0
-offset_right = 783.0
-offset_bottom = 622.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "To next Level: 0 / 10"
-
 [node name="Goober" type="AnimatedSprite2D" parent="."]
 position = Vector2(925, 329)
 scale = Vector2(0.43337, 0.421732)
 sprite_frames = SubResource("SpriteFrames_ch2yk")
-animation = &"egg"
+animation = &"baby_walk"
 autoplay = "egg"
+frame_progress = 0.965044
 
 [node name="GlobalTimer" type="Node" parent="."]
 script = ExtResource("17_jaela")

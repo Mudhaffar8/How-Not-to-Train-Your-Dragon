@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwuu0vktck34k"]
+[gd_scene load_steps=6 format=3 uid="uid://bvcx726ffngds"]
 
-[ext_resource type="Script" path="res://scripts/flappy_bird.gd" id="1_ewonc"]
+[ext_resource type="Script" path="res://scripts/minigames/flappy_bird/flappy_bird.gd" id="1_ewonc"]
 [ext_resource type="Texture2D" uid="uid://dshwvmbvcclo5" path="res://assets/minigames/flappy_bird/flappygoober1.png" id="2_2x8wl"]
 [ext_resource type="Texture2D" uid="uid://2352jcoee5yl" path="res://assets/minigames/flappy_bird/flappyGoober2.png" id="3_2ax6h"]
 
@@ -26,6 +26,8 @@ height = 75.0
 script = ExtResource("1_ewonc")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-19, 0)
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(-1.99998, 1.00003)
