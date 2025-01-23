@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://4rfy45yeh3ht"]
 
-[ext_resource type="Script" path="res://scripts/minigames/flappy_bird/flappy_mini.gd" id="1_fadyr"]
-[ext_resource type="PackedScene" uid="uid://bvcx726ffngds" path="res://scenes/minigames/flappy_bird/flappy_bird.tscn" id="1_ygvtq"]
-[ext_resource type="Texture2D" uid="uid://cdmi6ormtiyme" path="res://assets/scene_bg/Flappy_bird_bg_2.png" id="2_wr4t4"]
+[ext_resource type="Script" path="res://scripts/flappy_mini.gd" id="1_fadyr"]
+[ext_resource type="PackedScene" uid="uid://bwuu0vktck34k" path="res://scenes/minigames/flappy_bird/flappy_bird.tscn" id="1_ygvtq"]
+[ext_resource type="Texture2D" uid="uid://lfco1u60jmtm" path="res://assets/scene_bg/Flappy_bird_bg_2.png" id="2_comq0"]
 [ext_resource type="AudioStream" uid="uid://bqgparc4k8en3" path="res://music/flappy_musi.mp3" id="4_sxol2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mwfc"]
@@ -17,9 +17,9 @@ script = ExtResource("1_fadyr")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -99
 texture_repeat = 2
-position = Vector2(1151, 322)
-scale = Vector2(0.6, 0.601)
-texture = ExtResource("2_wr4t4")
+position = Vector2(1151, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_comq0")
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 332.0
