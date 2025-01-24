@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var pipe_scene = preload("res://scenes/minigames/flappy_bird/pipe.tscn")
 @onready var pipedown_scene = preload("res://scenes/minigames/flappy_bird/pipedown.tscn")
+@onready var enemy = preload("res://scenes/minigames/flappy_bird/enemy.tscn")
 @onready var pipe_spawn_timer = $PipeSpawnTimer
 @onready var background_sprite = $Sprite2D
 
@@ -36,6 +37,7 @@ func _on_pipe_spawn_timer_timeout() -> void:
 	var ran1 = rng.randi_range(0, 100)
 	if ran1 > 20:
 		var pipe = pipe_scene.instantiate() 
+		
 		pipe.position = Vector2(1100, randf_range(-100, 0))
 		add_child(pipe)
 	
@@ -44,6 +46,12 @@ func _on_pipe_spawn_timer_timeout() -> void:
 		var pipe2 = pipedown_scene.instantiate()
 		pipe2.position = Vector2(1100, randf_range(0, 100))  
 		add_child(pipe2)
+	var ran3 = rng.randi_range(0, 100)
+	if ran1 < 20 or ran2 < 20 and ran3 > 30:
+		var enemy_sc = enemy.instantiate() 
+		enemy_sc.position = Vector2(1100, randf_range(350, 380))
+		add_child(enemy_sc)
+		
 
 func _game_over():
 	pass

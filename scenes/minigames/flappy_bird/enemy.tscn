@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqp467b458jjo"]
+
+[ext_resource type="Texture2D" uid="uid://dgyg3nwuornrw" path="res://assets/minigames/flappy_bird/flappyEnemy2.png" id="1_144o5"]
+[ext_resource type="Script" path="res://scripts/minigames/flappy_bird/enemy.gd" id="1_rsvd0"]
+[ext_resource type="Texture2D" uid="uid://cafxgrhiccc5d" path="res://assets/minigames/flappy_bird/flappyEnemy1.png" id="2_o5qbj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jyfuc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_144o5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o5qbj")
+}],
+"loop": true,
+"name": &"flap",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_om23i"]
+radius = 13.0
+height = 96.0
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_rsvd0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(-1, 1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_jyfuc")
+animation = &"flap"
+autoplay = "flap"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-13, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_om23i")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

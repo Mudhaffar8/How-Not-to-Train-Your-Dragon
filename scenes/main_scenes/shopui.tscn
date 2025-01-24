@@ -86,14 +86,6 @@ process_callback = 0
 wait_time = 1.5
 one_shot = true
 
-[node name="CoinsButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 1107.0
-offset_top = 603.0
-offset_right = 1148.0
-offset_bottom = 641.0
-text = "+$5"
-
 [node name="Buy1" type="Button" parent="Control"]
 z_index = 10
 layout_mode = 0
@@ -281,7 +273,6 @@ stream = ExtResource("13_i5q7v")
 autoplay = true
 
 [connection signal="timeout" from="Control/Coins/Timer" to="Control/Coins" method="_on_timer_timeout"]
-[connection signal="pressed" from="Control/CoinsButton" to="Control/Coins" method="_on_coins_button_pressed"]
 [connection signal="pressed" from="Control/Buy1" to="Control/Coins" method="_on_buy_1_pressed"]
 [connection signal="pressed" from="Control/Buy2" to="Control/Coins" method="_on_buy_2_pressed"]
 [connection signal="pressed" from="Control/Buy4" to="Control/Coins" method="_on_buy_4_pressed"]
