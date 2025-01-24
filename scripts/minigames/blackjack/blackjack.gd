@@ -6,9 +6,18 @@ var dealerCards = []
 var playerCards = []
 var nums = []
 
+var offset_x = 25
+var current_position_p = Vector2(450, 400) # Initial position
+var current_index_p = 1 # Start with the first texture
+var current_position_d = Vector2(450, 150) # Initial position
+var current_index_d = 1 # Start with the first texture
+
+var first_sprite: Sprite2D = null
+var bet_amount = 20
+
 func generate_deck() -> Array:
-	var suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
-	var ranks = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]
+	var suits = ["H", "D", "C", "S"]
+	var ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 	var deck = []
 
 	for suit in suits:
@@ -19,56 +28,88 @@ func generate_deck() -> Array:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	deck = generate_deck()
+	$Label.text = "Your coins: " + str(globals.coins)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+#	pass
 
 
 
 func _on_button_pressed() -> void:
+	if globals.coins < bet_amount:
+		return
 	$Button.disabled = true
 	$Button2.disabled = false
 	$Button3.disabled = false
 	$TextureRect3.text = ""
+	first_sprite = null
+	
+	var children = get_children()
+	globals.coins -= bet_amount
+	$Label.text = "Your coins: " + str(globals.coins)
+	
+	for child in children:
+		if child is Sprite2D:
+			child.queue_free()
+	current_position_p = Vector2(450, 400) # Initial position
+	current_index_p = 1 # Start with the first texture
+	current_position_d = Vector2(450, 150) # Initial position
+	current_index_d = 1 # Start with the first texture
+
+	if len(deck) <= 5:
+		deck = generate_deck() 
 	
 	dealerCards = []
 	playerCards = []
 	
 	var i = 4
 	while i > 0:
-		
+		await get_tree().create_timer(0.85).timeout
 		var ranCard = rng.randi_range(0, len(deck)-1)
 		
 		if i > 2:
 			dealerCards.append(deck[ranCard])
+			if i == 4:
+				_put_new_card(deck[ranCard], "d", true)
+			else:
+				_put_new_card(deck[ranCard], "d")
 		else:
 			playerCards.append(deck[ranCard])
+			_put_new_card(deck[ranCard], "p")
 		deck.erase(deck[ranCard])
 		i -= 1
-	$TextureRect2.text = "xxxxxxx, " + dealerCards[1]
-	$TextureRect4.text = playerCards[0] + ", " + playerCards[1]
+	#$TextureRect2.text = "xxxxxxx, " + dealerCards[1]
+	#$TextureRect4.text = playerCards[0] + ", " + playerCards[1]
 	_hands_to_text(true)
 	_win_con_first()
 	
 func _on_button_2_pressed() -> void:
+	if len(deck) <= 1:
+		deck = generate_deck() 
 	var ranCard = rng.randi_range(0, len(deck) - 1)
 	playerCards.append(deck[ranCard])
 	deck.erase(deck[ranCard])
-	$TextureRect4.text += ", " +playerCards[-1]
+	#$TextureRect4.text += ", " +playerCards[-1]
+	_put_new_card(playerCards[-1], "p")
 	_hands_to_text(true)
 	_win_con(true)
 	
 func _on_button_3_pressed() -> void:
 	$Button2.disabled = true
 	$Button3.disabled = true
-	$TextureRect2.text = dealerCards[0] + ", " + dealerCards[1]
+	#$TextureRect2.text = dealerCards[0] + ", " + dealerCards[1]
+	_switch_closed_card()
 	while(_hand_to_num(dealerCards) < 17):
+		await get_tree().create_timer(0.85).timeout
+		if len(deck) <= 1:
+			deck = generate_deck() 
 		var ranCard = rng.randi_range(0, len(deck) - 1)
 		dealerCards.append(deck[ranCard])
 		deck.erase(deck[ranCard])
-		$TextureRect2.text += ", " +dealerCards[-1]
+		#$TextureRect2.text += ", " +dealerCards[-1]
+		_put_new_card(dealerCards[-1], "d")
 	_hands_to_text()
 	_win_con()
 
@@ -106,8 +147,6 @@ func _win_con_first():
 func _win_con(x = false):
 	var dealer = _hand_to_num(dealerCards)
 	var player = _hand_to_num(playerCards)
-	print(dealer)
-	print( player)
 	if dealer < 21 && player < 21 && x:
 		#win not achieved
 		return
@@ -149,13 +188,53 @@ func _round_over(winner):
 	$Button2.disabled = true
 	$Button3.disabled = true
 	$Button.disabled = false
+	#$TextureRect2.text = ""
+	_switch_closed_card()
+	_hands_to_text()
+	#for i in dealerCards:
+		#$TextureRect2.text += i +", "
+	#var text = $TextureRect2.text
+	#$TextureRect2.text = text.substr(0, len(text) - 2)
+	
 	if winner == "pb":
 		$TextureRect3.text = "Player wins by BlackJack"
+		globals.coins += bet_amount * 3 / 2
 	elif winner == "push":
 		$TextureRect3.text = "Push. Nobody wins"
+		globals.coins += bet_amount
 	elif winner == "p":
 		$TextureRect3.text = "Player wins by Bust"
+		globals.coins += bet_amount * 2
 	elif winner == "db":
 		$TextureRect3.text = "Dealer wins by BlackJack"
 	elif winner == "d":
 		$TextureRect3.text = "Dealer wins by Bust"
+	$Label.text = "Your coins: " + str(globals.coins)
+
+func _put_new_card(card, player, first = false):
+	var texture_path = "res://assets/minigames/blackjack/" + card +  ".png"
+	if first:
+		texture_path = "res://assets/minigames/blackjack/green_back.png"
+	
+	var new_sprite = Sprite2D.new()
+	var texture = load(texture_path)
+	new_sprite.scale = Vector2(0.15, 0.15)
+	new_sprite.texture = texture
+	if player == "d":
+		new_sprite.position = current_position_d
+		current_position_d.x += offset_x
+		current_index_d += 1
+	else:
+		new_sprite.position = current_position_p
+		current_position_p.x += offset_x
+		current_index_p += 1
+
+	if first_sprite == null:
+		first_sprite = new_sprite
+	
+	add_child(new_sprite)
+
+func _switch_closed_card():
+	var texture_path = "res://assets/minigames/blackjack/" + dealerCards[0] +  ".png"
+	var texture = load(texture_path)
+	first_sprite.texture = texture

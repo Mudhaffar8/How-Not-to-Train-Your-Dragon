@@ -5,9 +5,11 @@
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_hxl71")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -143,13 +145,12 @@ theme_override_font_sizes/font_size = 32
 text = "Your Coins: "
 
 [node name="Label2" type="Label" parent="."]
-layout_mode = 0
 offset_left = 800.0
 offset_top = 570.0
 offset_right = 1101.0
 offset_bottom = 620.0
 theme_override_font_sizes/font_size = 32
-text = "Bet amount: 20 coins"
+text = "Bet amount: 30 coins"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
