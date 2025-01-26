@@ -18,7 +18,7 @@ func _ready():
 	$PipeSpawnTimer.start()
 	initbgsize = int(background_sprite.position.x)
 	_on_pipe_spawn_timer_timeout()
-	globals.coinsFlappy = 0
+	globals.coins_earned = 0
 	$Label.text = "Coins collected: 0"
 
 func _physics_process(delta):
@@ -30,9 +30,9 @@ func _physics_process(delta):
 		background_sprite.position.x = initbgsize
 
 func _on_pipe_spawn_timer_timeout() -> void:
-	$Label.text = "Coins collected: " + str(globals.coinsFlappy)
+	$Label.text = "Coins collected: " + str(globals.coins_earned)
 	$PipeSpawnTimer.wait_time = rng.randi_range(2, 4)
-	globals.coinsFlappy += 3
+	globals.coins_earned += 3
 	globals.fun += 1
 	var ran1 = rng.randi_range(0, 100)
 	if ran1 > 20:

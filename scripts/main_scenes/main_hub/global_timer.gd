@@ -3,7 +3,6 @@ extends Node
 @onready var timer = $Timer
 @onready var egg_timer = $EggStateTimer
 
-
 @onready var food_status : StatusBar = %FoodStatus
 @onready var fun_status : StatusBar = %FunStatus
 @onready var health_status : StatusBar = %HealthStatus

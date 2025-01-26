@@ -3,7 +3,7 @@ extends Control
 @onready var shop_button = $ButtonPanel/ShopButton
 @onready var minigames_button = $ButtonPanel/MinigamesButton
 
-@onready var dragon = $Goober
+@onready var goober : Goober = $Goober
 
 @onready var food_status : StatusBar = %FoodStatus
 @onready var fun_status : StatusBar = %FunStatus
@@ -23,19 +23,13 @@ func _process(delta: float) -> void:
 		scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
 		
 	if globals.seconds < globals.egg_time:
-		$Goober.play("egg")
 		globals.main_time = globals.egg_time
-		globals.gooberState = "egg"
 	
-	if globals.seconds >= globals.egg_time and globals.gooberState != "teen":
+	if globals.seconds >= globals.egg_time:
 		globals.main_time = globals.baby_time
-		$Goober.play("baby_walk")
-		globals.gooberState = "baby"
 		
 	if globals.seconds >= globals.baby_time:
 		globals.main_time = globals.teen_time
-		$Goober.play("teen_walk")
-		globals.gooberState = "teen"
 	
 	progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.main_time)
 

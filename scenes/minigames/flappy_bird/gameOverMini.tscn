@@ -40,7 +40,7 @@ theme_override_font_sizes/font_size = 48
 text = "Go to main
 page"
 
-[node name="Label3" type="Label" parent="."]
+[node name="FunCollected" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -52,7 +52,7 @@ offset_bottom = -335.0
 theme_override_font_sizes/font_size = 32
 text = "Fun collected: "
 
-[node name="Label" type="Label" parent="."]
+[node name="CoinsCollected" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -64,7 +64,7 @@ offset_bottom = -401.0
 theme_override_font_sizes/font_size = 32
 text = "Coins collected: "
 
-[node name="Label2" type="Label" parent="."]
+[node name="TotalCoins" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -76,7 +76,7 @@ offset_bottom = -405.0
 theme_override_font_sizes/font_size = 32
 text = "Total coins:"
 
-[node name="Label4" type="Label" parent="."]
+[node name="HealthLost" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
