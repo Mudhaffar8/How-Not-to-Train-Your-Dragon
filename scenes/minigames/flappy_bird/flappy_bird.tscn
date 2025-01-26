@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvcx726ffngds"]
+[gd_scene load_steps=7 format=3 uid="uid://bvcx726ffngds"]
 
 [ext_resource type="Script" path="res://scripts/minigames/flappy_bird/flappy_bird.gd" id="1_ewonc"]
 [ext_resource type="Texture2D" uid="uid://dshwvmbvcclo5" path="res://assets/minigames/flappy_bird/flappygoober1.png" id="2_2x8wl"]
 [ext_resource type="Texture2D" uid="uid://2352jcoee5yl" path="res://assets/minigames/flappy_bird/flappyGoober2.png" id="3_2ax6h"]
+[ext_resource type="Texture2D" uid="uid://cqs02abhqbawv" path="res://assets/minigames/flappy_bird/flappygoober3.png" id="3_g00uw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t4wwf"]
 animations = [{
@@ -11,11 +12,17 @@ animations = [{
 "texture": ExtResource("2_2x8wl")
 }, {
 "duration": 1.0,
+"texture": ExtResource("3_g00uw")
+}, {
+"duration": 1.0,
 "texture": ExtResource("3_2ax6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g00uw")
 }],
 "loop": true,
 "name": &"flap",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38vyh"]
@@ -35,6 +42,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_t4wwf")
 animation = &"flap"
 autoplay = "flap"
+frame_progress = 0.94837
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(21, 2)

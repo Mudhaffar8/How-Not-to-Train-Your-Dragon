@@ -32,8 +32,8 @@ func _physics_process(delta):
 func _on_pipe_spawn_timer_timeout() -> void:
 	$Label.text = "Coins collected: " + str(globals.coinsFlappy)
 	$PipeSpawnTimer.wait_time = rng.randi_range(2, 4)
-	globals.coinsFlappy += 5
-	globals.fun += 2
+	globals.coinsFlappy += 3
+	globals.fun += 1
 	var ran1 = rng.randi_range(0, 100)
 	if ran1 > 20:
 		var pipe = pipe_scene.instantiate() 
@@ -49,7 +49,7 @@ func _on_pipe_spawn_timer_timeout() -> void:
 	var ran3 = rng.randi_range(0, 100)
 	if ran1 < 20 or ran2 < 20 and ran3 > 30:
 		var enemy_sc = enemy.instantiate() 
-		enemy_sc.position = Vector2(1100, randf_range(350, 380))
+		enemy_sc.position = Vector2(1300, randf_range(280, 320))
 		add_child(enemy_sc)
 		
 

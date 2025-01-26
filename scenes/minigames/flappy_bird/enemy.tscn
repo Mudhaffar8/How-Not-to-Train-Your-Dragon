@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqp467b458jjo"]
+[gd_scene load_steps=7 format=3 uid="uid://dqp467b458jjo"]
 
 [ext_resource type="Texture2D" uid="uid://dgyg3nwuornrw" path="res://assets/minigames/flappy_bird/flappyEnemy2.png" id="1_144o5"]
 [ext_resource type="Script" path="res://scripts/minigames/flappy_bird/enemy.gd" id="1_rsvd0"]
 [ext_resource type="Texture2D" uid="uid://cafxgrhiccc5d" path="res://assets/minigames/flappy_bird/flappyEnemy1.png" id="2_o5qbj"]
+[ext_resource type="Texture2D" uid="uid://dm104wsnnmr47" path="res://assets/minigames/flappy_bird/flappyEnemy3.png" id="3_haqca"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jyfuc"]
 animations = [{
@@ -11,7 +12,13 @@ animations = [{
 "texture": ExtResource("1_144o5")
 }, {
 "duration": 1.0,
+"texture": ExtResource("3_haqca")
+}, {
+"duration": 1.0,
 "texture": ExtResource("2_o5qbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_haqca")
 }],
 "loop": true,
 "name": &"flap",
@@ -33,6 +40,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_jyfuc")
 animation = &"flap"
 autoplay = "flap"
+frame_progress = 0.290023
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-13, 2)

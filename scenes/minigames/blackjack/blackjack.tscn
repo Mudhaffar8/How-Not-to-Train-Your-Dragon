@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://hbm68tee2yax"]
 
-[ext_resource type="Texture2D" uid="uid://cqr2483o5iy7a" path="res://assets/scene_bg/coinflip_bg.png" id="1_11j80"]
 [ext_resource type="Script" path="res://scripts/minigames/blackjack/blackjack.gd" id="1_hxl71"]
+[ext_resource type="Texture2D" uid="uid://bwsjcvws4732b" path="res://assets/scene_bg/blackjack.png" id="2_ble6v"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -20,7 +20,7 @@ offset_bottom = 432.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_11j80")
+texture = ExtResource("2_ble6v")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
