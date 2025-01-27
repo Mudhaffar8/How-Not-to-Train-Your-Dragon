@@ -1,7 +1,6 @@
 extends Node
 
 @onready var timer = $Timer
-@onready var egg_timer = $EggStateTimer
 
 @onready var food_status : StatusBar = %FoodStatus
 @onready var fun_status : StatusBar = %FunStatus
@@ -10,12 +9,13 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	egg_timer.start() # Will Fix Later
+	pass
 
 
 func _on_timer_timeout() -> void:
 	globals.seconds += 1
 	
+	# Decrease goober stats by 5 every 5 secoonds
 	if (globals.seconds %  5 == 0):
 		globals.food -= 5
 		globals.fun -= 5
@@ -27,7 +27,3 @@ func _on_timer_timeout() -> void:
 		
 	if (globals.seconds >= globals.teen_time):
 		scene_switcher.switch_scene("res://scenes/endings/goodending.tscn")
-
-
-func _on_egg_state_timer_timeout() -> void:
-	timer.start()

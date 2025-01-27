@@ -1,26 +1,44 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhww3pcmwkley"]
+[gd_scene load_steps=27 format=3 uid="uid://dhww3pcmwkley"]
 
 [ext_resource type="Texture2D" uid="uid://76inb6lrwgd3" path="res://assets/goober_forms/goober_idle2.png" id="1_55iui"]
 [ext_resource type="Script" path="res://scripts/main_scenes/main_hub/goober.gd" id="1_f14bj"]
 [ext_resource type="Texture2D" uid="uid://d0sisrfpuhs7y" path="res://assets/goober_forms/egg.png" id="1_xl6b7"]
+[ext_resource type="Texture2D" uid="uid://hvus2lwnnt7v" path="res://assets/goober_forms/babyGoober_happy.png" id="2_smecx"]
 [ext_resource type="Texture2D" uid="uid://b75bso6d4em8x" path="res://assets/goober_forms/goober_idle3.png" id="2_ys100"]
+[ext_resource type="Texture2D" uid="uid://e7bu7sccwxmi" path="res://assets/goober_forms/babyGoober_happy2.png" id="3_6bi4b"]
 [ext_resource type="Texture2D" uid="uid://c21snlg01at45" path="res://assets/goober_forms/goober_idle4.png" id="3_q0pi1"]
 [ext_resource type="Texture2D" uid="uid://c7mxabn7jspaw" path="res://assets/goober_forms/goober_idle.png" id="4_02j8h"]
 [ext_resource type="Texture2D" uid="uid://bpec8xt6w36rq" path="res://assets/goober_forms/babyGoober_idle1.png" id="5_ck2uo"]
 [ext_resource type="Texture2D" uid="uid://d30xw8yojydk2" path="res://assets/goober_forms/babyGoober_idle2.png" id="6_if0wk"]
 [ext_resource type="Texture2D" uid="uid://ckqh03hsrghlk" path="res://assets/goober_forms/babyGoober_idle3.png" id="7_ilyga"]
 [ext_resource type="Texture2D" uid="uid://waisql7jipft" path="res://assets/goober_forms/babyGoober_idle4.png" id="8_d8c6d"]
+[ext_resource type="Texture2D" uid="uid://dmsocivmij81m" path="res://assets/goober_forms/babyGoober_sneeze2.png" id="8_wr8ig"]
+[ext_resource type="Texture2D" uid="uid://d8ebmy52ttxi" path="res://assets/goober_forms/babyGoober_sneeze.png" id="9_fjfrx"]
 [ext_resource type="Texture2D" uid="uid://b1a28cr2dwf2d" path="res://assets/goober_forms/teenGoober_idle2.png" id="10_6qmri"]
 [ext_resource type="Texture2D" uid="uid://cjbil6mgas0ja" path="res://assets/goober_forms/teenGoober_idle3.png" id="11_kh5lb"]
 [ext_resource type="Texture2D" uid="uid://bqjkpyxcksi2r" path="res://assets/goober_forms/teenGoober_idle4.png" id="12_77lk1"]
 [ext_resource type="Texture2D" uid="uid://dmll3dp6h175c" path="res://assets/goober_forms/teenGoober_idle.png" id="13_nc2lj"]
 [ext_resource type="Texture2D" uid="uid://iulw2bqw0gur" path="res://assets/goober_forms/Goober_Adult_Walk-1.png" id="14_1pq50"]
+[ext_resource type="Texture2D" uid="uid://cpjkhc7u78vgs" path="res://assets/goober_forms/teenGoober_fire2.png" id="15_l5tio"]
 [ext_resource type="Texture2D" uid="uid://b6vkuv83jclj2" path="res://assets/goober_forms/Goober_Adult_Walk-2.png" id="15_r2kug"]
 [ext_resource type="Texture2D" uid="uid://c7loqqymow6h2" path="res://assets/goober_forms/Goober_Adult_Walk-3.png" id="16_cis2w"]
+[ext_resource type="Texture2D" uid="uid://coj2v1m3h7ukg" path="res://assets/goober_forms/teenGoober_fire3.png" id="16_pulwy"]
 [ext_resource type="Texture2D" uid="uid://hs6iyet6gqfe" path="res://assets/goober_forms/Goober_Adult_Walk-4.png" id="17_ddc5a"]
+[ext_resource type="Texture2D" uid="uid://k51o274dwd30" path="res://assets/goober_forms/teenGoober_fire.png" id="17_iljjo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1epx5"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_smecx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6bi4b")
+}],
+"loop": true,
+"name": &"baby_happy",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_55iui")
@@ -37,6 +55,17 @@ animations = [{
 "loop": true,
 "name": &"baby_idle",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_wr8ig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fjfrx")
+}],
+"loop": true,
+"name": &"baby_sneeze",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -62,6 +91,20 @@ animations = [{
 "loop": true,
 "name": &"egg",
 "speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_l5tio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pulwy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_iljjo")
+}],
+"loop": true,
+"name": &"teen_fire",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -104,7 +147,7 @@ script = ExtResource("1_f14bj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1epx5")
-animation = &"baby_idle"
+animation = &"baby_happy"
 
 [node name="StateTimer" type="Timer" parent="."]
 wait_time = 4.0

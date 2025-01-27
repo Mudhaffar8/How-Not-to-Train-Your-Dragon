@@ -25,21 +25,19 @@ func _ready() -> void:
 	
 	boundary_min = screen_size / 2 + Vector2(30.0, -10.0)
 	boundary_max = screen_size - Vector2(30.0, 60.0)
-	
-	print(boundary_min)
-	print(boundary_max)
-	print(position)
 
 
 func _process(delta: float) -> void:
 	if globals.seconds < globals.egg_time:
 		self.scale = Vector2(0.3, 0.3)
+		
 		sprite.play("egg")
 		curr_stage = Stages.EGG
 	
 	# Messy Solution for now oops
 	if globals.seconds >= globals.egg_time and curr_stage != Stages.TEEN:
-		self.scale = Vector2(0.4, 0.4)
+		self.scale = Vector2(0.35, 0.35)
+		
 		if curr_state == States.IDLE:
 			sprite.play("baby_idle")
 		else:
@@ -49,6 +47,7 @@ func _process(delta: float) -> void:
 		
 	if globals.seconds >= globals.baby_time:
 		self.scale = Vector2(0.5, 0.5)
+		
 		if curr_state == States.IDLE:
 			sprite.play("teen_idle")
 		else:
@@ -57,7 +56,7 @@ func _process(delta: float) -> void:
 		curr_stage = Stages.TEEN
 		
 	sprite.flip_h = true if dir.x > 0 else false
-	
+
 func _physics_process(delta: float) -> void:
 	if curr_state == States.WALK and curr_stage != Stages.EGG:
 		velocity = dir * SPEED
@@ -70,7 +69,7 @@ func _physics_process(delta: float) -> void:
 			dir.x *= -1
 
 func _on_state_timer_timeout() -> void:
-	state_timer.wait_time = rng.randi_range(2, 4)
+	state_timer.wait_time = rng.randf_range(2.0, 5.0)
 	
 	if curr_stage == Stages.EGG:
 		return
@@ -80,10 +79,8 @@ func _on_state_timer_timeout() -> void:
 		
 		dir.x = rng.randf_range(-1, 1)
 		dir.y = rng.randf_range(-1, 1)
-		
 		dir = dir.normalized()
 		
-		print(dir)
 	else:
 		curr_state = States.IDLE
 		dir = Vector2.ZERO

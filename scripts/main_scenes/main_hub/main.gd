@@ -13,13 +13,14 @@ extends Control
 
 
 func _ready() -> void: 
+	# Reset status Variables
 	food_status.set_value(globals.food)
 	fun_status.set_value(globals.fun)
 	health_status.set_value(globals.health)
 
 
 func _process(delta: float) -> void:
-	if globals.food > 100 || globals.food < 0 || globals.fun < 0 || globals.health < 0:
+	if globals.food > 100 || globals.food <= 0 || globals.fun <= 0 || globals.health <= 0:
 		scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
 		
 	if globals.seconds < globals.egg_time:
