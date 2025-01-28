@@ -46,7 +46,7 @@ func _on_timer_timeout() -> void:
 		print("Tails")
 		coin_face.text = "Tails"
 		globals.coins -= coinsPerGame / 2
-		coin_sprite.frame = 4
+		coin_sprite.frame = 6
 		coin_sprite.pause()
 		if globals.coins < 0:
 			scene_switcher.switch_scene("res://scenes/endings/badending.tscn")

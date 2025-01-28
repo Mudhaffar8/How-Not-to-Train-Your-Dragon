@@ -1,13 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://xsg0k5rvr8fu"]
+[gd_scene load_steps=16 format=3 uid="uid://xsg0k5rvr8fu"]
 
 [ext_resource type="Script" path="res://scripts/minigames/coin_flip/coinflip.gd" id="1_5x6fo"]
 [ext_resource type="AudioStream" uid="uid://dfgr3lifacr8h" path="res://music/coinFlip_music.mp3" id="2_ajta7"]
 [ext_resource type="Texture2D" uid="uid://cqr2483o5iy7a" path="res://assets/scene_bg/coinflip_bg.png" id="2_qkdjo"]
 [ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/minigames/coinflip/coin_heads.png" id="3_qr0sg"]
+[ext_resource type="Texture2D" uid="uid://b58seyk3b7o4o" path="res://assets/minigames/coinflip/Mid_flip_heads_4.png" id="4_0hh3p"]
 [ext_resource type="Texture2D" uid="uid://bpspdcvax2aji" path="res://assets/minigames/coinflip/Mid_flip_heads.png" id="4_xggpc"]
 [ext_resource type="Texture2D" uid="uid://dk4rar3e0xga3" path="res://assets/minigames/coinflip/flip_side.png" id="5_g3sdx"]
 [ext_resource type="Texture2D" uid="uid://c1kheu0mc2upe" path="res://assets/minigames/coinflip/Mid_flip_Tails.png" id="6_p0wga"]
+[ext_resource type="Texture2D" uid="uid://h0myafbtvcv" path="res://assets/minigames/coinflip/Mid_flip_Tails_2.png" id="7_6tvey"]
 [ext_resource type="Texture2D" uid="uid://bpmpa5kw55qwj" path="res://assets/minigames/coinflip/coin_tails.png" id="7_8vyi6"]
+[ext_resource type="Texture2D" uid="uid://d0gi65y8dck3k" path="res://assets/minigames/coinflip/Mid_flip_Tails_4.png" id="8_d5nc5"]
+[ext_resource type="Texture2D" uid="uid://jjnkfyyi2cgn" path="res://assets/minigames/coinflip/Mid_flip_heads_2.png" id="9_xjhm4"]
+[ext_resource type="Texture2D" uid="uid://bbcfbvto7xo55" path="res://assets/minigames/coinflip/Mid_flip_Tails_3.png" id="10_mhfo5"]
+[ext_resource type="Texture2D" uid="uid://bbpqn5phu83ef" path="res://assets/minigames/coinflip/Mid_flip_heads_3.png" id="13_vpskb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7u1sx"]
 animations = [{
@@ -24,29 +30,41 @@ animations = [{
 "texture": ExtResource("3_qr0sg")
 }, {
 "duration": 1.0,
+"texture": ExtResource("4_0hh3p")
+}, {
+"duration": 1.0,
 "texture": ExtResource("4_xggpc")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_g3sdx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_p0wga")
+"texture": ExtResource("7_6tvey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d5nc5")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_8vyi6")
 }, {
 "duration": 1.0,
+"texture": ExtResource("10_mhfo5")
+}, {
+"duration": 1.0,
 "texture": ExtResource("6_p0wga")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_g3sdx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_xggpc")
+"texture": ExtResource("9_xjhm4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vpskb")
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [node name="Coinflip" type="Control"]
@@ -76,6 +94,7 @@ position = Vector2(592, 268)
 scale = Vector2(0.414889, 0.414889)
 sprite_frames = SubResource("SpriteFrames_7u1sx")
 animation = &"run"
+frame_progress = 0.8629
 
 [node name="CoinButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
