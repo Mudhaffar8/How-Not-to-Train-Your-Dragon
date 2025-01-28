@@ -2,7 +2,7 @@ extends Control
 
 func _on_ready():
 	print(globals.fun, "\n", globals.food)
-	if globals.food < 0:
+	if globals.food <= 0:
 		$Label4.text = "Goober died from\nlack of food"
 	elif globals.food > 100:
 		$Label4.text = "Goober died because\nof overfeeding"
