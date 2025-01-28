@@ -19,8 +19,8 @@ config/icon="res://icon.svg"
 
 globals="*res://scripts/autoloads/globals.gd"
 signal_bus="*res://scripts/autoloads/signal_bus.gd"
-scene_switcher="*res://scripts/autoloads/scene_switcher.gd"
 utils="*res://scripts/autoloads/utils.gd"
+scene_switcher="*res://scenes/transition.tscn"
 
 [dotnet]
 

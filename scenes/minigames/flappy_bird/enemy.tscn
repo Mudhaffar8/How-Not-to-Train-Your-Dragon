@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqp467b458jjo"]
+[gd_scene load_steps=7 format=3 uid="uid://kkwtjvypilku"]
 
 [ext_resource type="Texture2D" uid="uid://dgyg3nwuornrw" path="res://assets/minigames/flappy_bird/flappyEnemy2.png" id="1_144o5"]
 [ext_resource type="Script" path="res://scripts/minigames/flappy_bird/enemy.gd" id="1_rsvd0"]

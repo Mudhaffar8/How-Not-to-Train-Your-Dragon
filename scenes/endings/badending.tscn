@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctn7oocwfmpm8"]
 
-[ext_resource type="Script" path="res://scenes/endings/badending.gd" id="1_fiq4u"]
+[ext_resource type="Script" path="res://scripts/endings/badending.gd" id="1_fiq4u"]
 [ext_resource type="Texture2D" uid="uid://ctjypaqep4wrk" path="res://assets/scene_bg/badending.png" id="1_vlqj6"]
 
 [node name="Badending" type="Control"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c25icl631noyk"]
 
-[ext_resource type="Script" path="res://scenes/endings/goodending.gd" id="1_pqxrq"]
+[ext_resource type="Script" path="res://scripts/endings/goodending.gd" id="1_pqxrq"]
 [ext_resource type="AudioStream" uid="uid://cywqehtb2kr37" path="res://music/chill_ending.mp3" id="2_ka7r4"]
 [ext_resource type="Texture2D" uid="uid://bwqvw7dra2xwg" path="res://assets/scene_bg/chill_guy.png" id="2_vmrcu"]
 
@@ -37,10 +37,6 @@ theme_override_font_sizes/font_size = 48
 text = "YOU LIVED!"
 horizontal_alignment = 1
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_ka7r4")
-autoplay = true
-
 [node name="Restart" type="Button" parent="."]
 layout_mode = 0
 offset_left = 202.0
@@ -48,5 +44,9 @@ offset_top = 392.0
 offset_right = 466.0
 offset_bottom = 459.0
 text = "Restart?"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ka7r4")
+autoplay = true
 
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
