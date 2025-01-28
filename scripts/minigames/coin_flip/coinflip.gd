@@ -9,24 +9,27 @@ extends Control
 
 var rng = RandomNumberGenerator.new()
 var coinsPerGame = 10
+var inGame = false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	coin_count.text = "Your money: \n" + str(globals.coins) + " coins."
+	inGame = false
 
 
 func _on_button_pressed() -> void:
-	instructions1.visible = false
-	coinsPerGame = 10
-	
 	if globals.coins < coinsPerGame:
 		return
-	
+	if inGame:
+		return
+	instructions1.visible = false
+	coinsPerGame = 10
 	globals.coins -= coinsPerGame
 	globals.fun += 3
 	
 	coin_sprite.play()
+	inGame = true
 	$Timer.start()
 	
 
@@ -52,6 +55,7 @@ func _on_timer_timeout() -> void:
 			scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
 			
 	_update_coins_label()
+	inGame = false
 	
 
 
@@ -60,11 +64,15 @@ func _update_coins_label() -> void:
 
 
 func _on_button_2_pressed() -> void:
+	instructions1.visible = false
+	if inGame or globals.coins <= 0:
+		return
 	coinsPerGame = globals.coins
 	globals.coins = 0
-	globals.fun += 10
+	globals.fun += 5
 	_update_coins_label()
 	coin_sprite.play()
+	inGame = true
 	$Timer.start()
 
 
