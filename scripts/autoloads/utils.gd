@@ -2,12 +2,12 @@ extends Node
 
 '''
 General use class for storing functions and enums used across differents scenes.
-Can be accessed using the "utils" node followed by the attribute name.
+Can be accessed using the "utils" node followed by the function/attribute name.
 
 Example Use case
 -------------------
 
-print(utils.test)
+print(utils.test())
 '''
 
 func reset_game():

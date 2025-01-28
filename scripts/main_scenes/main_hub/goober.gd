@@ -9,8 +9,8 @@ const SPEED = 30
 enum Stages { EGG, BABY, TEEN }
 enum States { IDLE, WALK }
 
-var curr_stage : Stages = Stages.EGG
-var curr_state : States = States.IDLE
+var curr_stage = Stages.EGG
+var curr_state = States.IDLE
 var dir = Vector2.ZERO
 
 var rng = RandomNumberGenerator.new()
@@ -77,6 +77,7 @@ func _on_state_timer_timeout() -> void:
 	if curr_state == States.IDLE:
 		curr_state = States.WALK
 		
+		# Randomize direction
 		dir.x = rng.randf_range(-1, 1)
 		dir.y = rng.randf_range(-1, 1)
 		dir = dir.normalized()

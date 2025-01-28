@@ -22,13 +22,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if globals.food > 100 || globals.food <= 0 || globals.fun <= 0 || globals.health <= 0:
 		scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
-		
+	
 	if globals.seconds < globals.egg_time:
 		globals.main_time = globals.egg_time
 	
 	if globals.seconds >= globals.egg_time:
 		globals.main_time = globals.baby_time
-		
+	
 	if globals.seconds >= globals.baby_time:
 		globals.main_time = globals.teen_time
 	
