@@ -18,7 +18,7 @@ func _on_timer_timeout() -> void:
 	# Decrease goober stats by 5 every 5 secoonds
 	if (globals.seconds %  5 == 0):
 		globals.food -= 5
-		globals.fun -= 5
+		globals.fun -= 4
 		
 		# Update Labels
 		food_status.set_value(globals.food)

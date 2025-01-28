@@ -147,7 +147,7 @@ script = ExtResource("1_f14bj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1epx5")
-animation = &"baby_happy"
+animation = &"teen_walk"
 
 [node name="StateTimer" type="Timer" parent="."]
 wait_time = 4.0

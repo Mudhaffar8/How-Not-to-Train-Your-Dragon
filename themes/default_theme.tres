@@ -1,5 +1,68 @@
-[gd_resource type="Theme" format=3 uid="uid://bfsrgu5l6jkid"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bfsrgu5l6jkid"]
+
+[ext_resource type="FontFile" uid="uid://btrwcci7ghtuk" path="res://assets/fonts/Fredoka-Medium.ttf" id="1_odn5j"]
+[ext_resource type="Texture2D" uid="uid://cqtdq4dlq1kn" path="res://assets/main_hub/buttons_gui.png" id="2_t0f7n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4y6no"]
+texture = ExtResource("2_t0f7n")
+region_rect = Rect2(31, 337, 253, 87)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sv6st"]
+texture = ExtResource("2_t0f7n")
+region_rect = Rect2(31, 230, 253, 87)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owmi8"]
+texture = ExtResource("2_t0f7n")
+region_rect = Rect2(31, 124, 253, 87)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxef8"]
+texture = ExtResource("2_t0f7n")
+region_rect = Rect2(33, 22, 253, 87)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1abhs"]
+texture = ExtResource("2_t0f7n")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(31, 230, 253, 87)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6tcm"]
 
 [resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
 Button/font_sizes/font_size = 22
+Button/fonts/font = ExtResource("1_odn5j")
+Button/styles/disabled = SubResource("StyleBoxTexture_4y6no")
+Button/styles/focus = SubResource("StyleBoxTexture_sv6st")
+Button/styles/hover = SubResource("StyleBoxTexture_owmi8")
+Button/styles/normal = SubResource("StyleBoxTexture_yxef8")
+Button/styles/pressed = SubResource("StyleBoxTexture_1abhs")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 1
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_odn5j")
+Label/styles/normal = SubResource("StyleBoxEmpty_d6tcm")
 ProgressBar/font_sizes/font_size = 28

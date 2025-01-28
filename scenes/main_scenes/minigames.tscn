@@ -87,8 +87,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -66.0
-offset_right = 268.0
+offset_left = 18.0
+offset_top = -77.0
+offset_right = 286.0
+offset_bottom = -11.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Back To Hub"
@@ -99,6 +101,26 @@ autostart = true
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 257.0
+offset_right = 766.0
+offset_bottom = 436.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 40
+text = "Minigames 
+supply you with
+Money and Fun!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]

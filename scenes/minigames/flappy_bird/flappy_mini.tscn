@@ -26,6 +26,12 @@ offset_left = 332.0
 offset_top = 504.0
 offset_right = 782.0
 offset_bottom = 571.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 48
 text = "Press space to jump!"
 
@@ -55,6 +61,10 @@ offset_left = 24.0
 offset_top = 585.0
 offset_right = 273.0
 offset_bottom = 630.0
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 32
 text = "Coins collected: "
 

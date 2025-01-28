@@ -210,6 +210,7 @@ func _round_over(winner):
 	elif winner == "d":
 		$TextureRect3.text = "Dealer wins by Bust"
 	$Label.text = "Your coins: " + str(globals.coins)
+	globals.fun += 4
 
 func _put_new_card(card, player, first = false):
 	var texture_path = "res://assets/minigames/blackjack/" + card +  ".png"

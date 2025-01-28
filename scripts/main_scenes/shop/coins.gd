@@ -12,44 +12,37 @@ func _process(delta: float) -> void:
 func _on_buy_1_pressed() -> void:
 	if globals.coins >= 15:
 		globals.coins -= 15
-		globals.food += 20
-		$ErrorLabel.text = "Purchased!"
-		$ErrorLabel.visible = true
+		globals.food += 10
+		_purchased()
 	else:
-		$ErrorLabel.text = "You're too poor!"
-		$ErrorLabel.visible = true
+		_not_enough()
 
 	$Timer.start() 
 	
-func _on_timer_timeout() -> void:
-	$ErrorLabel.visible = false
+
 	
 		
 func _on_buy_2_pressed() -> void:
-	if globals.coins >= 10:
-		globals.coins -= 10
-		globals.food += 10
+	if globals.coins >= 15:
+		globals.coins -= 15
+		globals.food += 5
 		globals.fun += 5
-		$ErrorLabel.text = "Purchased!"
-		$ErrorLabel.visible = true
+		_purchased()
 	else:
-		$ErrorLabel.text = "You're too poor!"
-		$ErrorLabel.visible = true
+		_not_enough()
 	
 	$Timer.start() 
 
 
 func _on_buy_3_pressed() -> void:
-	if globals.coins >= 23:
-		globals.coins -= 23
-		globals.food += 30
-		globals.health += 5
-		globals.fun -= 5
-		$ErrorLabel.text = "Purchased!"
-		$ErrorLabel.visible = true
+	if globals.coins >= 35:
+		globals.coins -= 35
+		globals.food += 5
+		globals.health += 15
+		globals.fun -= 10
+		_purchased()
 	else:
-		$ErrorLabel.text = "You're too poor!"
-		$ErrorLabel.visible = true
+		_not_enough()
 	
 	$Timer.start() 
 
@@ -58,38 +51,46 @@ func _on_buy_4_pressed() -> void:
 	if globals.coins >= 550:
 		globals.coins -= 550
 		globals.food += 90
-		$ErrorLabel.text = "Purchased!"
-		$ErrorLabel.visible = true
+		_purchased()
 	else:
-		$ErrorLabel.text = "You're too poor!"
-		$ErrorLabel.visible = true
+		_not_enough()
 	
 	$Timer.start() 
 
 
 func _on_buy_5_pressed() -> void:
-	if globals.coins >= 19:
-		globals.coins -= 19
+	if globals.coins >= 33:
+		globals.coins -= 33
 		globals.food += 10
 		globals.health += 10
-		$ErrorLabel.text = "Purchased!"
-		$ErrorLabel.visible = true
+		_purchased()
 	else:
-		$ErrorLabel.text = "You're too poor!"
-		$ErrorLabel.visible = true
+		_not_enough()
 	
 	$Timer.start() 
 
 
 func _on_buy_6_pressed() -> void:
-	if globals.coins >= 423:
-		globals.coins -= 423
+	if globals.coins >= 69:
+		globals.coins -= 69
 		globals.fun += 69
-		globals.health -= 15
-		$ErrorLabel.text = "Purchased!"
-		$ErrorLabel.visible = true
+		globals.health -= 30
+		_purchased()
 	else:
-		$ErrorLabel.text = "You're too poor!"
-		$ErrorLabel.visible = true
+		_not_enough()
 	
 	$Timer.start() 
+
+func _on_timer_timeout() -> void:
+	$ErrorLabel.visible = false
+	$"../Sprite2D".visible = false
+
+func _purchased():
+	$ErrorLabel.text = "Purchased!"
+	$ErrorLabel.visible = true
+	$"../Sprite2D".visible = true
+
+func _not_enough():
+	$ErrorLabel.text = "You're too poor!"
+	$ErrorLabel.visible = true
+	$"../Sprite2D".visible = true

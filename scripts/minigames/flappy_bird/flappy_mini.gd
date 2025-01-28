@@ -59,9 +59,9 @@ func _game_over():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "CharacterBody2D":
-		scene_switcher.switch_scene("res://scenes/minigames/flappy_bird/gameOverMini.tscn")
+		scene_switcher.switch_scene("res://scenes/minigames/gameOverMini.tscn")
 
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body.name == "CharacterBody2D":
-		scene_switcher.switch_scene("res://scenes/minigames/flappy_bird/gameOverMini.tscn")
+		scene_switcher.switch_scene("res://scenes/minigames/gameOverMini.tscn")

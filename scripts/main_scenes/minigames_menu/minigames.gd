@@ -30,7 +30,7 @@ func _on_timer_timeout() -> void:
 	globals.seconds += 1
 	if (globals.seconds %  5 == 0):
 		globals.food -= 5
-		globals.fun -= 5
+		globals.fun -= 4
 		
 	if (globals.seconds >= 180):
 		scene_switcher.switch_scene("res://scenes/endings/goodending.tscn")

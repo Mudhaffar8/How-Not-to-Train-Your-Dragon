@@ -24,7 +24,7 @@ func _on_button_pressed() -> void:
 		return
 	
 	globals.coins -= coinsPerGame
-	globals.fun += 5
+	globals.fun += 3
 	
 	coin_sprite.play()
 	$Timer.start()
@@ -52,6 +52,7 @@ func _on_timer_timeout() -> void:
 			scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
 			
 	_update_coins_label()
+	
 
 
 func _update_coins_label() -> void:

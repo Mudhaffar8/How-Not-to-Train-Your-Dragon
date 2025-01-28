@@ -29,7 +29,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if globals.seconds < globals.egg_time:
-		self.scale = Vector2(0.3, 0.3)
+		self.scale = Vector2(0.23, 0.23)
 		
 		sprite.play("egg")
 		curr_stage = Stages.EGG

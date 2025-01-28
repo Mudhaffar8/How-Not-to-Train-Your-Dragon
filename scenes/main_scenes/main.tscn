@@ -12,10 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://dx5gy4gvri6cr" path="res://music/bg_music.mp3" id="18_h7yc2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8dxh"]
-bg_color = Color(1, 1, 1, 0.247059)
+bg_color = Color(0, 0, 0, 0.2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2g7b"]
-bg_color = Color(1, 1, 1, 0.176471)
+bg_color = Color(0, 0, 0, 0.2)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -57,8 +57,12 @@ offset_left = 381.0
 offset_top = 22.0
 offset_right = 783.0
 offset_bottom = 71.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 40
 text = "To Next Level: 0 / 10"
 
@@ -75,6 +79,7 @@ offset_right = -21.0
 offset_bottom = -12.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Shop"
 
@@ -134,6 +139,10 @@ script = ExtResource("17_jaela")
 [node name="Timer" type="Timer" parent="GlobalTimer"]
 process_callback = 0
 autostart = true
+
+[node name="EggStateTimer" type="Timer" parent="GlobalTimer"]
+wait_time = 10.0
+one_shot = true
 
 [node name="BgMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_h7yc2")
