@@ -12,7 +12,7 @@ config_version=5
 
 config/name="WinterGameJam2025"
 run/main_scene="res://scenes/main_scenes/startscreen.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]

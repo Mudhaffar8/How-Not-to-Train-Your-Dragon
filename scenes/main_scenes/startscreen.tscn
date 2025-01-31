@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://g4ogdjeicwyv"]
 
-[ext_resource type="Script" path="res://scripts/main_scenes/start_screen/startscreen.gd" id="1_n78lw"]
+[ext_resource type="Script" path="res://scripts/main_scenes/start_screen/Startscreen.cs" id="1_dt0ed"]
 [ext_resource type="Texture2D" uid="uid://c6ei18eak76yh" path="res://assets/scene_bg/titlescreengrippers.png" id="2_whefa"]
 
 [node name="Startscreen" type="Control"]
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_n78lw")
+script = ExtResource("1_dt0ed")
 
 [node name="Sprite2D" type="TextureRect" parent="."]
 layout_mode = 1
@@ -39,4 +39,4 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 48
 text = "START"
 
-[connection signal="pressed" from="MainButton" to="." method="_on_main_button_pressed"]
+[connection signal="pressed" from="MainButton" to="." method="OnMainButtonPressed"]

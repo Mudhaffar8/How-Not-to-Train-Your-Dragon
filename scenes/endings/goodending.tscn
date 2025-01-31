@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c25icl631noyk"]
 
-[ext_resource type="Script" path="res://scripts/endings/goodending.gd" id="1_pqxrq"]
+[ext_resource type="Script" path="res://scripts/endings/Goodending.cs" id="1_4yoka"]
 [ext_resource type="AudioStream" uid="uid://cywqehtb2kr37" path="res://music/chill_ending.mp3" id="2_ka7r4"]
 [ext_resource type="Texture2D" uid="uid://bwqvw7dra2xwg" path="res://assets/scene_bg/chill_guy.png" id="2_vmrcu"]
 
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_pqxrq")
+script = ExtResource("1_4yoka")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -49,4 +49,4 @@ text = "Restart?"
 stream = ExtResource("2_ka7r4")
 autoplay = true
 
-[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Restart" to="." method="OnRestartPressed"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctn7oocwfmpm8"]
 
-[ext_resource type="Script" path="res://scripts/endings/badending.gd" id="1_fiq4u"]
+[ext_resource type="Script" path="res://scripts/endings/Badending.cs" id="1_sdhs5"]
 [ext_resource type="Texture2D" uid="uid://ctjypaqep4wrk" path="res://assets/scene_bg/badending.png" id="1_vlqj6"]
 
 [node name="Badending" type="Control"]
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fiq4u")
+script = ExtResource("1_sdhs5")
 
 [node name="Sprite2D2" type="TextureRect" parent="."]
 z_index = -99
@@ -109,6 +109,7 @@ modulate = Color(1, 1, 1, 0.8)
 light_mask = 512
 visibility_layer = 512
 z_index = 10
+layout_mode = 0
 offset_left = 12.0
 offset_top = 1.0
 offset_right = 407.0
@@ -126,4 +127,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="ready" from="." to="." method="_on_ready"]
-[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Restart" to="." method="OnRestartPressed"]
