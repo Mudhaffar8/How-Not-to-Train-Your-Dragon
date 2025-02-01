@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7n2v87y8mtwt"]
+
+[ext_resource type="Texture2D" uid="uid://dmm8lesic3mfo" path="res://icon.svg" id="1_1off0"]
+[ext_resource type="Script" path="res://scripts/main_scenes/shop/ShopItem.cs" id="1_xisuk"]
+
+[node name="ShopItem" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xisuk")
+Texture = ExtResource("1_1off0")
+FoodBuff = 10
+Cost = 15
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 9
+
+[node name="Background" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.529412, 0.529412, 0.529412, 1)
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Background"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_right = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1off0")
+expand_mode = 3
+
+[node name="PurchaseButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.65
+theme_override_constants/h_separation = 100
+theme_override_font_sizes/font_size = 15
+text = "Buy: $15
++10 Food
+"
+autowrap_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/PurchaseButton" to="." method="OnPurchaseButtonPressed"]

@@ -1,55 +1,97 @@
-[gd_scene load_steps=14 format=3 uid="uid://bc28m2ismksnh"]
+[gd_scene load_steps=16 format=3 uid="uid://bc28m2ismksnh"]
 
-[ext_resource type="Script" path="res://scripts/main_scenes/shop/control.gd" id="1_55ea1"]
+[ext_resource type="Script" path="res://scripts/main_scenes/shop/Shop.cs" id="1_agpvn"]
+[ext_resource type="PackedScene" uid="uid://c7n2v87y8mtwt" path="res://scenes/hub_components/shop_item.tscn" id="2_1vcc1"]
 [ext_resource type="Texture2D" uid="uid://qoi5rf3bkfcm" path="res://assets/scene_bg/shop.png" id="2_06muu"]
-[ext_resource type="Script" path="res://scripts/main_scenes/shop/coins.gd" id="3_7e32l"]
+[ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/minigames/coinflip/coin_heads.png" id="4_bie3s"]
 [ext_resource type="Texture2D" uid="uid://pqsq5wgyjtr2" path="res://assets/icons/food/steak.png" id="6_aqxe0"]
 [ext_resource type="Texture2D" uid="uid://bhm5huus045ox" path="res://assets/icons/food/sweet.png" id="7_khkrj"]
 [ext_resource type="Texture2D" uid="uid://dq85vul6ft4t" path="res://assets/icons/food/cow.png" id="8_s0spk"]
-[ext_resource type="Texture2D" uid="uid://dukeg14td56q7" path="res://assets/icons/food/broccoli.png" id="9_v1cju"]
+[ext_resource type="Texture2D" uid="uid://dukeg14td56q7" path="res://assets/icons/food/broccoli.png" id="9_6ytlh"]
+[ext_resource type="Texture2D" uid="uid://bas8ec8asfrac" path="res://assets/icons/food/sleepyPills.png" id="9_nn4ho"]
 [ext_resource type="Texture2D" uid="uid://dtkkia6ys3bms" path="res://assets/icons/food/carrot.png" id="10_bxufj"]
-[ext_resource type="Texture2D" uid="uid://bas8ec8asfrac" path="res://assets/icons/food/fent.png" id="11_kdjjx"]
 [ext_resource type="Texture2D" uid="uid://ci2t2ppknt0dx" path="res://assets/icons/food/shop_bubble.png" id="12_jfpwn"]
-[ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/minigames/coinflip/coin_heads.png" id="12_nyhsr"]
 [ext_resource type="AudioStream" uid="uid://dm65832esy5jq" path="res://music/shop_music.mp3" id="13_i5q7v"]
 
-[sub_resource type="GDScript" id="GDScript_d1c21"]
-script/source = "extends Label
+[sub_resource type="Animation" id="Animation_i07kn"]
+resource_name = "RESET"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(308, 197)]
+}
 
+[sub_resource type="Animation" id="Animation_xmtgn"]
+resource_name = "Fade In"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(308, 140), Vector2(308, 197)]
+}
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y7h2n"]
+_data = {
+"Fade In": SubResource("Animation_xmtgn"),
+"RESET": SubResource("Animation_i07kn")
+}
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
-[node name="ShopUi" type="Control"]
+[node name="Shop" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_agpvn")
+metadata/_edit_lock_ = true
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_55ea1")
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_i5q7v")
+autoplay = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
-position = Vector2(300, 208)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("12_jfpwn")
-
-[node name="ShopBackground" type="TextureRect" parent="Control"]
+[node name="ShopBackground" type="TextureRect" parent="."]
 z_index = -10
 layout_mode = 1
 anchors_preset = 15
@@ -59,13 +101,34 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_06muu")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
-[node name="Coins" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 191.0
-offset_top = 14.0
-offset_right = 310.0
-offset_bottom = 73.0
+[node name="BackButton" type="Button" parent="."]
+z_index = 10
+layout_mode = 1
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 105.0
+offset_bottom = 91.0
+text = "Go Back"
+
+[node name="CoinContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 119.0
+offset_top = 8.0
+offset_right = 269.0
+offset_bottom = 78.0
+metadata/_edit_group_ = true
+
+[node name="CoinSprite" type="TextureRect" parent="CoinContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_bie3s")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CoinsText" type="Label" parent="CoinContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -73,23 +136,30 @@ theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 45
 text = "50"
 vertical_alignment = 1
-script = ExtResource("3_7e32l")
 
-[node name="ErrorLabel" type="Label" parent="Control/Coins"]
+[node name="SpeechBubble" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(308, 197)
+metadata/_edit_group_ = true
+
+[node name="Bubble" type="Sprite2D" parent="SpeechBubble"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("12_jfpwn")
+
+[node name="SpeechText" type="Label" parent="SpeechBubble"]
 z_index = 100
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = -0.278
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = -0.278
-offset_left = -151.0
-offset_top = 117.402
-offset_right = 133.0
-offset_bottom = 250.402
+anchor_bottom = 1.0
+offset_left = -113.0
+offset_top = -74.0
+offset_right = 103.0
+offset_bottom = 25.14
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -97,52 +167,37 @@ theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 44
-text = "Welcome
-to shop!"
+theme_override_font_sizes/font_size = 40
+text = "Welcome to the Shop!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-script = SubResource("GDScript_d1c21")
 
-[node name="Timer" type="Timer" parent="Control/Coins"]
-process_callback = 0
-wait_time = 3.5
+[node name="SpeechTimer" type="Timer" parent="SpeechBubble"]
+wait_time = 1.5
 one_shot = true
 
-[node name="Buy1" type="Button" parent="Control"]
-z_index = 10
-layout_mode = 0
-offset_left = 568.0
-offset_top = 277.0
-offset_right = 718.0
-offset_bottom = 331.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 15
-text = "Buy: $15
-+10 Food"
+[node name="SpeechAnimPlayer" type="AnimationPlayer" parent="SpeechBubble"]
+libraries = {
+"": SubResource("AnimationLibrary_y7h2n")
+}
 
-[node name="ColorRect" type="ColorRect" parent="Control/Buy1"]
-z_index = 10
-layout_mode = 0
-offset_top = -161.0
-offset_right = 150.0
-offset_bottom = -11.0
-color = Color(0.529067, 0.529067, 0.529067, 1)
+[node name="ShopContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -580.0
+offset_top = 42.0
+offset_right = -69.0
+offset_bottom = 561.0
+grow_horizontal = 0
+theme_override_constants/separation = 20
+metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Buy1"]
+[node name="Title" type="Label" parent="ShopContainer"]
 z_index = 10
-position = Vector2(70, -78)
-scale = Vector2(0.22815, 0.192215)
-texture = ExtResource("6_aqxe0")
-
-[node name="Title" type="Label" parent="Control"]
-z_index = 10
-layout_mode = 0
-offset_left = 697.0
-offset_top = 33.0
-offset_right = 956.0
-offset_bottom = 110.0
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -155,170 +210,50 @@ text = "Shop"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buy2" type="Button" parent="Control"]
-z_index = 10
-layout_mode = 0
-offset_left = 751.0
-offset_top = 278.0
-offset_right = 901.0
-offset_bottom = 332.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 15
-text = "Buy: $15
-+5 Food  +5 Fun"
+[node name="ShopItems" type="GridContainer" parent="ShopContainer"]
+custom_minimum_size = Vector2(0, 440)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 180
+theme_override_constants/v_separation = 220
+columns = 3
 
-[node name="ColorRect" type="ColorRect" parent="Control/Buy2"]
-z_index = 10
-layout_mode = 0
-offset_top = -161.0
-offset_right = 150.0
-offset_bottom = -11.0
-color = Color(0.529067, 0.529067, 0.529067, 1)
+[node name="Steak" parent="ShopContainer/ShopItems" instance=ExtResource("2_1vcc1")]
+layout_mode = 2
+Texture = ExtResource("6_aqxe0")
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Buy2"]
-z_index = 10
-position = Vector2(72, -76)
-scale = Vector2(0.204138, 0.204138)
-texture = ExtResource("7_khkrj")
+[node name="Chocolate" parent="ShopContainer/ShopItems" instance=ExtResource("2_1vcc1")]
+layout_mode = 2
+Texture = ExtResource("7_khkrj")
+FoodBuff = 5
+FunBuff = 5
 
-[node name="Buy4" type="Button" parent="Control"]
-z_index = 10
-layout_mode = 0
-offset_left = 569.0
-offset_top = 524.0
-offset_right = 719.0
-offset_bottom = 578.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 15
-text = "Buy: $550
-+90 Food"
+[node name="Broccoli" parent="ShopContainer/ShopItems" instance=ExtResource("2_1vcc1")]
+layout_mode = 2
+Texture = ExtResource("9_6ytlh")
+FoodBuff = 5
+HealthBuff = 15
+FunBuff = -12
+Cost = 30
 
-[node name="ColorRect" type="ColorRect" parent="Control/Buy4"]
-z_index = 10
-layout_mode = 0
-offset_top = -161.0
-offset_right = 150.0
-offset_bottom = -11.0
-color = Color(0.529067, 0.529067, 0.529067, 1)
+[node name="Cow" parent="ShopContainer/ShopItems" instance=ExtResource("2_1vcc1")]
+layout_mode = 2
+Texture = ExtResource("8_s0spk")
+FoodBuff = 90
+Cost = 550
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Buy4"]
-z_index = 10
-position = Vector2(76, -97)
-scale = Vector2(0.316741, 0.316741)
-texture = ExtResource("8_s0spk")
+[node name="Carrot" parent="ShopContainer/ShopItems" instance=ExtResource("2_1vcc1")]
+layout_mode = 2
+Texture = ExtResource("10_bxufj")
+HealthBuff = 10
+Cost = 33
 
-[node name="Buy3" type="Button" parent="Control"]
-z_index = 10
-layout_mode = 0
-offset_left = 935.0
-offset_top = 278.0
-offset_right = 1085.0
-offset_bottom = 343.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 15
-text = "Buy: $30
-+5 Food +15 Health
- -12 Fun"
+[node name="SleepingPills" parent="ShopContainer/ShopItems" instance=ExtResource("2_1vcc1")]
+layout_mode = 2
+Texture = ExtResource("9_nn4ho")
+FoodBuff = 69
+HealthBuff = -30
+Cost = 69
 
-[node name="ColorRect" type="ColorRect" parent="Control/Buy3"]
-z_index = 10
-layout_mode = 0
-offset_top = -161.0
-offset_right = 150.0
-offset_bottom = -11.0
-color = Color(0.529067, 0.529067, 0.529067, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="Control/Buy3"]
-z_index = 10
-position = Vector2(73, -72)
-scale = Vector2(0.191741, 0.191741)
-texture = ExtResource("9_v1cju")
-
-[node name="Buy5" type="Button" parent="Control"]
-z_index = 10
-layout_mode = 0
-offset_left = 752.0
-offset_top = 525.0
-offset_right = 902.0
-offset_bottom = 579.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 15
-text = "Buy: $33
-+10 Food +10 Health"
-
-[node name="ColorRect" type="ColorRect" parent="Control/Buy5"]
-z_index = 10
-layout_mode = 0
-offset_top = -161.0
-offset_right = 150.0
-offset_bottom = -11.0
-color = Color(0.529067, 0.529067, 0.529067, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="Control/Buy5"]
-z_index = 10
-position = Vector2(71, -82)
-scale = Vector2(0.234155, 0.234155)
-texture = ExtResource("10_bxufj")
-
-[node name="Buy6" type="Button" parent="Control"]
-z_index = 10
-layout_mode = 0
-offset_left = 936.0
-offset_top = 525.0
-offset_right = 1086.0
-offset_bottom = 579.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 15
-text = "Buy: $69
-+69 Fun -30 Health"
-
-[node name="ColorRect" type="ColorRect" parent="Control/Buy6"]
-z_index = 10
-layout_mode = 0
-offset_top = -161.0
-offset_right = 150.0
-offset_bottom = -11.0
-color = Color(0.529067, 0.529067, 0.529067, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="Control/Buy6"]
-z_index = 10
-position = Vector2(80, -75)
-scale = Vector2(0.28866, 0.28866)
-texture = ExtResource("11_kdjjx")
-
-[node name="GoBack" type="Button" parent="Control"]
-z_index = 10
-layout_mode = 0
-offset_left = 6.0
-offset_top = 1.0
-offset_right = 106.0
-offset_bottom = 89.0
-text = "Go Back"
-
-[node name="CoinSprite" type="Sprite2D" parent="Control"]
-position = Vector2(157.357, 43.4375)
-scale = Vector2(0.0523333, 0.0523333)
-texture = ExtResource("12_nyhsr")
-
-[node name="Timer" type="Timer" parent="Control"]
-process_callback = 0
-autostart = true
-
-[node name="Timer2" type="Timer" parent="Control"]
-wait_time = 5.0
-one_shot = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_i5q7v")
-autoplay = true
-
-[connection signal="timeout" from="Control/Coins/Timer" to="Control/Coins" method="_on_timer_timeout"]
-[connection signal="pressed" from="Control/Buy1" to="Control/Coins" method="_on_buy_1_pressed"]
-[connection signal="pressed" from="Control/Buy2" to="Control/Coins" method="_on_buy_2_pressed"]
-[connection signal="pressed" from="Control/Buy4" to="Control/Coins" method="_on_buy_4_pressed"]
-[connection signal="pressed" from="Control/Buy3" to="Control/Coins" method="_on_buy_3_pressed"]
-[connection signal="pressed" from="Control/Buy5" to="Control/Coins" method="_on_buy_5_pressed"]
-[connection signal="pressed" from="Control/Buy6" to="Control/Coins" method="_on_buy_6_pressed"]
-[connection signal="pressed" from="Control/GoBack" to="Control" method="_on_go_back_pressed"]
-[connection signal="timeout" from="Control/Timer" to="Control" method="_on_timer_timeout"]
-[connection signal="timeout" from="Control/Timer2" to="Control" method="_on_timer_2_timeout"]
+[connection signal="pressed" from="BackButton" to="." method="OnBackButtonPressed"]
+[connection signal="timeout" from="SpeechBubble/SpeechTimer" to="." method="OnSpeechTimerTimeout"]

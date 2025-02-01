@@ -22,12 +22,12 @@ public partial class State : Node
     /// <summary>
     /// Equivalent to _PhysicsProcess.
     /// </summary>
-    /// <param name="delta">Time passed in miliseconds.</param>
+    /// <param name="delta">Time passed in seconds each frame.</param>
     public virtual void PhysicsProcess(double delta) {}
 
     /// <summary>
     /// Equivalent to _Process.
     /// </summary>
-    /// <param name="delta"></param>
+    /// <param name="delta">Time passed in seconds each frame.</param>
     public virtual void Process(double delta) {}
 }

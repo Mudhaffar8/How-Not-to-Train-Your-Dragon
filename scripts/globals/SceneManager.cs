@@ -26,7 +26,7 @@ public partial class SceneManager : Node
     /// <summary>
     /// Switches the current scene to a new scene.
     /// </summary>
-    /// <param name="path">Path to Scene file.</param>
+    /// <param name="path">Path to the new scene.</param>
     /// <example>
     /// Example usage:
     /// <code>
@@ -35,7 +35,7 @@ public partial class SceneManager : Node
     /// </example>
     /// <remarks>
     /// The SwitchScene method will load the specified scene and transition to it. 
-    /// Ensure the scene path is valid and the scene is properly set up.
+    /// Make sure the scene path is valid and the scene is properly set up.
     /// </remarks>
     public void SwitchScene(string path) 
     {
