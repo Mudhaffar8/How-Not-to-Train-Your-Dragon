@@ -1,6 +1,9 @@
 using Godot;
 using System;
 
+/// <summary>
+/// Class for managing/handling shop transactions and other miscellenous things.
+/// </summary> 
 public partial class Shop : Control
 {
     private GridContainer _shopGrid;
@@ -30,12 +33,13 @@ public partial class Shop : Control
         }
 
         _speechAnimPlayer.Play("Fade In");
+        _speechTimer.Start();
+
+        _coinsLabel.Text = Convert.ToString(GameManager.Coins);
     }
 
     private void HandlePurchase(ShopItem item)
     {
-        _speechAnimPlayer.Play("Fade In");
-
         if (GameManager.Coins >= item.Cost)
         {
             item.ApplyBuffs();
@@ -45,6 +49,7 @@ public partial class Shop : Control
             _speechText.Text = "You're too poor!";
         }
 
+        _speechAnimPlayer.Play("Fade In");
         _speechBubble.Visible = true;
         _speechTimer.Start();
     }

@@ -50,4 +50,6 @@ text = "Buy: $15
 "
 autowrap_mode = 2
 
+[node name="PurchaseSuccessSFX" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="pressed" from="HBoxContainer/PurchaseButton" to="." method="OnPurchaseButtonPressed"]

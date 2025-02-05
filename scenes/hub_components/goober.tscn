@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dhww3pcmwkley"]
+[gd_scene load_steps=30 format=3 uid="uid://dhww3pcmwkley"]
 
 [ext_resource type="Texture2D" uid="uid://76inb6lrwgd3" path="res://assets/goober_forms/goober_idle2.png" id="1_55iui"]
 [ext_resource type="Script" path="res://scripts/main_scenes/main_hub/goober.gd" id="1_f14bj"]
@@ -25,6 +25,9 @@
 [ext_resource type="Texture2D" uid="uid://coj2v1m3h7ukg" path="res://assets/goober_forms/teenGoober_fire3.png" id="16_pulwy"]
 [ext_resource type="Texture2D" uid="uid://hs6iyet6gqfe" path="res://assets/goober_forms/Goober_Adult_Walk-4.png" id="17_ddc5a"]
 [ext_resource type="Texture2D" uid="uid://k51o274dwd30" path="res://assets/goober_forms/teenGoober_fire.png" id="17_iljjo"]
+[ext_resource type="Script" path="res://scripts/goober_ai/StateMachine.cs" id="26_nlpvp"]
+[ext_resource type="Script" path="res://scripts/goober_ai/states/Idle.cs" id="27_doq2p"]
+[ext_resource type="Script" path="res://scripts/goober_ai/states/Walk.cs" id="28_li13s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1epx5"]
 animations = [{
@@ -152,5 +155,15 @@ animation = &"teen_walk"
 [node name="StateTimer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("26_nlpvp")
+_initialState = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("27_doq2p")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("28_li13s")
 
 [connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]

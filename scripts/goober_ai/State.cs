@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 /// <summary>
-/// General state class for StateMachine. 
+/// Generic state class for StateMachine. 
 /// </summary>
 public partial class State : Node
 {
@@ -10,7 +10,7 @@ public partial class State : Node
     public Action<State, string> TransitionEvent;
 
     /// <summary>
-    /// The method that's called when first entering the state. 
+    /// The method that's called when first entering this state. 
     /// </summary>
     public virtual void Enter() {}
     

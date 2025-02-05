@@ -18,7 +18,7 @@ public partial class Badending : Control
 	/// <summary>
 	/// Searches through dictionary to find death reason.
 	/// </summary> 
-    public override void _Ready()
+	public override void _Ready()
     {		
 		_deathLabel = GetNode<Label>("Label4");
 		_deathLabel.Text = "Reason: IDK why tbh.";

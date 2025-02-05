@@ -13,12 +13,12 @@ public static class GameManager
     public static int Coins { get; set; } = 50;
     public static int CoinsEarned { get; set; } = 0; // For minigames
 
-    // Goober Stats
+    // Goober's Base Stats.
     public static float Food { get; set; } = 50.0f;
     public static float Fun { get; set; } = 50.0f;
     public static float Health { get; set; } = 50.0f;
 
-    // Managing Goober Stages
+    // Managing Goober's States.
     public static int Seconds { get; set; } = 0;
     public static int MainTime { get; set; } = 50;
     public static int EggTime { get; } = 50;
