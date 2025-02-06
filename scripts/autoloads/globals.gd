@@ -10,6 +10,7 @@ Example Use case
 
 print(globals.coins)
 '''
+
 # Coins
 var coins : int = 50
 var coins_earned : int = 0 # For minigames

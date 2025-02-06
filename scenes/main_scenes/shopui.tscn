@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dq85vul6ft4t" path="res://assets/icons/food/cow.png" id="8_s0spk"]
 [ext_resource type="Texture2D" uid="uid://dukeg14td56q7" path="res://assets/icons/food/broccoli.png" id="9_v1cju"]
 [ext_resource type="Texture2D" uid="uid://dtkkia6ys3bms" path="res://assets/icons/food/carrot.png" id="10_bxufj"]
-[ext_resource type="Texture2D" uid="uid://bas8ec8asfrac" path="res://assets/icons/food/fent.png" id="11_kdjjx"]
+[ext_resource type="Texture2D" uid="uid://bas8ec8asfrac" path="res://assets/icons/food/sleepyPills.png" id="11_kdjjx"]
 [ext_resource type="Texture2D" uid="uid://ci2t2ppknt0dx" path="res://assets/icons/food/shop_bubble.png" id="12_jfpwn"]
 [ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/minigames/coinflip/coin_heads.png" id="12_nyhsr"]
 [ext_resource type="AudioStream" uid="uid://dm65832esy5jq" path="res://music/shop_music.mp3" id="13_i5q7v"]
@@ -269,8 +269,8 @@ offset_right = 1086.0
 offset_bottom = 579.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 15
-text = "Buy: $69
-+69 Fun -30 Health"
+text = "Buy: $70
++70 Fun -30 Health"
 
 [node name="ColorRect" type="ColorRect" parent="Control/Buy6"]
 z_index = 10

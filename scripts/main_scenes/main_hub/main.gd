@@ -5,10 +5,12 @@ extends Control
 
 @onready var goober : Goober = $Goober
 
+# Goober status bars
 @onready var food_status : StatusBar = %FoodStatus
 @onready var fun_status : StatusBar = %FunStatus
 @onready var health_status : StatusBar = %HealthStatus
 
+# Manages Goober's progress
 @onready var progress : Label = $ButtonPanel/Progress
 
 
@@ -20,9 +22,6 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if globals.food > 100 || globals.food <= 0 || globals.fun <= 0 || globals.health <= 0:
-		scene_switcher.switch_scene("res://scenes/endings/badending.tscn")
-	
 	if globals.seconds < globals.egg_time:
 		globals.main_time = globals.egg_time
 	
@@ -32,6 +31,7 @@ func _process(delta: float) -> void:
 	if globals.seconds >= globals.baby_time:
 		globals.main_time = globals.teen_time
 	
+	# Update progress label
 	progress.text = "To Next Level: " + str(globals.seconds) + " / " + str(globals.main_time)
 
 

@@ -71,9 +71,9 @@ func _on_buy_5_pressed() -> void:
 
 
 func _on_buy_6_pressed() -> void:
-	if globals.coins >= 69:
-		globals.coins -= 69
-		globals.fun += 69
+	if globals.coins >= 70:
+		globals.coins -= 70
+		globals.fun += 70
 		globals.health -= 30
 		_purchased()
 	else:

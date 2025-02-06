@@ -35,7 +35,7 @@ func _deferred_switch_scene(path : String, speed : float):
 	Not to be called directly.
 	Free current scene and load new scene as current scene
 	'''
-	# Fade in
+	# Animation in
 	anim_player.play("fade", -1, speed)
 	await anim_player.animation_finished
 	
@@ -48,6 +48,6 @@ func _deferred_switch_scene(path : String, speed : float):
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene
 	
-	# Fade out
+	# Animation out
 	anim_player.play_backwards("fade")
 	await anim_player.animation_finished

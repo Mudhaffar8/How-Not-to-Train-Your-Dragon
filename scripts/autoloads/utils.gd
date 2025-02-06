@@ -11,6 +11,9 @@ print(utils.test())
 '''
 
 func reset_game():
+	'''
+	Reset Goober attributes and switch to main scene
+	'''
 	globals.food = 50
 	globals.health = 50
 	globals.fun = 50

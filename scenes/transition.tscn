@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/autoloads/scene_switcher.gd" id="1_xtmls"]
 
-[sub_resource type="Animation" id="Animation_d4t45"]
+[sub_resource type="Animation" id="Animation_q3vnu"]
 resource_name = "RESET"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,9 +17,9 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_45d0p"]
+[sub_resource type="Animation" id="Animation_eadeg"]
 resource_name = "fade"
-length = 0.3
+length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,16 +27,16 @@ tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.233333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vbxta"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xwj1s"]
 _data = {
-"RESET": SubResource("Animation_d4t45"),
-"fade": SubResource("Animation_45d0p")
+"RESET": SubResource("Animation_q3vnu"),
+"fade": SubResource("Animation_eadeg")
 }
 
 [node name="Transition" type="CanvasLayer"]
@@ -55,5 +54,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_vbxta")
+"": SubResource("AnimationLibrary_xwj1s")
 }
