@@ -22,6 +22,10 @@ signal_bus="*res://scripts/autoloads/signal_bus.gd"
 utils="*res://scripts/autoloads/utils.gd"
 scene_switcher="*res://scenes/transition.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="WinterGameJam2025"
