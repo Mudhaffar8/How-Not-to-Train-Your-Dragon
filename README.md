@@ -1,6 +1,6 @@
 # How NOT to Train Your Dragon
 ![glnV6x](https://github.com/user-attachments/assets/1270f857-e553-4071-9b80-8f99af9cd6fa)
-![image](https://github.com/user-attachments/assets/1d0a4624-c159-40d9-94c2-9e415e18a771)
+![image](https://github.com/user-attachments/assets/d076b9a4-6aee-4426-ab12-fb459f0e70d8)
 ![wyh+T8](https://github.com/user-attachments/assets/09fbef46-9762-4a7e-b92a-f40cf04f052d)
 ![nIYRd7](https://github.com/user-attachments/assets/428cf4bd-3906-4e06-b3f3-23f300647ab2)
 
