@@ -108,15 +108,15 @@ z_index = 10
 layout_mode = 1
 offset_left = 5.0
 offset_top = 3.0
-offset_right = 105.0
-offset_bottom = 91.0
+offset_right = 102.0
+offset_bottom = 88.0
 text = "Go Back"
 
 [node name="CoinContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-offset_left = 119.0
-offset_top = 8.0
-offset_right = 269.0
+offset_left = 138.0
+offset_top = 10.0
+offset_right = 275.0
 offset_bottom = 78.0
 metadata/_edit_group_ = true
 
@@ -124,7 +124,7 @@ metadata/_edit_group_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("4_bie3s")
-expand_mode = 1
+expand_mode = 2
 stretch_mode = 4
 
 [node name="CoinsText" type="Label" parent="CoinContainer"]
@@ -136,7 +136,7 @@ theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 50
 text = "50"
 vertical_alignment = 1
 
@@ -187,10 +187,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -580.0
-offset_top = 42.0
-offset_right = -69.0
-offset_bottom = 561.0
+offset_left = -578.0
+offset_top = 41.0
+offset_right = -67.0
+offset_bottom = 560.0
 grow_horizontal = 0
 theme_override_constants/separation = 20
 metadata/_edit_group_ = true

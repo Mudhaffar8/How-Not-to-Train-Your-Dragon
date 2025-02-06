@@ -13,8 +13,8 @@ Cost = 15
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 150.0
+offset_bottom = 214.0
 theme_override_constants/separation = 9
 
 [node name="Background" type="ColorRect" parent="HBoxContainer"]
