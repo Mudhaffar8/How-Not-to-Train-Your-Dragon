@@ -1,6 +1,6 @@
 # How NOT to Train Your Dragon
 ![glnV6x](https://github.com/user-attachments/assets/1270f857-e553-4071-9b80-8f99af9cd6fa)
-![0aljTv](https://github.com/user-attachments/assets/2f268280-d7b2-462f-90f7-c65712e5f5c9)
+![0aljTv](https://github.com/user-attachments/assets/ae6c62ea-8542-4be7-aacf-47e475a2a7ae)
 ![wyh+T8](https://github.com/user-attachments/assets/09fbef46-9762-4a7e-b92a-f40cf04f052d)
 ![nIYRd7](https://github.com/user-attachments/assets/428cf4bd-3906-4e06-b3f3-23f300647ab2)
 
@@ -9,7 +9,7 @@ HNTYD is a virtual pet simulator where you are challenged to raise Goober, your 
 
 This project is still in active development, so stay tuned for more stuff.
 
-All of the in game art components are original (made by our artists)
+All of the in-game art components are original (made by our artists)
 
 Created for the 2025 BMO NXT LVL x TMU WINTER GAME JAM in under 2 days (first version)
 
