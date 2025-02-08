@@ -1,9 +1,12 @@
 using Godot;
 
-public partial class Startscreen : Control
+namespace TrainYourDragon.MainScenes
 {
-    private void OnMainButtonPressed() 
+    public partial class Startscreen : Control
     {
-        SceneManager.Instance.SwitchScene("res://scenes/main_scenes/main.tscn");
+        private void OnMainButtonPressed() 
+        {
+            SceneManager.Instance.SwitchScene(GameScenes.MAIN_HUB);
+        }
     }
 }

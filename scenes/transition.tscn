@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccfnyq0713xo0"]
 
-[ext_resource type="Script" path="res://scripts/globals/SceneManager.cs" id="1_mnrd1"]
+[ext_resource type="Script" path="res://scripts/Singletons/SceneManager.cs" id="1_mnrd1"]
 
 [sub_resource type="Animation" id="Animation_d4t45"]
 resource_name = "RESET"
@@ -41,6 +41,7 @@ _data = {
 }
 
 [node name="Transition" type="CanvasLayer"]
+layer = 100
 script = ExtResource("1_mnrd1")
 
 [node name="ColorRect" type="ColorRect" parent="."]

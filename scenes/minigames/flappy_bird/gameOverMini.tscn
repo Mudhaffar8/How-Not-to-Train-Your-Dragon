@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://recm6iyi4x5u"]
 
-[ext_resource type="Script" path="res://scripts/minigames/flappy_bird/game_over_mini.gd" id="1_in7rb"]
-[ext_resource type="Texture2D" uid="uid://ckrxkqpfdjiap" path="res://assets/scene_bg/game_over.png" id="2_5ktb1"]
+[ext_resource type="Script" path="res://scripts/minigames/flappy_bird/GameOver.cs" id="1_imcsp"]
+[ext_resource type="Texture2D" uid="uid://ckrxkqpfdjiap" path="res://assets/scene_bg/game_over.png" id="2_vijy3"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,14 +10,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_in7rb")
+script = ExtResource("1_imcsp")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 653.0
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_5ktb1")
+texture = ExtResource("2_vijy3")
 
 [node name="gameOver" type="Label" parent="."]
 layout_mode = 0
@@ -34,7 +34,7 @@ theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 64
 text = "You lost the mini game. "
 
-[node name="Button" type="Button" parent="."]
+[node name="RestartButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 400.0
@@ -44,7 +44,7 @@ theme_override_font_sizes/font_size = 48
 text = "Restart
 the mini-game"
 
-[node name="Button2" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 625.0
 offset_top = 400.0
@@ -118,5 +118,5 @@ theme_override_constants/shadow_outline_size = 3
 theme_override_font_sizes/font_size = 32
 text = "Health:"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="OnRestartButtonPressed"]
+[connection signal="pressed" from="BackButton" to="." method="OnBackButtonPressed"]

@@ -1,18 +1,21 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgwcdwjg2pm75"]
 
-[ext_resource type="Script" path="res://scripts/main_scenes/minigames_menu/minigames.gd" id="1_8ixks"]
+[ext_resource type="Script" path="res://scripts/main_scenes/MinigamesHub/MinigamesHub.cs" id="1_x0nwl"]
 [ext_resource type="Texture2D" uid="uid://bxtxnd7peatrf" path="res://assets/scene_bg/minigame_back.png" id="2_wcbmk"]
 
-[node name="Control" type="Control"]
+[node name="MinigamesHub" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8ixks")
+script = ExtResource("1_x0nwl")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+autoplay = true
+
+[node name="Background" type="TextureRect" parent="."]
 z_index = -99
 layout_mode = 1
 anchors_preset = 15
@@ -22,87 +25,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_wcbmk")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 50.0
-offset_top = 126.0
-offset_right = 360.0
-offset_bottom = 194.0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "Flappy Bird"
-
-[node name="Button2" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -76.0
-offset_top = 150.0
-offset_right = 126.0
-offset_bottom = 219.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 32
-disabled = true
-text = "Racing"
-
-[node name="Button4" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = -108.0
-offset_right = 206.0
-offset_bottom = -33.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "Coin flip"
-
-[node name="Button6" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -322.0
-offset_top = 41.0
-offset_right = -49.0
-offset_bottom = 102.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "Blackjack"
-
-[node name="Button5" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 18.0
-offset_top = -77.0
-offset_right = 286.0
-offset_bottom = -11.0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "Back To Hub"
-
-[node name="Timer" type="Timer" parent="."]
-process_callback = 0
-autostart = true
-
-[node name="music" type="AudioStreamPlayer2D" parent="."]
-autoplay = true
-
-[node name="Label" type="Label" parent="."]
+[node name="Instructions" type="Label" parent="."]
 layout_mode = 0
 offset_left = 401.0
 offset_top = 257.0
@@ -122,8 +47,85 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
-[connection signal="pressed" from="Button6" to="." method="_on_button_6_pressed"]
-[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 18.0
+offset_top = 571.0
+offset_right = 58.0
+offset_bottom = 611.0
+
+[node name="FlappyButton" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -141.0
+offset_right = 342.0
+offset_bottom = -73.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Flappy Bird"
+
+[node name="RacingButton" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 462.0
+offset_top = -421.0
+offset_right = 664.0
+offset_bottom = -352.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Racing"
+
+[node name="CoinFlipButton" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 562.0
+offset_top = -71.0
+offset_right = 744.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Coin flip"
+
+[node name="BlackjackButton" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 772.0
+offset_top = -226.0
+offset_right = 1045.0
+offset_bottom = -165.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Blackjack"
+
+[node name="BackButton" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 268.0
+offset_bottom = 26.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Back To Hub"
+
+[connection signal="pressed" from="Buttons/FlappyButton" to="." method="OnFlappyButtonPressed"]
+[connection signal="pressed" from="Buttons/CoinFlipButton" to="." method="OnCoinFlipButtonPressed"]
+[connection signal="pressed" from="Buttons/BlackjackButton" to="." method="OnBlackjackButtonPressed"]
+[connection signal="pressed" from="Buttons/BackButton" to="." method="OnBackButtonPressed"]

@@ -20,7 +20,7 @@ func _physics_process(delta):
 	if not bird.is_on_floor():
 		bird.velocity.y += gravity * delta
 
-	if Input.is_action_just_pressed("ui_accept"):  
+	if Input.is_action_just_pressed("jump"):  
 		bird.velocity.y = jump_strength
 
 	bird.move_and_slide()

@@ -1,7 +1,10 @@
 using Godot;
 using System;
 
-public partial class Walk : State
+namespace TrainYourDragon.Goober.States
 {
+    public partial class Walk : State
+    {
 
+    }
 }

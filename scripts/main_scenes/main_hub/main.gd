@@ -3,7 +3,7 @@ extends Control
 @onready var shop_button = $ButtonPanel/ShopButton
 @onready var minigames_button = $ButtonPanel/MinigamesButton
 
-@onready var goober : Goober = $Goober
+@onready var goober = $Goober
 
 @onready var food_status : StatusBar = %FoodStatus
 @onready var fun_status : StatusBar = %FunStatus

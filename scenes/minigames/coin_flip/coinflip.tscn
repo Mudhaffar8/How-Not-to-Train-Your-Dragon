@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://xsg0k5rvr8fu"]
 
-[ext_resource type="Script" path="res://scripts/minigames/coin_flip/coinflip.gd" id="1_5x6fo"]
+[ext_resource type="Script" path="res://scripts/minigames/coin_flip/Coinflip.cs" id="1_7jda2"]
 [ext_resource type="AudioStream" uid="uid://dfgr3lifacr8h" path="res://music/coinFlip_music.mp3" id="2_ajta7"]
 [ext_resource type="Texture2D" uid="uid://cqr2483o5iy7a" path="res://assets/scene_bg/coinflip_bg.png" id="2_qkdjo"]
 [ext_resource type="Texture2D" uid="uid://cn4v3o6txk4p3" path="res://assets/minigames/coinflip/coin_heads.png" id="3_qr0sg"]
@@ -76,7 +76,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_5x6fo")
+script = ExtResource("1_7jda2")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -99
@@ -88,6 +88,102 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_qkdjo")
 expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Text" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="CoinCount" type="Label" parent="Text"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 815.0
+offset_top = 89.0
+offset_right = 993.0
+offset_bottom = 134.0
+grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 32
+text = "Your coins: "
+
+[node name="CoinFace" type="Label" parent="Text"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 413.0
+offset_top = 544.0
+offset_right = 732.0
+offset_bottom = 603.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 48
+text = "Heads"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instructions1" type="Label" parent="Text"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 38.0
+offset_top = 222.0
+offset_right = 334.0
+offset_bottom = 489.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 54
+text = "Click on
+the coin 
+to start 
+the game"
+
+[node name="Instructions2" type="Label" parent="Text"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 821.0
+offset_top = 160.0
+offset_right = 1081.0
+offset_bottom = 445.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 32
+text = "One game costs 
+10 coins. When
+its heads, you get 
+20 coins, when its 
+tails, you lose 
+5 coins"
 
 [node name="CoinSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(592, 268)
@@ -109,97 +205,6 @@ process_callback = 0
 wait_time = 3.0
 one_shot = true
 
-[node name="CoinCount" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -297.0
-offset_top = 89.0
-offset_right = -119.0
-offset_bottom = 134.0
-grow_horizontal = 0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 12
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 32
-text = "Your coins: "
-
-[node name="CoinFace" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -159.5
-offset_top = -88.0
-offset_right = 159.5
-offset_bottom = -29.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 12
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 48
-text = "Heads"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Instructions1" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 38.0
-offset_top = -82.0
-offset_right = 334.0
-offset_bottom = 185.0
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 12
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 54
-text = "Click on
-the coin 
-to start 
-the game"
-
-[node name="Instructions2" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -291.0
-offset_top = -144.0
-offset_right = -31.0
-offset_bottom = 141.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 12
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 32
-text = "One game costs 
-10 coins. When
-its heads, you get 
-20 coins, when its 
-tails, you lose 
-5 coins"
-
 [node name="AllInButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -213,7 +218,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 text = "or go all in!"
 
-[node name="HubButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -233,7 +238,4 @@ text = "Back to Hub"
 stream = ExtResource("2_ajta7")
 autoplay = true
 
-[connection signal="pressed" from="CoinButton" to="." method="_on_button_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="AllInButton" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="HubButton" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="OnBackButtonPressed"]

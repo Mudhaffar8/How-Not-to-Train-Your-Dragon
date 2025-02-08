@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://4rfy45yeh3ht"]
+[gd_scene load_steps=8 format=3 uid="uid://4rfy45yeh3ht"]
 
-[ext_resource type="Script" path="res://scripts/minigames/flappy_bird/flappy_mini.gd" id="1_fadyr"]
+[ext_resource type="Script" path="res://scripts/minigames/flappy_bird/FlappyMini.cs" id="1_avx4n"]
 [ext_resource type="PackedScene" uid="uid://bvcx726ffngds" path="res://scenes/minigames/flappy_bird/flappy_bird.tscn" id="1_ygvtq"]
 [ext_resource type="Texture2D" uid="uid://cdmi6ormtiyme" path="res://assets/scene_bg/Flappy_bird_bg_2.png" id="2_wr4t4"]
+[ext_resource type="Script" path="res://scripts/minigames/flappy_bird/FlappyBird.cs" id="4_fn3wh"]
 [ext_resource type="AudioStream" uid="uid://bqgparc4k8en3" path="res://music/flappy_musi.mp3" id="4_sxol2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mwfc"]
@@ -12,7 +13,11 @@ size = Vector2(115.2, 20)
 size = Vector2(1161, 20)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_fadyr")
+script = ExtResource("1_avx4n")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_sxol2")
+autoplay = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -99
@@ -33,10 +38,11 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 12
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 48
-text = "Press space to jump!"
+text = "Click to jump!"
 
 [node name="bird" parent="." instance=ExtResource("1_ygvtq")]
 position = Vector2(213, 161)
+script = ExtResource("4_fn3wh")
 
 [node name="PipeSpawnTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -67,10 +73,6 @@ theme_override_constants/outline_size = 8
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 32
 text = "Coins collected: "
-
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_sxol2")
-autoplay = true
 
 [connection signal="timeout" from="PipeSpawnTimer" to="." method="_on_pipe_spawn_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

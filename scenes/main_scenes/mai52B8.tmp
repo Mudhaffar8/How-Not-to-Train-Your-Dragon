@@ -1,13 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyjjg5tvl338k"]
+[gd_scene load_steps=9 format=3 uid="uid://dyjjg5tvl338k"]
 
 [ext_resource type="Theme" uid="uid://bfsrgu5l6jkid" path="res://themes/default_theme.tres" id="1_7pw56"]
-[ext_resource type="Script" path="res://scripts/main_scenes/main_hub/MainHub.cs" id="2_25dbd"]
 [ext_resource type="Texture2D" uid="uid://dx2nc5mw7plo8" path="res://assets/scene_bg/uhhhh_uh_uhhhhh_uh_.png" id="3_6rdc3"]
 [ext_resource type="PackedScene" uid="uid://cj4as34cghrbl" path="res://scenes/hub_components/status_bar.tscn" id="4_wy75m"]
-[ext_resource type="Texture2D" uid="uid://drl3jkmixlu4x" path="res://assets/icons/main_hub/food_icon.png" id="5_omcu1"]
-[ext_resource type="Texture2D" uid="uid://c3llehiwfxe11" path="res://assets/icons/main_hub/happiness_icon.png" id="6_fe4h3"]
-[ext_resource type="Texture2D" uid="uid://cg6788bg1jhwp" path="res://assets/icons/main_hub/health_icon.png" id="7_mlhbn"]
 [ext_resource type="PackedScene" uid="uid://dhww3pcmwkley" path="res://scenes/hub_components/goober.tscn" id="8_m6dsa"]
+[ext_resource type="Script" path="res://scripts/main_scenes/main_hub/global_timer.gd" id="17_jaela"]
 [ext_resource type="AudioStream" uid="uid://dx5gy4gvri6cr" path="res://music/bg_music.mp3" id="18_h7yc2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8dxh"]
@@ -24,11 +21,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7pw56")
-script = ExtResource("2_25dbd")
-
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("18_h7yc2")
-autoplay = true
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -39,14 +31,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_6rdc3")
 expand_mode = 1
-metadata/_edit_lock_ = true
 
 [node name="Goober" parent="." instance=ExtResource("8_m6dsa")]
 position = Vector2(928, 334)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ButtonPanel" type="Panel" parent="CanvasLayer"]
+[node name="ButtonPanel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -56,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p8dxh")
 
-[node name="Progress" type="Label" parent="CanvasLayer/ButtonPanel"]
+[node name="Progress" type="Label" parent="ButtonPanel"]
 layout_mode = 0
 offset_left = 381.0
 offset_top = 22.0
@@ -71,7 +61,7 @@ theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 40
 text = "To Next Level: 0 / 10"
 
-[node name="ShopButton" type="Button" parent="CanvasLayer/ButtonPanel"]
+[node name="ShopButton" type="Button" parent="ButtonPanel"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -88,7 +78,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Shop"
 
-[node name="MinigamesButton" type="Button" parent="CanvasLayer/ButtonPanel"]
+[node name="MinigamesButton" type="Button" parent="ButtonPanel"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -103,14 +93,15 @@ theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 32
 text = "Minigames"
 
-[node name="StatusPanel" type="Panel" parent="CanvasLayer"]
+[node name="StatusPanel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 116.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_o2g7b")
 
-[node name="StatusBarContainer" type="HBoxContainer" parent="CanvasLayer/StatusPanel"]
+[node name="StatusBarContainer" type="HBoxContainer" parent="StatusPanel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -122,27 +113,36 @@ offset_bottom = 104.0
 grow_horizontal = 2
 theme_override_constants/separation = 350
 
-[node name="FoodStatus" parent="CanvasLayer/StatusPanel/StatusBarContainer" instance=ExtResource("4_wy75m")]
+[node name="FoodStatus" parent="StatusPanel/StatusBarContainer" instance=ExtResource("4_wy75m")]
 unique_name_in_owner = true
 layout_mode = 2
-Texture = ExtResource("5_omcu1")
+script = null
 
-[node name="FunStatus" parent="CanvasLayer/StatusPanel/StatusBarContainer" instance=ExtResource("4_wy75m")]
+[node name="FunStatus" parent="StatusPanel/StatusBarContainer" instance=ExtResource("4_wy75m")]
 unique_name_in_owner = true
 layout_mode = 2
-Texture = ExtResource("6_fe4h3")
+script = null
 
-[node name="HealthStatus" parent="CanvasLayer/StatusPanel/StatusBarContainer" instance=ExtResource("4_wy75m")]
+[node name="HealthStatus" parent="StatusPanel/StatusBarContainer" instance=ExtResource("4_wy75m")]
 unique_name_in_owner = true
 layout_mode = 2
-Texture = ExtResource("7_mlhbn")
+script = null
 
 [node name="GlobalTimer" type="Node" parent="."]
+script = ExtResource("17_jaela")
 
 [node name="Timer" type="Timer" parent="GlobalTimer"]
 process_callback = 0
 autostart = true
 
-[connection signal="pressed" from="CanvasLayer/ButtonPanel/ShopButton" to="." method="OnShopButtonPressed"]
-[connection signal="pressed" from="CanvasLayer/ButtonPanel/MinigamesButton" to="." method="OnMinigamesButtonPressed"]
+[node name="EggStateTimer" type="Timer" parent="GlobalTimer"]
+wait_time = 10.0
+one_shot = true
+
+[node name="BgMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_h7yc2")
+autoplay = true
+
+[connection signal="pressed" from="ButtonPanel/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="ButtonPanel/MinigamesButton" to="." method="_on_minigames_button_pressed"]
 [connection signal="timeout" from="GlobalTimer/Timer" to="GlobalTimer" method="_on_timer_timeout"]

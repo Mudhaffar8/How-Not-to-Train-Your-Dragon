@@ -1,9 +1,12 @@
 using Godot;
 
-public partial class Goodending : Control
+namespace TrainYourDragon.Endings
 {
-    private void OnRestartPressed()
+    public partial class Goodending : Control
     {
-        Utils.ResetGame();
+        private void OnRestartPressed()
+        {
+            Utils.ResetGame();
+        }
     }
 }

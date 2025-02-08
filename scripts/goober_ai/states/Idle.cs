@@ -1,6 +1,10 @@
 using Godot;
 using System;
 
-public partial class Idle : State
+namespace TrainYourDragon.Goober.States
 {
+    public partial class Idle : State
+    {
+        
+    }
 }

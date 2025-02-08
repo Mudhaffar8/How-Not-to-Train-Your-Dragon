@@ -22,7 +22,7 @@ func _ready():
 	$Label.text = "Coins collected: 0"
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_accept"):  
+	if Input.is_action_just_pressed("jump"):  
 		$Label2.visible = false
 		# Move the sprite to the left
 	background_sprite.position.x -= scroll_speed * delta

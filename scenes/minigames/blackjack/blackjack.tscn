@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://hbm68tee2yax"]
 
-[ext_resource type="Script" path="res://scripts/minigames/blackjack/blackjack.gd" id="1_hxl71"]
+[ext_resource type="Script" path="res://scripts/minigames/blackjack/Blackjack.cs" id="1_55mbs"]
 [ext_resource type="Texture2D" uid="uid://bwsjcvws4732b" path="res://assets/scene_bg/blackjack.png" id="2_ble6v"]
 
-[node name="Control" type="Control"]
+[node name="BlackJack" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-script = ExtResource("1_hxl71")
+script = ExtResource("1_55mbs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -84,7 +84,7 @@ offset_bottom = 468.0
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
 
-[node name="Button4" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,4 +177,4 @@ text = "Bet amount: 20 coins"
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="OnBackButtonPressed"]

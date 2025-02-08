@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cj4as34cghrbl"]
 
 [ext_resource type="Texture2D" uid="uid://dmm8lesic3mfo" path="res://icon.svg" id="1_kskhl"]
-[ext_resource type="Script" path="res://scripts/main_scenes/main_hub/status_bar.gd" id="1_xr4ec"]
+[ext_resource type="Script" path="res://scripts/main_scenes/main_hub/StatusBar.cs" id="1_yvwfv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sy6qj"]
 bg_color = Color(0, 0.784354, 0.571102, 1)
@@ -9,7 +9,7 @@ bg_color = Color(0, 0.784354, 0.571102, 1)
 [node name="StatusBar" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_xr4ec")
+script = ExtResource("1_yvwfv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0

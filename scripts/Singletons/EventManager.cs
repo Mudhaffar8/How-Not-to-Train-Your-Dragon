@@ -27,13 +27,15 @@ using System;
 /// </code>
 /// </example>
 /// </remarks>
-public static class EventManager
+namespace TrainYourDragon
 {
-    // Use Func if you need to return a value
-    // First type is the return type, the following types are the parameter types
-    // public static Func<int, int> IncrementEvent;
+    public static class EventManager
+    {
+        // Use Func if you need to return a value
+        // First type is the return type, the following types are the parameter types
+        // public static Func<int, int> IncrementEvent;
 
-    // Use Action if you don't need to return a value
-    public static Action TestEvent;
-
+        // Use Action if you don't need to return a value
+        public static Action TestEvent;
+    }
 }
