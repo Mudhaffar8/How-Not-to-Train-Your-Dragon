@@ -4,7 +4,7 @@ namespace TrainYourDragon.MainScenes
 {
     public partial class Startscreen : Control
     {
-        private void OnMainButtonPressed() 
+        private static void OnMainButtonPressed() 
         {
             SceneManager.Instance.SwitchScene(GameScenes.MAIN_HUB);
         }

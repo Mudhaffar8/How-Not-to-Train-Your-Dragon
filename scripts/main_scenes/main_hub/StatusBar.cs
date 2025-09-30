@@ -9,7 +9,7 @@ namespace TrainYourDragon.MainScenes.MainHub
 		
 		public float Value 
 		{
-			get { return (float)_progressBar.Value; }
+			get => (float)_progressBar.Value;
 			set 
 			{
 				if (value < 0) 

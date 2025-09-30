@@ -35,7 +35,7 @@ namespace TrainYourDragon.Endings
 			}
 		}
 
-		private void OnRestartPressed()
+		private static void OnRestartPressed()
 		{
 			Utils.ResetGame();
 		}

@@ -3,6 +3,9 @@ using System;
 
 namespace TrainYourDragon.Minigames.FlappyBird
 {
+	/// <summary>
+	/// Game Manager for Flappy bird Minigame
+	/// </summary>
 	public partial class FlappyMini : Node2D
 	{
 		// Called when the node enters the scene tree for the first time.

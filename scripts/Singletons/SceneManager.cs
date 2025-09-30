@@ -1,10 +1,6 @@
 using Godot;
 using System.Collections.Generic;
 
-/// <summary> 
-/// Static class for switching between scenes in Godot. 
-/// </summary>
-
 namespace TrainYourDragon
 {
     public enum GameScenes 
@@ -20,7 +16,10 @@ namespace TrainYourDragon
         BAD_ENDING,
         GOOD_ENDING
     }
-    
+
+    /// <summary> 
+    /// Static class for managing and switching between scenes. 
+    /// </summary>
     public partial class SceneManager : Node
     {
         public static SceneManager Instance { get; private set; }
@@ -65,10 +64,6 @@ namespace TrainYourDragon
         /// SceneManager.Instance.SwitchScene("res://scenes/name_of_scene.tscn");
         /// </code>
         /// </example>
-        /// <remarks>
-        /// The SwitchScene method will load the specified scene and transition to it. 
-        /// Make sure the scene path is valid and the scene is properly set up.
-        /// </remarks>
         public void SwitchScene(GameScenes gameScene) 
         {
             string path = _gameScenes[gameScene];

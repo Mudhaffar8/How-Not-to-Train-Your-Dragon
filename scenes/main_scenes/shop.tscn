@@ -149,15 +149,15 @@ size_flags_vertical = 3
 script = ExtResource("1_jck3p")
 metadata/_edit_lock_ = true
 
-[node name="Audio" type="Node" parent="."]
+[node name="AudioGroup" type="Node" parent="."]
 
-[node name="Music" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="Music" type="AudioStreamPlayer2D" parent="AudioGroup"]
 stream = ExtResource("13_i5q7v")
 autoplay = true
 
-[node name="PurchaseSFX" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="PurchaseSFX" type="AudioStreamPlayer2D" parent="AudioGroup"]
 
-[node name="DeclinedSFX" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="DeclinedSFX" type="AudioStreamPlayer2D" parent="AudioGroup"]
 
 [node name="ShopBackground" type="TextureRect" parent="."]
 z_index = -10
@@ -182,9 +182,9 @@ text = "Go Back"
 
 [node name="CoinContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-offset_left = 138.0
+offset_left = 127.0
 offset_top = 10.0
-offset_right = 275.0
+offset_right = 305.0
 offset_bottom = 78.0
 metadata/_edit_group_ = true
 
@@ -192,7 +192,7 @@ metadata/_edit_group_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("4_bie3s")
-expand_mode = 2
+expand_mode = 1
 stretch_mode = 4
 
 [node name="CoinsText" type="Label" parent="CoinContainer"]
@@ -204,8 +204,8 @@ theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 50
-text = "50"
+theme_override_font_sizes/font_size = 40
+text = "100"
 vertical_alignment = 1
 
 [node name="SpeechBubble" type="Node2D" parent="."]
