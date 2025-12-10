@@ -23,16 +23,16 @@ namespace TrainYourDragon.Minigames
 			public override string ToString() => $"({Value} of {Suit})";
 		}
 
-		private enum CardSuits { HEARTS, SPADES, CLUBS, DIAMONDS}
-		private enum CardValues { ACE=1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING }
+		private enum CardSuits : ushort { HEARTS, SPADES, CLUBS, DIAMONDS }
+		private enum CardValues : ushort { ACE=1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING }
 
 		private const int BetAmount = 20;
 		private const int MaxScore = 21;
 		private const int MaxDeckSize = 52;
 
 		private List<Card> _deck = new(MaxDeckSize);
-		private List<Card> _playerHand = new();
-		private List<Card> _dealerHand = new();
+		private List<Card> _playerHand = new(10);
+		private List<Card> _dealerHand = new(10);
 
 		private int _playerScore = 0;
 		private int _dealerScore = 0;

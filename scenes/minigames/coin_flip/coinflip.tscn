@@ -99,9 +99,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 815.0
+offset_left = 847.0
 offset_top = 89.0
-offset_right = 993.0
+offset_right = 1025.0
 offset_bottom = 134.0
 grow_horizontal = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -165,10 +165,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 821.0
-offset_top = 160.0
-offset_right = 1081.0
-offset_bottom = 445.0
+offset_left = 846.0
+offset_top = 202.0
+offset_right = 1106.0
+offset_bottom = 487.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -238,4 +238,7 @@ text = "Back to Hub"
 stream = ExtResource("2_ajta7")
 autoplay = true
 
+[connection signal="pressed" from="CoinButton" to="." method="OnCoinButtonPressed"]
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]
+[connection signal="pressed" from="AllInButton" to="." method="OnAllInButtonPressed"]
 [connection signal="pressed" from="BackButton" to="." method="OnBackButtonPressed"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgwcdwjg2pm75"]
 
-[ext_resource type="Script" path="res://scripts/main_scenes/MinigamesHub/MinigamesHub.cs" id="1_x0nwl"]
+[ext_resource type="Script" path="res://scripts/main_scenes/minigames_hub/MinigamesHub.cs" id="1_ug78f"]
 [ext_resource type="Texture2D" uid="uid://bxtxnd7peatrf" path="res://assets/scene_bg/minigame_back.png" id="2_wcbmk"]
 
 [node name="MinigamesHub" type="Control"]
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_x0nwl")
+script = ExtResource("1_ug78f")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 autoplay = true

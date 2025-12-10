@@ -4,17 +4,17 @@ namespace TrainYourDragon.MainScenes
 {
 	public partial class MinigamesHub : Control
 	{
-		private void OnFlappyButtonPressed()
+		private static void OnFlappyButtonPressed()
 		{
 			SceneManager.Instance.SwitchScene(GameScenes.FLAPPY_BIRD);
 		}
 
-		private void OnCoinFlipButtonPressed()
+		private static void OnCoinFlipButtonPressed()
 		{
 			SceneManager.Instance.SwitchScene(GameScenes.COIN_FLIP);
 		}
 
-		private void OnBlackjackButtonPressed()
+		private static void OnBlackjackButtonPressed()
 		{
 			SceneManager.Instance.SwitchScene(GameScenes.BLACKJACK);
 		}

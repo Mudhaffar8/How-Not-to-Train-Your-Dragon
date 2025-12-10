@@ -1,12 +1,11 @@
 using Godot;
 using System;
 
-
-/// <summary>
-/// Represents a singular shop item
-/// </summary>
 namespace TrainYourDragon.MainScenes.Shop
 {
+    /// <summary>
+    /// Represents a singular shop item
+    /// </summary>
     public partial class ShopItem : Control
     {    
         // Can edit Shop Item stats in the editor directly

@@ -1,11 +1,11 @@
 using Godot;
 using System.Collections.Generic;
 
-/// <summary>
-/// General class for managing states within a node.
-/// </summary>
 namespace TrainYourDragon.Goober
 {
+    /// <summary>
+    /// General class for managing states within a node.
+    /// </summary>
     public partial class StateMachine : Node 
     {
         [Export] 

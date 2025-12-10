@@ -11,10 +11,12 @@ namespace TrainYourDragon.MainScenes.Shop
         private GridContainer _shopGrid;
         private Label _coinsLabel;
 
+        // Speech Bubble
         private AnimationPlayer _speechAnimPlayer;
         private Label _speechText;
         private Timer _speechTimer;
 
+        // Pop-up for transactions
         private Label _transactionText;
         private AnimationPlayer _transactionAnimPlayer;
 
