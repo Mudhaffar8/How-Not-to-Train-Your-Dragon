@@ -83,7 +83,7 @@ namespace TrainYourDragon.Minigames.FlappyBird
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
 		public override void _PhysicsProcess(double delta)
         {
-			if (Input.IsActionJustPressed("Jump"))
+			if (Input.IsActionJustPressed("jump"))
 				_instructionsLabel.Visible = false;
 
 			// Scrolling Behaviour

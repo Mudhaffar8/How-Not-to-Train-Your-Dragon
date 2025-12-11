@@ -11,9 +11,9 @@ namespace TrainYourDragon.Minigames.FlappyBird
         private const float Speed = 200.0f;
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
+		public override void _PhysicsProcess(double delta)
         {
-            Position = new Vector2(Speed * (float)delta, Position.Y);
+            Position = new Vector2(Position.X - Speed * (float)delta, Position.Y);
 
             if (Position.X < -350.0f)
                 QueueFree();
