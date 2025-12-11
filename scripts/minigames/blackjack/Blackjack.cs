@@ -94,7 +94,6 @@ namespace TrainYourDragon.Minigames
 
 		private void BuildDeck()
 		{
-			// Generate deck through ENUMs
 			foreach (CardSuits suit in Enum.GetValues(typeof(CardSuits)))
 			{
 				foreach (CardValues value in Enum.GetValues(typeof(CardValues)))

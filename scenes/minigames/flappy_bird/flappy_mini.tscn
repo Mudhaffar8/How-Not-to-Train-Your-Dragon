@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://4rfy45yeh3ht"]
+[gd_scene load_steps=7 format=3 uid="uid://4rfy45yeh3ht"]
 
 [ext_resource type="Script" path="res://scripts/minigames/flappy_bird/FlappyMini.cs" id="1_avx4n"]
 [ext_resource type="PackedScene" uid="uid://bvcx726ffngds" path="res://scenes/minigames/flappy_bird/flappy_bird.tscn" id="1_ygvtq"]
 [ext_resource type="Texture2D" uid="uid://cdmi6ormtiyme" path="res://assets/scene_bg/Flappy_bird_bg_2.png" id="2_wr4t4"]
-[ext_resource type="Script" path="res://scripts/minigames/flappy_bird/FlappyBird.cs" id="4_fn3wh"]
 [ext_resource type="AudioStream" uid="uid://bqgparc4k8en3" path="res://music/flappy_musi.mp3" id="4_sxol2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mwfc"]
@@ -19,14 +18,14 @@ script = ExtResource("1_avx4n")
 stream = ExtResource("4_sxol2")
 autoplay = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BgSprite" type="Sprite2D" parent="."]
 z_index = -99
 texture_repeat = 2
 position = Vector2(1151, 322)
 scale = Vector2(0.6, 0.601)
 texture = ExtResource("2_wr4t4")
 
-[node name="Label2" type="Label" parent="."]
+[node name="Instructions" type="Label" parent="."]
 offset_left = 332.0
 offset_top = 504.0
 offset_right = 782.0
@@ -40,29 +39,7 @@ theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 48
 text = "Click to jump!"
 
-[node name="bird" parent="." instance=ExtResource("1_ygvtq")]
-position = Vector2(213, 161)
-script = ExtResource("4_fn3wh")
-
-[node name="PipeSpawnTimer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(560, 566)
-scale = Vector2(10, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1.6, 92)
-shape = SubResource("RectangleShape2D_4mwfc")
-
-[node name="Area2D2" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(573, -10)
-shape = SubResource("RectangleShape2D_l22xr")
-
-[node name="Label" type="Label" parent="."]
+[node name="CoinCount" type="Label" parent="."]
 offset_left = 24.0
 offset_top = 585.0
 offset_right = 273.0
@@ -74,6 +51,27 @@ theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 32
 text = "Coins collected: "
 
-[connection signal="timeout" from="PipeSpawnTimer" to="." method="_on_pipe_spawn_timer_timeout"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[node name="bird" parent="." instance=ExtResource("1_ygvtq")]
+position = Vector2(213, 161)
+
+[node name="PipeSpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="TopBoundary" type="Area2D" parent="."]
+position = Vector2(560, 566)
+scale = Vector2(10, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBoundary"]
+position = Vector2(1.6, 92)
+shape = SubResource("RectangleShape2D_4mwfc")
+
+[node name="BottomBoundary" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBoundary"]
+position = Vector2(573, -10)
+shape = SubResource("RectangleShape2D_l22xr")
+
+[connection signal="timeout" from="PipeSpawnTimer" to="." method="OnPipeSpawnTimerTimeout"]
+[connection signal="body_entered" from="TopBoundary" to="." method="OnTopBoundaryBodyEntered"]
+[connection signal="body_entered" from="BottomBoundary" to="." method="OnBottomBoundaryBodyEntered"]

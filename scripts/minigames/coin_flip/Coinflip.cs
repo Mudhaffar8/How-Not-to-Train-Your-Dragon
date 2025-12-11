@@ -109,7 +109,12 @@ namespace TrainYourDragon.Minigames
         {
             _coinCount.Text = "Your Money: \n" + GameManager.Coins + " coins.";
         }
+		
+		private void DisableButtons()
+		{}
 
+		private void EnableButtons()
+		{}
 
 		private static void OnBackButtonPressed()
 		{

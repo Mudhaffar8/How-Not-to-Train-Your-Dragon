@@ -42,7 +42,6 @@ namespace TrainYourDragon
         private Node _currScene;
         private PackedScene _newScene;
 
-
         public override void _Ready()
         {
             // Get the main scene and set it as the current scene
@@ -57,11 +56,11 @@ namespace TrainYourDragon
         /// <summary>
         /// Switches the current scene to a new scene.
         /// </summary>
-        /// <param name="path">Path to the new scene.</param>
+        /// <param name="gameScene">Enum for the new scene.</param>
         /// <example>
         /// Example usage:
         /// <code>
-        /// SceneManager.Instance.SwitchScene("res://scenes/name_of_scene.tscn");
+        /// SceneManager.Instance.SwitchScene(GameScenes.NAME_OF_SCENE);
         /// </code>
         /// </example>
         public void SwitchScene(GameScenes gameScene) 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://kkwtjvypilku"]
 
 [ext_resource type="Texture2D" uid="uid://dgyg3nwuornrw" path="res://assets/minigames/flappy_bird/flappyEnemy2.png" id="1_144o5"]
-[ext_resource type="Script" uid="uid://cbkfwqkgnaskm" path="res://scripts/minigames/flappy_bird/enemy.gd" id="1_rsvd0"]
+[ext_resource type="Script" path="res://scripts/minigames/flappy_bird/Enemy.cs" id="1_g7ag7"]
 [ext_resource type="Texture2D" uid="uid://cafxgrhiccc5d" path="res://assets/minigames/flappy_bird/flappyEnemy1.png" id="2_o5qbj"]
 [ext_resource type="Texture2D" uid="uid://dm104wsnnmr47" path="res://assets/minigames/flappy_bird/flappyEnemy3.png" id="3_haqca"]
 
@@ -30,7 +30,7 @@ radius = 13.0
 height = 96.0
 
 [node name="Enemy" type="Node2D"]
-script = ExtResource("1_rsvd0")
+script = ExtResource("1_g7ag7")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -47,4 +47,4 @@ position = Vector2(-13, 2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_om23i")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="OnArea2DBodyEntered"]

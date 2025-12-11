@@ -7,7 +7,7 @@ func _ready() -> void:
 	globals.coins += globals.coins_earned
 	globals.health -= health_loss
 	
-	$CoinsCollected.text = "Coins collected: " + str(globals.coins_earned)
+	$CoinsCollected.text = "Coins collected: " + st;r(globals.coins_earned)
 	$TotalCoins.text = "Total coins: " + str(globals.coins)
 	$FunCollected.text = "Fun collected: " + str(globals.coins_earned / 3)
 	$HealthLost.text = "Total Health: " + str(globals.health) + " (-%s)" % health_loss
