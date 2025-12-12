@@ -9,8 +9,6 @@ namespace TrainYourDragon.Minigames.FlappyBird
 		private const float Gravity = 1000.0f;
 		private const float JumpStrength = -500.0f;
 		
-		public bool IsGameOver { get; set; } = false;
-
 		private CharacterBody2D _body;
 
 		// Called when the node enters the scene tree for the first time.
@@ -22,8 +20,6 @@ namespace TrainYourDragon.Minigames.FlappyBird
 
         public override void _PhysicsProcess(double delta)
         {
-            if (IsGameOver) return;
-
 			if (!_body.IsOnFloor())
 				_body.Velocity = new Godot.Vector2(_body.Velocity.X, _body.Velocity.Y + Gravity * (float)delta);
 	

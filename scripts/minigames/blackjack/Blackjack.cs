@@ -1,41 +1,41 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace TrainYourDragon.Minigames
-{
+namespace TrainYourDragon.Minigames.BlackJack
+{    
+    public readonly struct Card 
+    {	
+        public CardSuits Suit { get; init; }
+        public CardValues Value { get; init; }
+
+        public Card(CardSuits suit, CardValues value)
+        {
+            Suit = suit;
+            Value = value;
+        }
+
+        public override string ToString() => $"({Value} of {Suit})";
+    }
+
+    public enum CardSuits : ushort { HEARTS, SPADES, CLUBS, DIAMONDS }
+	public enum CardValues : ushort { ACE=1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING }
+
 	/// <summary>
 	/// Game Manager for Blackjack Minigame
 	/// </summary>
 	public partial class Blackjack : Control
 	{
-		private readonly struct Card 
-		{	
-			public CardSuits Suit { get; init; }
-			public CardValues Value { get; init; }
-
-			public Card(CardSuits suit, CardValues value)
-			{
-				Suit = suit;
-				Value = value;
-			}
-
-			public override string ToString() => $"({Value} of {Suit})";
-		}
-
-		private enum CardSuits : ushort { HEARTS, SPADES, CLUBS, DIAMONDS }
-		private enum CardValues : ushort { ACE=1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING }
+        private enum CardPlayer { PLAYER, DEALER }
 
 		private const int BetAmount = 20;
 		private const int MaxScore = 21;
 		private const int MaxDeckSize = 52;
 
 		private List<Card> _deck = new(MaxDeckSize);
-		private List<Card> _playerHand = new(10);
-		private List<Card> _dealerHand = new(10);
-
-		private int _playerScore = 0;
-		private int _dealerScore = 0;
+		private CardHand _playerHand = new("Player");
+		private CardHand _dealerHand = new("Dealer");
 
 		private Random _rng = new();
 
@@ -43,48 +43,45 @@ namespace TrainYourDragon.Minigames
 		private Button _hitButton;
 		private Button _standButton;
 		private Button _exitButton;
-
 		private Label _playerCoins;
-
 
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
 			_playerCoins = GetNode<Label>("%Score");
-			UpdateCoins();
-
 			_startButton = GetNode<Button>("StartButton");
 			_exitButton = GetNode<Button>("BackButton");
 			_hitButton = GetNode<Button>("HitButton");
 			_standButton = GetNode<Button>("StandButton");
 
-			_startButton.Disabled = false;
-			_exitButton.Disabled = false;
-			_hitButton.Disabled = true;
-			_standButton.Disabled = true;
-
-			BuildDeck();
+            UpdateCoinsLabel();
+            DisableGameButtons();
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
+
 		private void OnStartButtonPressed()
 		{
-			_startButton.Disabled = true;
-			_exitButton.Disabled = true;
+            if (GameManager.Coins < BetAmount)
+                return;
 
+            BuildDeck();
+            
 			GameManager.Coins -= BetAmount;
-			UpdateCoins();
+			UpdateCoinsLabel();
 
-			DealRandomCard(_playerHand, ref _playerScore);
-			DealRandomCard(_playerHand, ref _playerScore);
+            _playerHand.ReleaseAllCards();
+            _dealerHand.ReleaseAllCards();
 
-			DealRandomCard(_dealerHand, ref _dealerScore);
-			DealRandomCard(_dealerHand, ref _dealerScore);
+			DealRandomCard(_playerHand);
+			DealRandomCard(_playerHand);
 
-            PrintDeck(_playerHand, _playerScore);
-            PrintDeck(_dealerHand, _dealerScore);
+			DealRandomCard(_dealerHand);
+			DealRandomCard(_dealerHand);
+
+            _playerHand.PrintDeck();
+            _dealerHand.PrintDeck();
+
+            EnableGameButtons();
 		}
 
 		private void OnBackButtonPressed()
@@ -104,29 +101,86 @@ namespace TrainYourDragon.Minigames
 		}
 
 		private void OnHitButtonPressed()
-		{
+        {
+            DealRandomCard(_playerHand);
+            _playerHand.PrintDeck();
+            
+            if (_playerHand.Score > MaxScore)
+            {
+                GD.Print("Gamer Over!");
+                DisableGameButtons();
+            }
+        }
 
-		}
+        private void OnStandButtonPressed()
+        {
+            while (_dealerHand.Score <= _playerHand.Score && _dealerHand.Score != MaxScore)
+            {
+                DealRandomCard(_dealerHand);
+                _dealerHand.PrintDeck();
+            }
 
-		private void DealRandomCard(List<Card> hand, ref int score)
+            if (_dealerHand.Score == MaxScore)
+            {
+                if (_playerHand.Score == MaxScore)
+                {
+                    GD.Print("Tie Game");
+                }
+                else
+                {
+                    GD.Print("Dealer Wins!");
+                }
+            }
+            else if (_dealerHand.Score > MaxScore) 
+                TriggerPlayerWins();
+
+            else if (_dealerHand.Score > _playerHand.Score)
+            {
+                GD.Print("Dealer Wins!");
+            }
+            else
+                TriggerPlayerWins();
+
+            DisableGameButtons();
+        }
+
+		private void DealRandomCard(CardHand cardHand)
 		{
 			int randIndex = _rng.Next(0, _deck.Count);
 
-			hand.Add(_deck[randIndex]);
-			score += 1;
+			cardHand.AddCard(_deck[randIndex]);
 			_deck.RemoveAt(randIndex);
 		}
 
-		private void UpdateCoins()
+		private void UpdateCoinsLabel()
 		{
 			_playerCoins.Text = "Your Coins: " + GameManager.Coins + " Coins\n";
 			_playerCoins.Text += "Bet Amount: " + BetAmount + " Coins";
 		}
 
-		private static void PrintDeck(List<Card> deck, int score)
-		{
-			GD.Print(string.Join(", ", deck));
-			GD.Print(score);
-		}
+        private void TriggerPlayerWins()
+        {
+            GD.Print("Player Wins!");
+            GameManager.Coins += BetAmount * 2;
+            UpdateCoinsLabel();
+        }
+
+        private void DisableGameButtons()
+        {
+            _startButton.Disabled = false;
+            _exitButton.Disabled = false;
+
+            _hitButton.Disabled = true;
+            _standButton.Disabled = true;
+        }
+
+        private void EnableGameButtons()
+        {
+            _hitButton.Disabled = false;
+            _standButton.Disabled = false;
+
+            _startButton.Disabled = true;
+            _exitButton.Disabled = true;
+        }
 	}
 }

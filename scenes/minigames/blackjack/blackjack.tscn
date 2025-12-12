@@ -105,4 +105,5 @@ text = "Your Coins: "
 
 [connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]
 [connection signal="pressed" from="HitButton" to="." method="OnHitButtonPressed"]
+[connection signal="pressed" from="StandButton" to="." method="OnStandButtonPressed"]
 [connection signal="pressed" from="BackButton" to="." method="OnBackButtonPressed"]

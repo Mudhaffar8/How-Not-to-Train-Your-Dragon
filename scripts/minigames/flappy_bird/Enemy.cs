@@ -8,7 +8,7 @@ namespace TrainYourDragon.Minigames.FlappyBird
 	/// </summary>
 	public partial class Enemy : Node2D
 	{
-        private const float Speed = 200.0f;
+        private const float Speed = 350.0f;
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
 		public override void _PhysicsProcess(double delta)
