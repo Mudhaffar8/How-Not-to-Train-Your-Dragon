@@ -47,15 +47,22 @@ namespace TrainYourDragon.Minigames.BlackJack
 		private Button _standButton;
 		private Button _exitButton;
 		private Label _playerCoins;
+        private Label _gameResultsLabel;
+        private Label _playerScoreLabel;
+        private Label _dealerScoreLabel;
+
 
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
-			_playerCoins = GetNode<Label>("%Score");
 			_startButton = GetNode<Button>("StartButton");
 			_exitButton = GetNode<Button>("BackButton");
 			_hitButton = GetNode<Button>("HitButton");
 			_standButton = GetNode<Button>("StandButton");
+            _playerCoins = GetNode<Label>("%Score");
+            _gameResultsLabel = GetNode<Label>("GameResults");
+            _playerScoreLabel = GetNode<Label>("PlayerScore");
+            _dealerScoreLabel = GetNode<Label>("DealerScore");
 
             UpdateCoinsLabel();
             DisableGameButtons();
@@ -67,11 +74,14 @@ namespace TrainYourDragon.Minigames.BlackJack
             if (GameManager.Coins < BetAmount)
                 return;
 
+            // Get rid of Cards from previous match
             foreach (var child in GetChildren())
             {
-                if (child is Node2D)
+                if (child is Sprite2D)
                     child.QueueFree();
             }
+
+            _gameResultsLabel.Text = "";
 
             BuildDeck();
             
@@ -81,11 +91,11 @@ namespace TrainYourDragon.Minigames.BlackJack
             _playerHand.ReleaseAllCards();
             _dealerHand.ReleaseAllCards();
 
-			DealRandomCard(_playerHand);
-			DealRandomCard(_playerHand);
+			DealRandomCard(_playerHand, _playerScoreLabel);
+			DealRandomCard(_playerHand, _playerScoreLabel);
 
-			DealRandomCard(_dealerHand);
-			DealRandomCard(_dealerHand);
+			DealRandomCard(_dealerHand, _dealerScoreLabel);
+			DealRandomCard(_dealerHand, _dealerScoreLabel);
 
             _playerHand.PrintDeck();
             _dealerHand.PrintDeck();
@@ -100,12 +110,12 @@ namespace TrainYourDragon.Minigames.BlackJack
 
 		private void OnHitButtonPressed()
         {
-            DealRandomCard(_playerHand);
+            DealRandomCard(_playerHand, _playerScoreLabel);
             _playerHand.PrintDeck();
             
             if (_playerHand.Score > MaxScore)
             {
-                GD.Print("Gamer Over!");
+                _gameResultsLabel.Text = "Dealer Wins!";
                 DisableGameButtons();
             }
         }
@@ -134,7 +144,7 @@ namespace TrainYourDragon.Minigames.BlackJack
             while (_dealerHand.Score <= _playerHand.Score && 
                 _dealerHand.Score != MaxScore)
             {
-                DealRandomCard(_dealerHand);
+                DealRandomCard(_dealerHand, _dealerScoreLabel);
                 _dealerHand.PrintDeck();
             }
         }
@@ -146,7 +156,7 @@ namespace TrainYourDragon.Minigames.BlackJack
 
             if (dealer == MaxScore)
             {
-                GD.Print(player == MaxScore ? "Tie Game" : "Dealer Wins!");
+                _gameResultsLabel.Text = (player == MaxScore) ? "Tie Game" : "Dealer Wins!";
             }
             else if (dealer > MaxScore)
             {
@@ -154,7 +164,7 @@ namespace TrainYourDragon.Minigames.BlackJack
             }
             else if (dealer > player)
             {
-                GD.Print("Dealer Wins!");
+                _gameResultsLabel.Text = "Dealer Wins!";
             }
             else
             {
@@ -162,7 +172,7 @@ namespace TrainYourDragon.Minigames.BlackJack
             }
         }
 
-		private void DealRandomCard(CardHand cardHand)
+		private void DealRandomCard(CardHand cardHand, Label label)
 		{
 			int randIndex = _rng.Next(0, _deck.Count);
 
@@ -171,6 +181,8 @@ namespace TrainYourDragon.Minigames.BlackJack
 
 			cardHand.AddCard(card);
 			_deck.RemoveAt(randIndex);
+
+            label.Text = cardHand.CardHolderName + " Score: " + cardHand.Score;
 		}
 
 		private void UpdateCoinsLabel()
@@ -181,7 +193,7 @@ namespace TrainYourDragon.Minigames.BlackJack
 
         private void TriggerPlayerWins()
         {
-            GD.Print("Player Wins!");
+            _gameResultsLabel.Text = "Player Wins!";
             GameManager.Coins += BetAmount * 2;
             UpdateCoinsLabel();
         }
@@ -211,11 +223,12 @@ namespace TrainYourDragon.Minigames.BlackJack
             string texturePath = 
                 "res://assets/minigames/blackjack/" + card.GetURLPath() + ".png";
 
-            Sprite2D cardSprite = new();
-
-            cardSprite.Scale = new(0.15f, 0.15f);
-            cardSprite.Texture = (Texture2D)GD.Load(texturePath);
-            cardSprite.Position = new(hand.InitPos.X + (CardOffset * hand.Cards.Count), hand.InitPos.Y);
+            Sprite2D cardSprite = new()
+            {
+                Scale = new(0.15f, 0.15f),
+                Texture = (Texture2D)GD.Load(texturePath),
+                Position = new(hand.InitPos.X + (CardOffset * hand.Cards.Count), hand.InitPos.Y)
+            };
 
             AddChild(cardSprite);
         }

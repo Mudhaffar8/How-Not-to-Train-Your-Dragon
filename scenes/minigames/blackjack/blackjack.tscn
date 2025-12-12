@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://hbm68tee2yax"]
+[gd_scene load_steps=4 format=3 uid="uid://hbm68tee2yax"]
 
 [ext_resource type="Script" path="res://scripts/minigames/blackjack/Blackjack.cs" id="1_55mbs"]
 [ext_resource type="Texture2D" uid="uid://bwsjcvws4732b" path="res://assets/scene_bg/blackjack.png" id="2_ble6v"]
+[ext_resource type="AudioStream" uid="uid://dfgr3lifacr8h" path="res://music/coinFlip_music.mp3" id="2_nwf3w"]
 
 [node name="BlackJack" type="Control"]
 layout_mode = 3
@@ -14,6 +15,7 @@ metadata/_edit_lock_ = true
 [node name="AudioGroup" type="Node" parent="."]
 
 [node name="Music" type="AudioStreamPlayer2D" parent="AudioGroup"]
+stream = ExtResource("2_nwf3w")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -102,6 +104,62 @@ theme_override_constants/outline_size = 12
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 32
 text = "Your Coins: "
+
+[node name="DealerScore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -348.0
+offset_top = 80.0
+offset_right = -145.0
+offset_bottom = 115.0
+grow_horizontal = 0
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 28
+text = "Dealer Score: 0"
+
+[node name="PlayerScore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -346.0
+offset_top = -235.0
+offset_right = -145.0
+offset_bottom = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 28
+text = "Player Score: 0"
+
+[node name="GameResults" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -71.5
+offset_right = 20.0
+offset_bottom = -26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 30
 
 [connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]
 [connection signal="pressed" from="HitButton" to="." method="OnHitButtonPressed"]
