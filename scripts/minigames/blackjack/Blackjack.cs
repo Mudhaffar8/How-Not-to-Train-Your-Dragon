@@ -16,6 +16,11 @@ namespace TrainYourDragon.Minigames.BlackJack
             Value = value;
         }
 
+        public string GetURLPath()
+        {
+            return $"{Value}_{Suit}";
+        }
+
         public override string ToString() => $"({Value} of {Suit})";
     }
 
@@ -26,16 +31,14 @@ namespace TrainYourDragon.Minigames.BlackJack
 	/// Game Manager for Blackjack Minigame
 	/// </summary>
 	public partial class Blackjack : Control
-	{
-        private enum CardPlayer { PLAYER, DEALER }
-
-		private const int BetAmount = 20;
+	{	
+        private const int BetAmount = 20;
 		private const int MaxScore = 21;
 		private const int MaxDeckSize = 52;
 
 		private List<Card> _deck = new(MaxDeckSize);
-		private CardHand _playerHand = new("Player");
-		private CardHand _dealerHand = new("Dealer");
+		private CardHand _playerHand = new("Player", new(450, 400));
+		private CardHand _dealerHand = new("Dealer", new(450, 150));
 
 		private Random _rng = new();
 
@@ -64,6 +67,12 @@ namespace TrainYourDragon.Minigames.BlackJack
             if (GameManager.Coins < BetAmount)
                 return;
 
+            foreach (var child in GetChildren())
+            {
+                if (child is Node2D)
+                    child.QueueFree();
+            }
+
             BuildDeck();
             
 			GameManager.Coins -= BetAmount;
@@ -89,17 +98,6 @@ namespace TrainYourDragon.Minigames.BlackJack
 			SceneManager.Instance.SwitchScene(GameScenes.MINIGAMES_HUB);
 		}
 
-		private void BuildDeck()
-		{
-			foreach (CardSuits suit in Enum.GetValues(typeof(CardSuits)))
-			{
-				foreach (CardValues value in Enum.GetValues(typeof(CardValues)))
-				{
-					_deck.Add(new Card(suit, value));
-				}
-			}
-		}
-
 		private void OnHitButtonPressed()
         {
             DealRandomCard(_playerHand);
@@ -114,41 +112,64 @@ namespace TrainYourDragon.Minigames.BlackJack
 
         private void OnStandButtonPressed()
         {
-            while (_dealerHand.Score <= _playerHand.Score && _dealerHand.Score != MaxScore)
+            PlayDealerTurn();
+            EvaluateWinner();
+            DisableGameButtons();
+        }
+
+        private void BuildDeck()
+		{
+            _deck.Clear();
+			foreach (CardSuits suit in Enum.GetValues(typeof(CardSuits)))
+			{
+				foreach (CardValues value in Enum.GetValues(typeof(CardValues)))
+				{
+					_deck.Add(new Card(suit, value));
+				}
+			}
+		}
+
+        private void PlayDealerTurn()
+        {
+            while (_dealerHand.Score <= _playerHand.Score && 
+                _dealerHand.Score != MaxScore)
             {
                 DealRandomCard(_dealerHand);
                 _dealerHand.PrintDeck();
             }
+        }
 
-            if (_dealerHand.Score == MaxScore)
+        private void EvaluateWinner()
+        {
+            int dealer = _dealerHand.Score;
+            int player = _playerHand.Score;
+
+            if (dealer == MaxScore)
             {
-                if (_playerHand.Score == MaxScore)
-                {
-                    GD.Print("Tie Game");
-                }
-                else
-                {
-                    GD.Print("Dealer Wins!");
-                }
+                GD.Print(player == MaxScore ? "Tie Game" : "Dealer Wins!");
             }
-            else if (_dealerHand.Score > MaxScore) 
+            else if (dealer > MaxScore)
+            {
                 TriggerPlayerWins();
-
-            else if (_dealerHand.Score > _playerHand.Score)
+            }
+            else if (dealer > player)
             {
                 GD.Print("Dealer Wins!");
             }
             else
+            {
                 TriggerPlayerWins();
-
-            DisableGameButtons();
+            }
         }
 
 		private void DealRandomCard(CardHand cardHand)
 		{
 			int randIndex = _rng.Next(0, _deck.Count);
 
-			cardHand.AddCard(_deck[randIndex]);
+            Card card = _deck[randIndex];
+            PutCard(card, cardHand);
+
+			cardHand.AddCard(card);
 			_deck.RemoveAt(randIndex);
 		}
 
@@ -181,6 +202,22 @@ namespace TrainYourDragon.Minigames.BlackJack
 
             _startButton.Disabled = true;
             _exitButton.Disabled = true;
+        }
+
+        private void PutCard(Card card, CardHand hand)
+        {
+            const int CardOffset = 45;
+
+            string texturePath = 
+                "res://assets/minigames/blackjack/" + card.GetURLPath() + ".png";
+
+            Sprite2D cardSprite = new();
+
+            cardSprite.Scale = new(0.15f, 0.15f);
+            cardSprite.Texture = (Texture2D)GD.Load(texturePath);
+            cardSprite.Position = new(hand.InitPos.X + (CardOffset * hand.Cards.Count), hand.InitPos.Y);
+
+            AddChild(cardSprite);
         }
 	}
 }

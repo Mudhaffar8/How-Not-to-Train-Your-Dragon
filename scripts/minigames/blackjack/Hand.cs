@@ -7,13 +7,15 @@ namespace TrainYourDragon.Minigames.BlackJack
 {
     public class CardHand
     {
+        public List<Card> Cards { get; private set; } = new(10);
+        public Vector2 InitPos { get; init; }
         public string CardHolderName { get; init; }
         public int Score { get; private set; } = 0;
-        public List<Card> Cards { get; private set; } = new(10);
 
-        public CardHand(string name)
+        public CardHand(string name, Vector2 vec)
         {
             CardHolderName = name;
+            InitPos = vec;
         }
 
         public void ReleaseAllCards()

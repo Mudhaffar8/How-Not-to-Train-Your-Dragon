@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bsv04ty5q2voy"]
 
-[ext_resource type="Texture2D" uid="uid://62k01n6up55j" path="res://assets/minigames/blackjack/JD.png" id="1_d5trf"]
+[ext_resource type="Texture2D" uid="uid://62k01n6up55j" path="res://assets/minigames/blackjack/JACK_DIAMONDS.png" id="1_d5trf"]
 
 [node name="Card" type="Node2D"]
 
